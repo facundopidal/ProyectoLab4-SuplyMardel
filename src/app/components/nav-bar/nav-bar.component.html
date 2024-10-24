@@ -1,1 +1,28 @@
-<p>nav-bar works!</p>
+<nav class="navbar">
+    <div class="nav-categories">
+        <span class="categories-span">Categorias</span>
+        <div class="dropdown-categories">
+            <ul>
+                @for(category of categories; track $index) {
+                <li><a href="" class="category-anchor">{{category.nombre}}</a></li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="nav-brands">
+        <span class="brands-span">Marcas</span>
+        <div class="dropdown-brands">
+            <ul>
+                @for(brand of brands; track $index) {
+                    <li><a href="" class="brand-anchor">{{brand.nombre}}</a></li>
+                }
+            </ul>
+        </div>
+    </div>
+    <div class="nav-about_us">
+        <a href="/sobre-nosotros">Sobre Nosotros</a>
+    </div>
+    <div class="nav-contact">
+        <a href="/contacto">Contacto</a>
+    </div>
+</nav>

@@ -1,0 +1,82 @@
+/* General Styling */
+.navbar {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-family: system-ui, -apple-system, sans-serif;
+    color: #002b5c;
+    padding-bottom: 15px;
+    padding-top: 15px;
+    box-shadow: 0 4px 6px rgba(1, 0, 0, 0.1);
+    width: 60%;
+    margin: auto;
+    font-size: 13px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: #002b5c;
+    font-weight: 700;
+}
+
+nav a:hover {
+    color: inherit; /* Mantiene el color original */
+}
+  
+/* Categories and Brands styling */
+.nav-categories, .nav-brands {
+    position: relative;
+}
+
+.categories-span, .brands-span {
+    font-weight: 700;
+    cursor: pointer;
+}
+
+/* Dropdown Styling */
+.dropdown-categories, .dropdown-brands {
+    display: none;
+    position: absolute;
+    background-color: #ffffff; /* White background for dropdown */
+    color: #002b5c; /* Dark blue text */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.dropdown-categories ul, .dropdown-brands ul {
+    list-style: none;
+    margin: 0;
+}
+
+.dropdown-categories li, .dropdown-brands li {
+    padding: 0;
+    cursor: pointer;
+}
+
+.dropdown-categories li a, .dropdown-brands li a {
+    display: block;
+    padding: 10px 20px;
+    color: #002b5c; /* Dark blue text */
+    text-decoration: none;
+    transition: background-color 0.2s;
+    border-bottom: 1px solid #ccc;
+}
+
+.dropdown-categories li:last-child a, .dropdown-brands li:last-child a {
+    border-bottom: none;
+}
+
+.dropdown-categories li a:hover, .dropdown-brands li a:hover {
+    background-color: #87CEEB; /* Light blue on hover */
+}
+
+/* Show dropdown on hover */
+.nav-categories:hover .dropdown-categories,
+.nav-brands:hover .dropdown-brands {
+    display: block;
+}
+
+/* About Us and Contact */
+
+

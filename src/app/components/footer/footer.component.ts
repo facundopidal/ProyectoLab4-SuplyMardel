@@ -10,4 +10,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
     templateUrl: './footer.component.html',
     styleUrl: './footer.component.css'
 })
-export class FooterComponent { }
+export class FooterComponent { 
+    
+}

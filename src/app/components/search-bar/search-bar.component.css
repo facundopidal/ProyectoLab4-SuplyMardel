@@ -1,0 +1,34 @@
+.search-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid #C0C0C0;
+  border-radius: 10px;
+  padding: 5px 10px;
+  width: 300px; /* Ajusta el tamaño como necesites */
+}
+
+.search-bar input {
+  border: none;
+  outline: none;
+  flex-grow: 1;
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+
+.search-bar button {
+  background-color: #C0C0C0;
+  border: none;
+  border-radius: 10px;
+  padding: 8px;
+  cursor: pointer;
+}
+
+.search-bar button i {
+  color: white;
+  font-size: 16px;
+}
+
+.search-bar input::placeholder {
+  color: #A0A0A0;
+}
