@@ -21,7 +21,7 @@ header {
   flex-direction: column;
   align-items: center;
   text-decoration: none;
-  color: #002b7c;
+  color: #002b5c;
   font-family: 'Noto Sans JP';
   font-weight: 900;
 }
@@ -30,4 +30,5 @@ header {
 .cart a {
   font-size: 24px;
   padding: 10px;
+  color: #000;
 }
