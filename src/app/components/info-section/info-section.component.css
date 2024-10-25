@@ -1,3 +1,9 @@
 :host {
   display: block;
 }
+
+.mainImage{
+    width: 60%;
+    height: auto;
+
+}
