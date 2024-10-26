@@ -45,6 +45,10 @@ div[class^="footer-"] {
   color: #166894;
 }
 
+.sec3 a{
+  max-width: min-content;
+}
+
 .sec4 {
   color: #fff;
 }

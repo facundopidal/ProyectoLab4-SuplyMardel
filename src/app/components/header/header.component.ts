@@ -1,13 +1,13 @@
-import { CommonModule } from '@angular/common';
 import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { SearchBarComponent } from '../search-bar/search-bar.component';
+import { RouterLink } from '@angular/router';
 
 @Component({
     selector: 'app-header',
     standalone: true,
     imports: [
-        CommonModule,
+        RouterLink,
         SearchBarComponent
     ],
     templateUrl: './header.component.html',

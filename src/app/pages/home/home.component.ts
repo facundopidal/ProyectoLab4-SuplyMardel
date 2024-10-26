@@ -8,8 +8,7 @@ import { InfoSectionComponent } from '../../components/info-section/info-section
   standalone: true,
   imports: [
     NavBarComponent,
-    InfoSectionComponent,
-    FooterComponent],
+    InfoSectionComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css'
 })
