@@ -8,7 +8,7 @@ section {
     padding-bottom: 20px;
 }
 
-.about_us-div {
+.about-us-div {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -23,4 +23,9 @@ section {
 img {
     width: 30vw;
     box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
+    border-radius: 20px;
+}
+
+h3{
+    color: #002b5c;
 }

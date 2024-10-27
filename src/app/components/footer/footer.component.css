@@ -92,3 +92,8 @@ div[class^="footer-"] {
 .whatsapp:hover .whatsapp-img{
   filter: grayscale(0);
 }
+
+.footer-container{
+  padding-left: 100px;
+  padding-right: 100px;
+}
