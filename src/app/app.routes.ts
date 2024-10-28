@@ -5,19 +5,21 @@ import { AboutUsComponent } from './pages/about-us/about-us.component';
 import { CartComponent } from './pages/cart/cart.component';
 import { AdminComponent } from './pages/admin/admin/admin.component';
 import { ClientsComponent } from './pages/admin/clients/clients.component';
-import { LoginAdminComponent } from './pages/admin/login/login.component';
-import { ProductsComponent } from './pages/admin/products/products.component';
+import { LoginComponent } from './pages/admin/login/login.component';
+import { ProductsAdminComponent } from './pages/admin/products/products.component';
 import { SalesComponent } from './pages/admin/sales/sales.component';
+import { AccountComponent } from './pages/account/account.component';
 
 export const routes: Routes = [
     { path: '',component: HomeComponent },
-    { path: 'carrito',component: CartComponent },
-    { path: 'sobre-nosotros',component: AboutUsComponent },
-    { path: 'contacto',component: ContactComponent },
+    { path: 'cart',component: CartComponent },
+    { path: 'about-us',component: AboutUsComponent },
+    { path: 'contact',component: ContactComponent },
+    { path: 'login', component: LoginComponent },
+    { path: 'my-account', component: AccountComponent },
     { path: 'admin',component: AdminComponent },
     { path: 'admin/clients',component: ClientsComponent },
-    { path: 'admin/login',component: LoginAdminComponent},
-    { path: 'admin/products',component: ProductsComponent},
+    { path: 'admin/products',component: ProductsAdminComponent},
     { path: 'admin/sales',component: SalesComponent },
     { path: '**', redirectTo: ''}
 ];

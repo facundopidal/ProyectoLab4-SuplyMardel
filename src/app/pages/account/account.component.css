@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #002b5c;
+}
+.account-container {
+    display: flex;
+    border: 2px solid #fff;
+    width: 600px;
+    padding: 20px;
+    background-color: #002b5c;
+}
+.sidebar {
+    width: 30%;
+    text-align: center;
+}
+.sidebar img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid #000;
+}
+.sidebar .button {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 10px 20px;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    font-size: 14px;
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+}
+.content {
+    width: 70%;
+    padding-left: 20px;
+}
+.content h2 {
+    margin-top: 0;
+    font-size: 20px;
+    font-weight: normal;
+}
+.content p {
+    margin: 5px 0;
+}
+.content .button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 15px;
+    border: 2px solid #fff;
+    border-radius: 8px;
+    font-size: 14px;
+    text-decoration: none;
+    color: #fff;
+}
+.content .divider {
+    margin: 10px 0;
+    border-top: 1px solid #fff;
+}

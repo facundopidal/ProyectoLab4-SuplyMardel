@@ -1,0 +1,112 @@
+/* Contenedor principal para centrar el formulario */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 0;
+    background-color: #f5f5f5;
+}
+
+/* Card para el formulario */
+.card {
+    background-color: #002b5c;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    text-align: center;
+    margin-top: 10%;
+    margin-right: 40%;
+    
+}
+
+/* Título */
+h3 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    color: white;
+    font-family: 'Noto Sans JP';
+}
+
+/* Estilos del label */
+label {
+    font-weight: bold;
+    display: block;
+    margin-top: 10px;
+    text-align: left;
+    color: #fff;
+    font-family: 'Noto Sans JP';
+}
+
+/* Estilo para los inputs de email y contraseña */
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+
+/* Botón de inicio de sesión */
+.login-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #555;
+    color: #fff;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login-button:hover {
+    background-color: #3688d4;
+}
+
+/* Estilo para el enlace de "¿Olvidaste tu contraseña?" */
+.form-card a {
+    display: block;
+    margin-top: 10px;
+    font-size: 0.9em;
+    color: #555;
+    text-decoration: none;
+}
+
+.form-card a:hover {
+    color: #3688d4;
+    text-decoration: underline;
+}
+
+/* Estilos para la sección de registro */
+.div-register {
+    margin-top: 20px;
+}
+
+.div-register label {
+    font-size: 0.9em;
+    color: #555;
+}
+
+.div-register a {
+    font-weight: bold;
+    color: #333;
+    text-decoration: none;
+}
+
+.div-register a:hover {
+    text-decoration: underline;
+}
+
+
+
