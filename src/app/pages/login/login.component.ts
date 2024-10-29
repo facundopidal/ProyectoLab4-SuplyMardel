@@ -1,15 +1,14 @@
 import { Component } from '@angular/core';
 import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
-import { Router, RouterLink } from '@angular/router';
 import { AuthService } from '../../services/auth.service';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-login', ///cuidado con esto, que antes decía "app-login-admin"
   standalone: true,
   imports: [
     NavBarComponent,
-    ReactiveFormsModule
+    FormsModule
   ],
   templateUrl: './login.component.html',
   styleUrl: './login.component.css'

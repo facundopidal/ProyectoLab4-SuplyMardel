@@ -55,7 +55,7 @@
             "name": "Lautaro",
             "lastName": "Pidal Ruiz Diaz",
             "address": "Av. Dorrego 281",
-            "email": "lautaropidalruizdiazgmail.com",
+            "email": "lautaropidalruizdiaz@gmail.com",
             "password" : "lautisensei"
         },
         {
@@ -113,7 +113,7 @@
         }
     ], 
     "admin": {
-        "username": "adminSuplyMardel@gmail.com",
+        "email": "adminSuplyMardel@gmail.com",
         "password": "contraseñasupersegura"
     }
 }

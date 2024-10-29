@@ -8,7 +8,7 @@ import { catchError, map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'http://localhost:3000'; // URL de JSON Server
+  private apiUrl = 'https://lcvt5tbh-8000.brs.devtunnels.ms'; // URL de JSON Server
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -39,7 +39,7 @@ export class AuthService {
   }
 
   private checkUser(email: string, password: string): Observable<boolean> {
-    return this.http.get<{ email: string; password: string }[]>(`${this.apiUrl}/users`).pipe(
+    return this.http.get<{ email: string; password: string }[]>(`${this.apiUrl}/clients`).pipe(
       map(users => users.some(user => user.email === email && user.password === password)),
       catchError(() => of(false))
     );
