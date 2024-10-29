@@ -55,14 +55,16 @@
             "name": "Lautaro",
             "lastName": "Pidal Ruiz Diaz",
             "address": "Av. Dorrego 281",
-            "email": "lautaropidalruizdiazgmail.com"
+            "email": "lautaropidalruizdiazgmail.com",
+            "password" : "lautisensei"
         },
         {
             "id": 1,
             "name": "Camila",
             "lastName": "González Fernández",
             "address": "Calle Lavalle 432",
-            "email": "camilagonzalezfernandez@gmail.com"
+            "email": "camilagonzalezfernandez@gmail.com",
+            "password" : "camigorda"
         }
 
     ],
@@ -111,7 +113,7 @@
         }
     ], 
     "admin": {
-        "username": "adminSuplyMardel",
+        "username": "adminSuplyMardel@gmail.com",
         "password": "contraseñasupersegura"
     }
 }

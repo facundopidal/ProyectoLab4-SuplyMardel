@@ -10,7 +10,7 @@ export class ApiProductsService {
 
 
   http = inject(HttpClient)
-  private urlBase = "https://lcvt5tbh-8000.brs.devtunnels.ms/products"
+  private urlBase = "https://8v3chgzr-8000.brs.devtunnels.ms/products"
   
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.urlBase)
