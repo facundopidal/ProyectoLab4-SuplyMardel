@@ -1,7 +1,9 @@
-<app-menu />
-<div>
-@for(product of products; track product.id) {
-
-    <app-admin-products [producto]="product" /> 
-}
-</div>
+<section>
+    <app-menu />
+    <div class="products">
+    @for(product of products; track product.id) {
+        <app-admin-products [producto]="product" (editProduct)="onEditProduct($event)"
+        (deleteProduct)="onDeleteProduct($event)"/> 
+    }
+    </div>
+</section>

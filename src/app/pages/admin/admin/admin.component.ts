@@ -29,4 +29,14 @@ export class AdminComponent implements OnInit {
       },
     });
   }
+
+  onEditProduct(productId: number) {
+    console.log('Edit product with ID:', productId);
+    // Lógica para editar el producto
+  }
+
+  onDeleteProduct(productId: number) {
+    console.log('Delete product with ID:', productId);
+    // Lógica para eliminar el producto
+  }
 }

@@ -6,4 +6,7 @@ export interface Product {
     stock: number;
     image: string;
     description: string;
+    category: string;
+    flavor: string;
+    weight: number;
   }

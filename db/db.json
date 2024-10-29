@@ -35,6 +35,17 @@
             "description": "Aminoácidos de cadena ramificada para recuperación muscular y energía",
             "flavor": "Frutas Tropicales",
             "weight": 400
+        }, {
+            "id": 3,
+            "name": "Creatina Monohidratada Pura",
+            "brand": "StarNutrition",
+            "category": "Creatina",
+            "price": 25500,
+            "stock": 15,
+            "image": "https://http2.mlstatic.com/D_NQ_NP_2X_783582-MLA32744879121_102019-F.webp",
+            "description": "Aminoácidos de cadena ramificada para recuperación muscular y energía",
+            "flavor": "Frutas Tropicales",
+            "weight": 300
         }
         
     ],

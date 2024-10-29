@@ -1,0 +1,51 @@
+/* Estilos generales del aside */
+aside {
+    width: 220px;
+    height: 100%;
+    background-color: #f8f9fa;
+    padding: 1.5rem 1rem;
+    border-right: 2px solid #e0e0e0;
+}
+
+/* Estilo del título del logo */
+aside h3 {
+    font-size: 0.85rem;
+    color: #000;
+    text-transform: uppercase;
+    margin-bottom: 1rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+}
+
+/* Secciones de cada grupo */
+aside div {
+    margin-bottom: 1.5rem;
+}
+
+/* Estilo de los enlaces */
+aside ul {
+    font-family: "Noto Sans JP";
+    list-style: none;
+    padding: 0;
+}
+
+aside li {
+    margin: 0.5rem 0;
+}
+
+aside a {
+    display: flex;
+    align-items: center;
+    padding: 0.6rem 1rem;
+    color: #002b5c;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+aside a:hover {
+    background-color: #d8e2eb;
+    color: #3688d4; 
+}

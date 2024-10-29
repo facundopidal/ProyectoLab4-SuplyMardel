@@ -1,46 +1,116 @@
+/* Estilo general de la tarjeta */
 .card {
-    width: 18rem;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    margin: 15px;
+  width: 100%;
+  max-width: 200px; /* Limita el ancho en pantallas grandes */
+  background-color: #fff;
+  border: 1px solid #002b5c;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  margin: 1rem auto;
+  transition: transform 0.3s;
+  font-family: "Exo 2";
+}
+
+/* Efecto al pasar el mouse */
+.card:hover {
+  transform: scale(1.02);
+}
+
+/* Imagen de la tarjeta */
+.card-img-top {
+  max-height: 10rem;
+  object-fit: contain;
+  width: 100%;
+  display: block;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Contenido de la tarjeta */
+.card-body {
+  padding: 1rem;
+}
+
+.card-title {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.card-brand,
+.card-price,
+.card-stock,
+.card-weight {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.card-brand strong,
+.card-price strong,
+.card-stock strong,
+.card-weight strong {
+  color: #333;
+}
+
+
+/* Acciones de la tarjeta */
+.card-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+.card-actions .btn {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 0.9rem;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+}
+.card-actions .btn:active{
+  background-color: #3688d4;
+  transform: scale(1.035);
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .card {
+      max-width: 100%;
   }
-  
-  .card-img-top {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-  }
-  
-  .card-body {
-    padding: 15px;
-  }
-  
   .card-title {
-    font-size: 1.25rem;
-    margin-bottom: 10px;
+      font-size: 1.1rem;
   }
-  
   .card-brand,
   .card-price,
-  .card-stock {
-    margin: 5px 0;
-  }
-  
+  .card-stock,
   .card-description {
-    color: #555;
-    font-size: 0.9rem;
-    margin-bottom: 15px;
+      font-size: 0.85rem;
   }
-  
+  .card-actions .btn {
+      font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+      padding: 0.8rem;
+  }
+  .card-title {
+      font-size: 1rem;
+  }
+  .card-brand,
+  .card-price,
+  .card-stock,
+  .card-description {
+      font-size: 0.8rem;
+  }
   .card-actions {
-    display: flex;
-    gap: 10px;
+      flex-direction: column;
   }
-  
-  .btn {
-    padding: 5px 10px;
-    font-size: 0.9rem;
+  .card-actions .btn {
+      font-size: 0.8rem;
+      margin-bottom: 0.5rem;
   }
-  
+}
