@@ -8,7 +8,7 @@ import { catchError, map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'https://lcvt5tbh-8000.brs.devtunnels.ms'; // URL de JSON Server
+  private apiUrl = 'https://8v3chgzr-8000.brs.devtunnels.ms'; // URL de JSON Server
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -19,19 +19,21 @@ export class AuthService {
         localStorage.setItem('userId', 'admin'); // Almacena 'admin' como ID
         this.router.navigate(['/admin']);
         this.admin.next(true)
+        this.loggedIn.next(true);
       } else {
         this.checkUser(email, password).subscribe(user => {
           if (user) {
             this.setSession('user'); // Establece la sesión como usuario
             localStorage.setItem('userId', user.id.toString()); // Almacena el ID del usuario
             this.router.navigate(['/']);
+            this.loggedIn.next(true);
           } else {
             alert('Usuario no encontrado');
           }
         });
       }
     });
-    this.loggedIn.next(true)
+    
   }
   
 
