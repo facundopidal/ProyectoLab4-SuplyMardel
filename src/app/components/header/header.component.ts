@@ -13,16 +13,19 @@ import { AuthService } from '../../services/auth.service';
     ],
     templateUrl: './header.component.html',
     styleUrl: './header.component.css',
-    changeDetection: ChangeDetectionStrategy.OnPush,
+    
 })
 export class HeaderComponent implements OnInit{ 
     isLogin : boolean = false
     isAdmin : boolean = false
-
     authService = inject(AuthService)
 
     ngOnInit(): void {
-        this.isLogin = this.authService.isLoggedIn()
-        this.isAdmin = this.authService.isAdmin()
+        this.authService.isLoggedIn$.subscribe((loggedIn) => {
+            this.isLogin = loggedIn
+        })
+        this.authService.isAdmin$.subscribe((isAdmin) => {
+            this.isAdmin = isAdmin
+        })
     }
 }

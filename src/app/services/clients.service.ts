@@ -1,24 +1,21 @@
 import { HttpClient } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
 import { Observable } from "rxjs";
+import { Client } from "../interfaces/client";
 
-Injectable({
+
+@Injectable({
     providedIn: 'root'
 })
-
-interface Client {
-    id: number;
-    name: string;
-    lastName: string;
-    address: string;
-    email: string
-    password: string;
-}
 
 export class ClientsService {
     private http = inject(HttpClient)
 
-    baseUrl = "https://8v3chgzr-8000.brs.devtunnels.ms/clients"
+    baseUrl = "https://lcvt5tbh-8000.brs.devtunnels.ms/clients"
+
+    getClientById(id: number): Observable<Client[]> {
+        return this.http.get<Client[]>(`${this.baseUrl}/?id=${id}`)
+    }
 
     getClients(): Observable<Client[]> {
         return this.http.get<Client[]>(this.baseUrl)

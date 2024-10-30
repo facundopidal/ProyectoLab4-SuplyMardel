@@ -14,14 +14,14 @@ import { AdminGuard } from './services/adminauth.guard';
 
 export const routes: Routes = [
     { path: '',component: HomeComponent },
-    { path: 'cart',component: CartComponent },
+    { path: 'cart',component: CartComponent, canActivate: [AuthGuard] },
     { path: 'about-us',component: AboutUsComponent },
     { path: 'contact',component: ContactComponent },
     { path: 'login', component: LoginComponent },
-    { path: 'my-account', component: AccountComponent },
+    { path: 'my-account', component: AccountComponent, canActivate: [AuthGuard]},
     { path: 'admin',component: AdminComponent, canActivate: [AdminGuard] },
-    { path: 'admin/clients',component: ClientsComponent },
-    { path: 'admin/products',component: ProductsAdminComponent},
-    { path: 'admin/sales',component: SalesComponent },
+    { path: 'admin/clients',component: ClientsComponent, canActivate: [AdminGuard] },
+    { path: 'admin/products',component: ProductsAdminComponent, canActivate: [AdminGuard] },
+    { path: 'admin/sales',component: SalesComponent, canActivate: [AdminGuard] },
     { path: '**', redirectTo: ''}
 ];

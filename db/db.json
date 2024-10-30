@@ -51,7 +51,7 @@
     ],
     "clients" : [
         {
-            "id": 0,
+            "id": 1,
             "name": "Lautaro",
             "lastName": "Pidal Ruiz Diaz",
             "address": "Av. Dorrego 281",
@@ -59,7 +59,7 @@
             "password" : "lautisensei"
         },
         {
-            "id": 1,
+            "id": 2,
             "name": "Camila",
             "lastName": "González Fernández",
             "address": "Calle Lavalle 432",
