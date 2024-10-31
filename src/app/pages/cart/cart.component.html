@@ -1,1 +1,39 @@
-<p>cart works!</p>
+@if(products.length === 0){
+<div>
+    <div>
+        <h3>Su carrito se encuentra vacio: </h3>
+    </div>
+    <div>
+        <a routerLink="/productos">Agregar productos click aquí</a>
+    </div>
+</div>
+}
+@else{
+<h3>Usted esta comprando: </h3>
+@for(product of products; track product.id){
+<div class="cart-item">
+    <img src="{{product.image}}" alt="{{product.name}}" class="product-image">
+
+    <div class="product-details">
+        <h4>{{product.name}}</h4>
+        <div class="product-actions">
+            <a href="#" class="action-link">Eliminar</a>
+            <a href="#" class="action-link">Guardar</a>
+            <a href="#" class="action-link">Comprar ahora</a>
+        </div>
+    </div>
+
+    <div class="quantity-control">
+        <button class="quantity-btn">-</button>
+        <input type="number" value="{{rawCartproducts[$index].quantity || 1}}" min="1" class="quantity-input">
+        <button class="quantity-btn">+</button>
+    </div>
+
+    <div class="product-price">
+        <span>${{product.price.toLocaleString('es', {maximumFractionDigits: 20})}}</span>
+    </div>
+    </div>
+
+}
+
+}

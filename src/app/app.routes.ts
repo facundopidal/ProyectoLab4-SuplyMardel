@@ -11,17 +11,22 @@ import { SalesComponent } from './pages/admin/sales/sales.component';
 import { AccountComponent } from './pages/account/account.component';
 import { AuthGuard } from './services/userauth.guard';
 import { AdminGuard } from './services/adminauth.guard';
+import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 
 export const routes: Routes = [
     { path: '',component: HomeComponent },
     { path: 'cart',component: CartComponent, canActivate: [AuthGuard] },
+    { path: 'cart/:id',component: CartComponent, canActivate: [AuthGuard] },
     { path: 'about-us',component: AboutUsComponent },
     { path: 'contact',component: ContactComponent },
     { path: 'login', component: LoginComponent },
     { path: 'my-account', component: AccountComponent, canActivate: [AuthGuard]},
+    { path: 'product/:id', component: ProductDetailsComponent },
     { path: 'admin',component: AdminComponent, canActivate: [AdminGuard] },
     { path: 'admin/clients',component: ClientsComponent, canActivate: [AdminGuard] },
     { path: 'admin/products',component: ProductsAdminComponent, canActivate: [AdminGuard] },
     { path: 'admin/sales',component: SalesComponent, canActivate: [AdminGuard] },
     { path: '**', redirectTo: ''}
 ];
+
+

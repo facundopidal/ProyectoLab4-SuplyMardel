@@ -5,6 +5,7 @@ footer{
   display: flex;
   justify-content: space-between;
   align-items: center;
+  flex-wrap: wrap;
   padding: 10px;
   background-color: #002b5c;
 }
@@ -96,4 +97,9 @@ div[class^="footer-"] {
 .footer-container{
   padding-left: 100px;
   padding-right: 100px;
+}
+
+.texto-pulpo{
+  font-size: clamp(0.75rem, 2vw, 1rem);
+  text-align: center;
 }

@@ -11,7 +11,7 @@ import { Client } from "../interfaces/client";
 export class ClientsService {
     private http = inject(HttpClient)
 
-    baseUrl = "https://8v3chgzr-8000.brs.devtunnels.ms/clients"
+    baseUrl = "http://localhost:8000/clients"
 
     getClientById(id: number): Observable<Client[]> {
         return this.http.get<Client[]>(`${this.baseUrl}/?id=${id}`)

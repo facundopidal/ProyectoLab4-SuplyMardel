@@ -25,6 +25,7 @@
   font-weight: 700;
   font-size: 1.2rem;
   padding: 8px;
+  flex-grow: 1;
 }
 
 .info-div img{

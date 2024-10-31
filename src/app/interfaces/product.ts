@@ -7,6 +7,6 @@ export interface Product {
     image: string;
     description: string;
     category: string;
-    flavor: string;
+    flavor: string[];
     weight: number;
   }

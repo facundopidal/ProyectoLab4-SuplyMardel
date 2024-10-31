@@ -1,11 +1,11 @@
 .contact-container {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: last baseline;
-    padding-top: 50px;
-    padding-right: 200px;
     padding-top: 150px;
     padding-bottom: 150px;
+    flex-wrap: wrap-reverse;
+    gap: 20px;
 }
 
 .imgContacto {
@@ -15,6 +15,7 @@
 
 img {
     border-radius: 20px;
+    margin-bottom: 20px;
 }
 
 .card {
@@ -29,7 +30,6 @@ input {
 }
 
 .s1 {
-    margin: 20px auto;
     padding: 20px;
     background-color: #002b5c;
     border: 2px solid #000;

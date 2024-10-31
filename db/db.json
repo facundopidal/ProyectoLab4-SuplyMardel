@@ -1,119 +1,159 @@
 {
-    "products" : [
-        {
-            "id": 0,
-            "name": "Proteina Super mega pura",
-            "brand": "ENA",
-            "category": "Proteina",
-            "price": 23580,
-            "stock": 34,
-            "image": "https://http2.mlstatic.com/D_NQ_NP_2X_935480-MLA50231366542_062022-F.webp",
-            "description": "Proteina isolada 80%",
-            "flavor": "Chocolate",
-            "weight": 954
-        },
-        {
-            "id": 1,
-            "name": "Creatina Monohidratada Ultra Pure",
-            "brand": "Optimum Nutrition",
-            "category": "Creatina",
-            "price": 17990,
-            "stock": 20,
-            "image": "https://http2.mlstatic.com/D_NQ_NP_2X_611218-MLA43699416342_102020-F.webp",
-            "description": "Creatina monohidratada micronizada para mejorar fuerza y rendimiento",
-            "flavor": "Sin sabor",
-            "weight": 300
-        },
-        {
-            "id": 2,
-            "name": "BCAA 2:1:1 Recovery",
-            "brand": "MuscleTech",
-            "category": "Aminoácidos",
-            "price": 12500,
-            "stock": 45,
-            "image": "https://http2.mlstatic.com/D_NQ_NP_2X_783582-MLA32744879121_102019-F.webp",
-            "description": "Aminoácidos de cadena ramificada para recuperación muscular y energía",
-            "flavor": "Frutas Tropicales",
-            "weight": 400
-        }, {
-            "id": 3,
-            "name": "Creatina Monohidratada Pura",
-            "brand": "StarNutrition",
-            "category": "Creatina",
-            "price": 25500,
-            "stock": 15,
-            "image": "https://http2.mlstatic.com/D_NQ_NP_2X_783582-MLA32744879121_102019-F.webp",
-            "description": "Aminoácidos de cadena ramificada para recuperación muscular y energía",
-            "flavor": "Frutas Tropicales",
-            "weight": 300
-        }
-        
-    ],
-    "clients" : [
-        {
-            "id": 1,
-            "name": "Lautaro",
-            "lastName": "Pidal Ruiz Diaz",
-            "address": "Av. Dorrego 281",
-            "email": "lautaropidalruizdiaz@gmail.com",
-            "password" : "lautisensei"
-        },
-        {
-            "id": 2,
-            "name": "Camila",
-            "lastName": "González Fernández",
-            "address": "Calle Lavalle 432",
-            "email": "camilagonzalezfernandez@gmail.com",
-            "password" : "camigorda"
-        }
-
-    ],
-    "sales": [
-        {
-            "id": 0,
-            "idClient": 0,
-            "date": "25/10/2024",
-            "amount": 2000,
-            "shipmentStatus": "Enviado",
-            "shipmentMethod": "Andreani",
-            "shippingAdress": "Av. Dorrego 281",
-            "paymentStatus": "Pagado",
-            "paymentMethod": "Mercado Pago",
-            "isCancelled": false
-        },
-        {
-            "id": 1,
-            "idClient": 1,
-            "date": "25/10/2024",
-            "amount": 3500,
-            "shipmentStatus": "En camino",
-            "shipmentMethod": "Andreani",
-            "shippingAdress": "Calle Lavalle 432",
-            "paymentStatus": "Pagado",
-            "paymentMethod": "Mercado Pago",
-            "isCancelled": false
-        }
-
-    ],
-    "salesxProducts": [
-        {
-            "id": 0,
-            "idSale": 0,
-            "idProduct": 0
-        },
-        {
-            "id": 1,
-            "idSale": 0,
-            "idProduct": 1
-        },
-        {
-            "id": 2,
-            "idSale": 1,
-            "idProduct": 2
-        }
-    ], 
-    "admin": {
-        "email": "adminSuplyMardel@gmail.com",
-        "password": "contraseñasupersegura"
+  "products": [
+    {
+      "id": 0,
+      "name": "Proteina Super mega pura",
+      "brand": "ENA",
+      "category": "Proteina",
+      "price": 23580,
+      "stock": 34,
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_935480-MLA50231366542_062022-F.webp",
+      "description": "Proteina isolada 80%",
+      "flavor": [
+        "chocolate",
+        "frutilla",
+        "cookies and cream"
+      ],
+      "weight": 954
+    },
+    {
+      "id": 1,
+      "name": "Creatina Monohidratada Ultra Pure",
+      "brand": "Optimum Nutrition",
+      "category": "Creatina",
+      "price": 17990,
+      "stock": 20,
+      "image": "https://www.heavenimagenes.com/heavencommerce/68ac9d04-8767-4aca-9951-49f2fea1383b/images/v2/STAR%20NUTRITION/28931_xlarge.jpg",
+      "description": "Creatina monohidratada micronizada para mejorar fuerza y rendimiento",
+      "flavor": [
+        "Sin sabor"
+      ],
+      "weight": 300
+    },
+    {
+      "id": 2,
+      "name": "BCAA 2:1:1 Recovery",
+      "brand": "MuscleTech",
+      "category": "Aminoácidos",
+      "price": 12500,
+      "stock": 45,
+      "image": "https://www.heavenimagenes.com/heavencommerce/68ac9d04-8767-4aca-9951-49f2fea1383b/images/v2/STAR%20NUTRITION/28931_xlarge.jpg",
+      "description": "Aminoácidos de cadena ramificada para recuperación muscular y energía",
+      "flavor": [
+        "Frutas Tropicales"
+      ],
+      "weight": 400
+    },
+    {
+      "id": 3,
+      "name": "Creatina Monohidratada Pura",
+      "brand": "StarNutrition",
+      "category": "Creatina",
+      "price": 25500,
+      "stock": 15,
+      "image": "https://www.heavenimagenes.com/heavencommerce/68ac9d04-8767-4aca-9951-49f2fea1383b/images/v2/STAR%20NUTRITION/28931_xlarge.jpg",
+      "description": "Aminoácidos de cadena ramificada para recuperación muscular y energía",
+      "flavor": [
+        "Frutas Tropicales"
+      ],
+      "weight": 300
     }
+  ],
+  "clients": [
+    {
+      "id": 0,
+      "name": "Lautaro",
+      "lastName": "Pidal Ruiz Diaz",
+      "address": "Av. Dorrego 281",
+      "email": "lautaropidalruizdiaz@gmail.com",
+      "password": "lautisensei"
+    },
+    {
+      "id": 1,
+      "name": "Camila",
+      "lastName": "González Fernández",
+      "address": "Calle Lavalle 432",
+      "email": "camilagonzalezfernandez@gmail.com",
+      "password": "camigorda"
+    }
+  ],
+  "sales": [
+    {
+      "id": 0,
+      "idClient": 0,
+      "date": "25/10/2024",
+      "amount": 2000,
+      "shipmentStatus": "Enviado",
+      "shipmentMethod": "Andreani",
+      "shippingAdress": "Av. Dorrego 281",
+      "paymentStatus": "Pagado",
+      "paymentMethod": "Mercado Pago",
+      "isCancelled": false
+    },
+    {
+      "id": 1,
+      "idClient": 1,
+      "date": "25/10/2024",
+      "amount": 3500,
+      "shipmentStatus": "En camino",
+      "shipmentMethod": "Andreani",
+      "shippingAdress": "Calle Lavalle 432",
+      "paymentStatus": "Pagado",
+      "paymentMethod": "Mercado Pago",
+      "isCancelled": false
+    }
+  ],
+  "salesxProducts": [
+    {
+      "id": 0,
+      "idSale": 0,
+      "idProduct": 0
+    },
+    {
+      "id": 1,
+      "idSale": 0,
+      "idProduct": 1
+    },
+    {
+      "id": 2,
+      "idSale": 1,
+      "idProduct": 2
+    }
+  ],
+  "cart": [
+    {
+      "id": 0,
+      "idClient": 0
+    }
+  ],
+  "cartxproduct": [
+    {
+      "id": "0",
+      "idCart": 0,
+      "idProduct": 0,
+      "quantity": 2
+    },
+    {
+      "id": "1",
+      "idCart": 0,
+      "idProduct": 1,
+      "quantity": 6
+    },
+    {
+      "id": "2",
+      "idCart": 0,
+      "idProduct": 2,
+      "quantity": 8
+    },
+    {
+      "id": "7cfd",
+      "idCart": 0,
+      "idProduct": 3,
+      "quantity": 2
+    }
+  ],
+  "admin": {
+    "email": "adminSuplyMardel@gmail.com",
+    "password": "contraseñasupersegura"
+  }
 }

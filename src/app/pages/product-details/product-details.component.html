@@ -1,0 +1,45 @@
+@if(product){
+    <div class="product-view">
+        <div class="product-container">
+          <!-- Imagen principal del producto -->
+          <div class="product-image">
+            <img src="{{product.image}}" alt="Imagen del producto">
+          </div>
+      
+          <!-- Información del producto -->
+          <div class="product-info">
+            <!-- Título del producto -->
+            <h1 class="product-title">{{product.name}}</h1>
+      
+            <!-- Sección de precio y cantidad -->
+            <div class="product-price-section">
+                <div class="price-container">
+                    <p class="product-price">${{priceFormatted}}</p>
+                  <div class="quantity-selector">
+                    <div class="cart-item-quantity">
+                        <button class="quantity-button decrement" (click)="decrement()">-</button>
+                        <span class="quantity">{{quantity}}</span>
+                        <button class="quantity-button increment" (click)="increment()">+</button>
+                      </div>
+                    <p class="stock-info">{{product.stock}} en stock</p>
+                  </div>
+                </div>
+      
+              <!-- Opciones adicionales, como botones de pago -->
+              <div class="payment-buttons">
+                <button class="payment-button">COMPRAR YA MISMO</button>
+                <button class="payment-button">Agregar al casho</button>
+              </div>
+            </div>
+      
+            <!-- Descripción del producto -->
+            <div class="product-description">
+              <p>{{product.description}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+}
+@else {
+<span>Producto no encontrado. :{{'('}}</span>
+}

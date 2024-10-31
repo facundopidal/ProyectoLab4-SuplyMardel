@@ -8,7 +8,7 @@ import { catchError, map } from 'rxjs/operators';
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = 'https://8v3chgzr-8000.brs.devtunnels.ms'; // URL de JSON Server
+  private apiUrl = 'http://localhost:8000'; // URL de JSON Server
 
   constructor(private http: HttpClient, private router: Router) {}
 
