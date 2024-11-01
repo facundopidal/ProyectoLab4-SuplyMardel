@@ -6,24 +6,23 @@ import { Observable } from "rxjs";
     providedIn: 'root'
 })
 export class CartService {
-    baseUrl = "http://localhost:8000/"
+    baseUrl = "http://localhost:8000/cartxproduct"
 
     constructor(private http: HttpClient) {}
 
-    getCartProducts(cartId: number): Observable<{idCxP: any, idProduct: number, quantity: number}[]> {
-        return this.http.get<{idCxP: any, idProduct: number, quantity: number}[]>(`${this.baseUrl}cartxproduct?idCart=${cartId}`)
+    getCartProducts(cartId: number): Observable<{id: any, idProduct: number, quantity: number}[]> {
+        return this.http.get<{id: any, idProduct: number, quantity: number}[]>(`${this.baseUrl}?idCart=${cartId}`)
     }
 
     addProductToCart(idCart: number, idProduct: number, quantity: number): Observable<{id: number, idCart: number, idProduct: number, quantity: number}> {
-        return this.http.post<{id: number, idCart: number, idProduct: number, quantity: number}>(`${this.baseUrl}cartxproduct/`, {idCart, idProduct, quantity})
+        return this.http.post<{id: number, idCart: number, idProduct: number, quantity: number}>(`${this.baseUrl}/`, {idCart, idProduct, quantity})
     }
 
     updateQuantity(id: any, quantity: number): Observable<{id: any, idCart: number, idProduct: number, quantity: number}> {
-        return this.http.patch<{id: any, idCart: number, idProduct: number, quantity: number}>(`${this.baseUrl}cartxproduct/${id}`, {quantity: quantity})
+        return this.http.patch<{id: any, idCart: number, idProduct: number, quantity: number}>(`${this.baseUrl}/${id}`, {quantity: quantity})
     }
 
-
-    deleteProductCart(cartId:number,productId:number, quantity: number){
-        return this.http.get<{idProduct: number, quantity: number}[]>(`${this.baseUrl}?idCart=${cartId}`)
+    deleteProductCart(id: any): Observable<{id: any, idCart: number, idProduct: number, quantity: number}>{
+        return this.http.delete<{id: any, idCart: number, idProduct: number, quantity: number}>(`${this.baseUrl}/${id}`)
     }
 }

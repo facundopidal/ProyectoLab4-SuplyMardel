@@ -1,12 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from '../../interfaces/product';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ApiProductsService } from '../../services/api-products.service';
 
 @Component({
   selector: 'app-product-details',
   standalone: true,
-  imports: [],
+  imports: [
+    RouterLink
+  ],
   templateUrl: './product-details.component.html',
   styleUrl: './product-details.component.css'
 })

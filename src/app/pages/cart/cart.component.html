@@ -17,16 +17,19 @@
     <div class="product-details">
         <h4>{{product.name}}</h4>
         <div class="product-actions">
-            <a href="#" class="action-link">Eliminar</a>
+            <a class="action-link" (click)="deleteProduct($index)">Eliminar</a>
             <a href="#" class="action-link">Guardar</a>
             <a href="#" class="action-link">Comprar ahora</a>
         </div>
     </div>
 
     <div class="quantity-control">
-        <button class="quantity-btn">-</button>
-        <input type="number" value="{{rawCartproducts[$index].quantity || 1}}" min="1" class="quantity-input">
-        <button class="quantity-btn">+</button>
+        <button class="quantity-btn" (click)="decrementQuantity($index)">-</button>
+        <input type="number" class="quantity-input" 
+            value="{{rawCartproducts[$index].quantity || 1}}" 
+            min="1" max="{{product.stock}}"
+            (change)="updateQuantity($index, $any($event).target.value, product)">
+        <button class="quantity-btn" (click)="incrementQuantity($index, product)">+</button>
     </div>
 
     <div class="product-price">

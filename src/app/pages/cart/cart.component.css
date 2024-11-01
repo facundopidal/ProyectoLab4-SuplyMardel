@@ -37,6 +37,7 @@
     text-decoration: none;
     font-size: 14px;
     margin-right: 10px;
+    cursor: pointer;
   }
   
   .action-link:hover {
@@ -68,6 +69,14 @@
     border-left: none;
     border-right: none;
   }
+
+.quantity-input::-webkit-inner-spin-button, 
+.quantity-input::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+
+
   
   .product-price {
     font-size: 18px;
