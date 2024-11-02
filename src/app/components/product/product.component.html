@@ -10,8 +10,13 @@
             </div>
         </a>
         <div class="buttons">
+        @if(product.stock) {
             <button [routerLink]="['/cart', product.id]">Agregar al carrito</button>
             <button (click)="onClickBuy()">Comprar</button>
+        }
+        @else {
+            <span>Sin Stock</span>
+        }
         </div>
     </div>
 </div>

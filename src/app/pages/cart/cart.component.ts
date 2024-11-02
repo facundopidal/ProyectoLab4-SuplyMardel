@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 import { CartService } from '../../services/cart.service';
 import { Product } from '../../interfaces/product';
 import { ApiProductsService } from '../../services/api-products.service';
@@ -24,14 +24,15 @@ export class CartComponent implements OnInit {
   total : number = 0
 
   constructor(
-    private router: ActivatedRoute,
+    private route: ActivatedRoute,
     private cartService: CartService,
-    private productsService: ApiProductsService
+    private productsService: ApiProductsService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
     this.clientId = localStorage.getItem('userId');
-    this.newProductId = this.router.snapshot.paramMap.get('id');
+    this.newProductId = this.route.snapshot.paramMap.get('id');
 
     // Paso 1: Obtener los productos en el carrito
     this.cartService.getCartProducts(this.clientId).pipe(
@@ -128,5 +129,18 @@ export class CartComponent implements OnInit {
     for (let i = 0; i < this.products.length; i++) {
       this.total += this.products[i].price * this.rawCartproducts[i].quantity
     }
+  }
+
+  goToCheckout(): void {
+    const selectedProducts = this.rawCartproducts.map(product => ({
+      idProduct: product.idProduct,
+      quantity: product.quantity
+    }));
+  
+    // Serializar a JSON y codificar en URI
+    const productsParam = encodeURIComponent(JSON.stringify(selectedProducts));
+  
+    // Navegar a la página de compra con el parámetro de los productos
+    this.router.navigate(['/checkout'], { queryParams: { products: productsParam } });
   }
 }

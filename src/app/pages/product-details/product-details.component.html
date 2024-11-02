@@ -27,8 +27,13 @@
       
               <!-- Opciones adicionales, como botones de pago -->
               <div class="payment-buttons">
-                <button class="payment-button">COMPRAR YA MISMO</button>
-                <button class="payment-button" [routerLink]="['/cart', product.id]">Agregar al casho</button>
+                @if(product.stock) {
+                  <button class="payment-button">COMPRAR YA MISMO</button>
+                  <button class="payment-button" [routerLink]="['/cart', product.id]">Agregar al casho</button>
+                }
+                @else {
+                  <span>Sin stock</span>
+                }
               </div>
             </div>
       

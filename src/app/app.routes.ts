@@ -13,6 +13,7 @@ import { AuthGuard } from './services/userauth.guard';
 import { AdminGuard } from './services/adminauth.guard';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { SuccessfulPurchaseComponent } from './pages/successful-purchase/successful-purchase.component';
+import { CheckoutComponent } from './pages/checkout/checkout.component';
 
 export const routes: Routes = [
     { path: '',component: HomeComponent },
@@ -28,6 +29,7 @@ export const routes: Routes = [
     { path: 'admin/products',component: ProductsAdminComponent, canActivate: [AdminGuard] },
     { path: 'admin/sales',component: SalesComponent, canActivate: [AdminGuard] }, 
     { path: 'successfulpurchase',component: SuccessfulPurchaseComponent }, 
+    { path: 'checkout',component: CheckoutComponent }, 
     { path: '**', redirectTo: ''}
 ];
 

@@ -96,6 +96,13 @@
     background-color: #fff;
     cursor: pointer;
   }
+  .payment-buttons span{
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #000;
+    background-color: #fff;
+    user-select: none;
+  }
   
   /* Descripción del producto */
   .product-description {
