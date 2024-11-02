@@ -10,19 +10,19 @@ export class CartService {
 
     constructor(private http: HttpClient) {}
 
-    getCartProducts(cartId: number): Observable<{id: any, idProduct: number, quantity: number}[]> {
-        return this.http.get<{id: any, idProduct: number, quantity: number}[]>(`${this.baseUrl}?idCart=${cartId}`)
+    getCartProducts(idClient: string): Observable<{id: string, idProduct: string, quantity: number}[]> {
+        return this.http.get<{id: string, idProduct: string, quantity: number}[]>(`${this.baseUrl}?idClient=${idClient}`)
     }
 
-    addProductToCart(idCart: number, idProduct: number, quantity: number): Observable<{id: number, idCart: number, idProduct: number, quantity: number}> {
-        return this.http.post<{id: number, idCart: number, idProduct: number, quantity: number}>(`${this.baseUrl}/`, {idCart, idProduct, quantity})
+    addProductToCart(idClient: string, idProduct: string, quantity: number): Observable<{id: string, idClient: string, idProduct: string, quantity: number}> {
+        return this.http.post<{id: string, idClient: string, idProduct: string, quantity: number}>(`${this.baseUrl}/`, {idClient, idProduct, quantity})
     }
 
-    updateQuantity(id: any, quantity: number): Observable<{id: any, idCart: number, idProduct: number, quantity: number}> {
-        return this.http.patch<{id: any, idCart: number, idProduct: number, quantity: number}>(`${this.baseUrl}/${id}`, {quantity: quantity})
+    updateQuantity(id: string, quantity: number): Observable<{id: string, idClient: string, idProduct: string, quantity: number}> {
+        return this.http.patch<{id: string, idClient: string, idProduct: string, quantity: number}>(`${this.baseUrl}/${id}`, {quantity: quantity})
     }
 
-    deleteProductCart(id: any): Observable<{id: any, idCart: number, idProduct: number, quantity: number}>{
-        return this.http.delete<{id: any, idCart: number, idProduct: number, quantity: number}>(`${this.baseUrl}/${id}`)
+    deleteProductCart(id: string): Observable<{id: string, idClient: string, idProduct: string, quantity: number}>{
+        return this.http.delete<{id: string, idClient: string, idProduct: string, quantity: number}>(`${this.baseUrl}/${id}`)
     }
 }

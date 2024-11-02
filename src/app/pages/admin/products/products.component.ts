@@ -11,8 +11,8 @@ import { Product } from '../../../interfaces/product'
 })
 export class ProductsAdminComponent {
   @Input() producto!: Product;
-  @Output() editProduct = new EventEmitter<number>();
-  @Output() deleteProduct = new EventEmitter<number>();
+  @Output() editProduct = new EventEmitter<string>();
+  @Output() deleteProduct = new EventEmitter<string>();
 
   onEdit() {
     this.editProduct.emit(this.producto.id);

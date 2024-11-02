@@ -18,11 +18,12 @@
         <h4>{{product.name}}</h4>
         <div class="product-actions">
             <a class="action-link" (click)="deleteProduct($index)">Eliminar</a>
-            <a href="#" class="action-link">Guardar</a>
             <a href="#" class="action-link">Comprar ahora</a>
         </div>
     </div>
-
+    <div class="product-stock">
+        <span>stock: {{product.stock.toLocaleString()}}</span>
+    </div>
     <div class="quantity-control">
         <button class="quantity-btn" (click)="decrementQuantity($index)">-</button>
         <input type="number" class="quantity-input" 
@@ -31,12 +32,14 @@
             (change)="updateQuantity($index, $any($event).target.value, product)">
         <button class="quantity-btn" (click)="incrementQuantity($index, product)">+</button>
     </div>
-
     <div class="product-price">
         <span>${{product.price.toLocaleString('es', {maximumFractionDigits: 20})}}</span>
     </div>
     </div>
-
 }
+<div class="total">
+    <p class="total-price">Total de la compra: ${{total}}</p>
+    <button routerLink="/successfulpurchase">Continuar compra</button> 
+</div>
 
 }

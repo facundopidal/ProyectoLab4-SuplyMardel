@@ -31,9 +31,9 @@ export class ProductDetailsComponent implements OnInit {
 
   ngOnInit(): void {
     const id: any = this.route.snapshot.paramMap.get('id')
-    this.productsService.getProductById(parseInt(id)).subscribe({
-      next: (products) => {
-        this.product = products[0]
+    this.productsService.getProductById(id).subscribe({ 
+      next: (product) => {
+        this.product = product
         this.priceFormatted = this.product.price.toLocaleString('es', { maximumFractionDigits: 20 });
       },
       error: console.error

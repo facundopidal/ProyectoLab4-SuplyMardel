@@ -16,11 +16,11 @@ export class ApiProductsService {
     return this.http.get<Product[]>(this.urlBase)
   }
 
-  getProductById(id: number): Observable<Product[]> {
-    return this.http.get<Product[]>(`${this.urlBase}?id=${id}`)
+  getProductById(id: string): Observable<Product> {
+    return this.http.get<Product>(`${this.urlBase}/${id}`)
   }
 
-  getProductByBrand(brand: String): Observable<Product[]> {
+  getProductsByBrand(brand: String): Observable<Product[]> {
     return this.http.get<Product[]>(`${this.urlBase}?brand=${brand}`)
   }
 

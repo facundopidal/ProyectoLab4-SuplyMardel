@@ -23,7 +23,7 @@
       "category": "Creatina",
       "price": 17990,
       "stock": 20,
-      "image": "https://www.heavenimagenes.com/heavencommerce/68ac9d04-8767-4aca-9951-49f2fea1383b/images/v2/STAR%20NUTRITION/28931_xlarge.jpg",
+      "image": "https://content.optimumnutrition.com/i/on/on-creatine-micronized_Image_01?$TTL_PRODUCT_IMAGES$&locale=en-us,en-gb,*&w=509&sm=aspect&aspect=1:1&fmt=webp",
       "description": "Creatina monohidratada micronizada para mejorar fuerza y rendimiento",
       "flavor": [
         "Sin sabor"
@@ -37,7 +37,7 @@
       "category": "Aminoácidos",
       "price": 12500,
       "stock": 45,
-      "image": "https://www.heavenimagenes.com/heavencommerce/68ac9d04-8767-4aca-9951-49f2fea1383b/images/v2/STAR%20NUTRITION/28931_xlarge.jpg",
+      "image": "https://www.enasport.com/cdn/shop/products/BCAA_211.jpg?v=1683514389&width=1000",
       "description": "Aminoácidos de cadena ramificada para recuperación muscular y energía",
       "flavor": [
         "Frutas Tropicales"
@@ -80,7 +80,7 @@
   "sales": [
     {
       "id": "0",
-      "idClient": 0,
+      "idClient": "0",
       "date": "25/10/2024",
       "amount": 2000,
       "shipmentStatus": "Enviado",
@@ -92,7 +92,7 @@
     },
     {
       "id": "1",
-      "idClient": 1,
+      "idClient": "1",
       "date": "25/10/2024",
       "amount": 3500,
       "shipmentStatus": "En camino",
@@ -106,44 +106,26 @@
   "salesxProducts": [
     {
       "id": "0",
-      "idSale": 0,
-      "idProduct": 0
+      "idSale": "0",
+      "idProduct": "0"
     },
     {
       "id": "1",
-      "idSale": 0,
-      "idProduct": 1
+      "idSale": "0",
+      "idProduct": "1"
     },
     {
       "id": "2",
-      "idSale": 1,
-      "idProduct": 2
-    }
-  ],
-  "cart": [
-    {
-      "id": "0",
-      "idClient": 0
+      "idSale": "1",
+      "idProduct": "2"
     }
   ],
   "cartxproduct": [
     {
-      "id": "1",
-      "idCart": 0,
-      "idProduct": 1,
-      "quantity": 20
-    },
-    {
-      "id": "2",
-      "idCart": 0,
-      "idProduct": 2,
-      "quantity": 29
-    },
-    {
-      "id": "e742",
-      "idCart": 0,
-      "idProduct": 0,
-      "quantity": 34
+      "id": "8995",
+      "idClient": "0",
+      "idProduct": "1",
+      "quantity": 1
     }
   ],
   "admin": {

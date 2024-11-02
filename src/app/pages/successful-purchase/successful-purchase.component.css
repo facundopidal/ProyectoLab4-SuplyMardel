@@ -1,0 +1,11 @@
+.img-container{
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    width: 100%;
+}
+
+img {
+    max-height: 700px;
+    width: auto;
+}

@@ -30,12 +30,12 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  onEditProduct(productId: number) {
+  onEditProduct(productId: string) {
     console.log('Edit product with ID:', productId);
     // Lógica para editar el producto
   }
 
-  onDeleteProduct(productId: number) {
+  onDeleteProduct(productId: string) {
     console.log('Delete product with ID:', productId);
     // Lógica para eliminar el producto
   }
