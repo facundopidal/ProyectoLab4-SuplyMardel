@@ -122,32 +122,70 @@
   ],
   "cartxproduct": [
     {
-      "id": "8995",
-      "idClient": "0",
-      "idProduct": "1",
-      "quantity": 7
-    },
-    {
-      "id": "495c",
+      "id": "bb57",
       "idClient": "0",
       "idProduct": "2",
-      "quantity": 1
-    },
-    {
-      "id": "76bb",
-      "idClient": "0",
-      "idProduct": "3",
-      "quantity": 4
-    },
-    {
-      "id": "a92d",
-      "idClient": "0",
-      "idProduct": "0",
       "quantity": 1
     }
   ],
   "admin": {
     "email": "adminSuplyMardel@gmail.com",
     "password": "contraseñasupersegura"
-  }
+  },
+  "notifications": [
+    {
+      "id": "6b5c",
+      "resource": "https://api.mercadolibre.com/merchant_orders/24845558893",
+      "topic": "merchant_order"
+    },
+    {
+      "id": 117017704322,
+      "action": "payment.created",
+      "api_version": "v1",
+      "data": {
+        "id": "92980322944"
+      },
+      "date_created": "2024-11-10T16:31:11Z",
+      "live_mode": true,
+      "type": "payment",
+      "user_id": "2086871000"
+    },
+    {
+      "id": "52b3",
+      "resource": "92980322944",
+      "topic": "payment"
+    },
+    {
+      "id": "5c7d",
+      "resource": "https://api.mercadolibre.com/merchant_orders/24845558893",
+      "topic": "merchant_order"
+    },
+    {
+      "id": "c70c",
+      "resource": "https://api.mercadolibre.com/merchant_orders/24860271620",
+      "topic": "merchant_order"
+    },
+    {
+      "id": "f9ff",
+      "resource": "92656597245",
+      "topic": "payment"
+    },
+    {
+      "id": 117017685570,
+      "action": "payment.created",
+      "api_version": "v1",
+      "data": {
+        "id": "92656597245"
+      },
+      "date_created": "2024-11-10T16:33:28Z",
+      "live_mode": true,
+      "type": "payment",
+      "user_id": "2086871000"
+    },
+    {
+      "id": "f01f",
+      "resource": "https://api.mercadolibre.com/merchant_orders/24860271620",
+      "topic": "merchant_order"
+    }
+  ]
 }

@@ -3,6 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Product } from '../../interfaces/product';
 import { ApiProductsService } from '../../services/api-products.service';
 import { forkJoin } from 'rxjs';
+import { MercadoPagoService } from '../../services/mercado-pago.service';
 
 @Component({
   selector: 'app-checkout',
@@ -17,7 +18,8 @@ export class CheckoutComponent {
 
   constructor(
     private route: ActivatedRoute,
-    private productsService: ApiProductsService
+    private productsService: ApiProductsService,
+    private mpService: MercadoPagoService
   ) {}
 
   ngOnInit(): void {
@@ -44,8 +46,19 @@ export class CheckoutComponent {
           quantity: this.productsToBuy[index].quantity
         }));
         console.log(this.detailedProducts)
+        this.redirectMercadoPago(this.detailedProducts)
       },
       error: err => console.error('Error fetching product details:', err)
     });
+  }
+
+  redirectMercadoPago(products: Product[]) {
+    console.log(products)
+    this.mpService.goToPay(products).subscribe({
+      next: (response) => {
+        console.log(response)
+      },
+      error: console.error
+    })
   }
 }
