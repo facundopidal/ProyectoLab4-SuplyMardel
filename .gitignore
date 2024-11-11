@@ -11,6 +11,9 @@
 npm-debug.log
 yarn-error.log
 
+mercado-pago/node_modules
+mailer/node_modules
+
 # IDEs and editors
 .idea/
 .project

@@ -1,6 +1,6 @@
 import { HttpClient } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { catchError, last, map, Observable, of } from "rxjs";
 import { Client } from "../interfaces/client";
 
 
@@ -13,15 +13,32 @@ export class ClientsService {
 
     baseUrl = "http://localhost:8000/clients"
 
-    getClientById(id: number): Observable<Client[]> {
-        return this.http.get<Client[]>(`${this.baseUrl}/?id=${id}`)
+    getClientById(id: string): Observable<Client> {
+        return this.http.get<Client>(`${this.baseUrl}/${id}`)
     }
 
     getClients(): Observable<Client[]> {
         return this.http.get<Client[]>(this.baseUrl)
     }
 
-    postClients(client: Client): Observable<Client> {
-        return this.http.post<Client>(this.baseUrl, client)
+    registerClient(client : { name: string, lastname: string, email: string, password: string }): Observable<boolean> {
+        
+        return this.http.post<Client>(this.baseUrl, client).pipe(
+            map((client) => {
+                console.log(client)
+                return client ? true : false
+            }),
+            catchError( () => of(false))
+        )
+    }
+
+    clientExists(email: string): Observable<boolean> {
+        return this.http.get<Client[]>(`${this.baseUrl}?email=${email}`).pipe(
+            map((clients) => {
+                if(clients.length > 0 )
+                    return true
+                return false
+            }),
+        )
     }
 }

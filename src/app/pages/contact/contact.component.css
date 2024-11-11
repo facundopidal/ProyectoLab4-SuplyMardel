@@ -52,6 +52,11 @@ input {
 
 }
 
+.submit-button:disabled {
+    cursor: not-allowed;
+    color: #bbb;
+}
+
 h3 {
     text-align: center;
     color: #fff;
@@ -70,6 +75,7 @@ form {
 label {
     font-size: 1rem;
     margin-bottom: 5px;
+    margin-top: 12px;
 }
 
 input[type="email"],
@@ -77,11 +83,12 @@ input[type="text"],
 textarea {
     background-color: #fff;
     color: #000;
-    margin-bottom: 15px;
     padding: 10px;
     border: 2px solid #000;
     border-radius: 8px;
     font-size: 1rem;
+    font-family: Arial, sans-serif;
+
 }
 
 textarea {
@@ -91,4 +98,18 @@ textarea {
 
 .mensaje{
     padding-bottom: 10px;
+}
+
+span{
+    color: #002b5c;
+    margin-top: 5px;
+    user-select: none;
+}
+
+.error {
+    color: #3688d4;
+}
+
+.email-error {
+    display: none;
 }

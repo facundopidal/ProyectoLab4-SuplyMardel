@@ -1,0 +1,53 @@
+<!-- register.component.html -->
+<form [formGroup]="registerForm" (ngSubmit)="register()"> 
+    <!-- FALTAN LOS ERRORES DE MIN LENGTH -->
+    <div>              
+        <label>Nombre</label>
+            <input type="text" placeholder="Ingrese su nombre" formControlName="name">
+            @if (registerForm.controls['name'].touched && registerForm.controls['name'].getError('required')) {
+                <span>El campo es requerido</span>
+            }
+    </div>
+    <div>              
+        <label>Apellido</label>
+            <input type="text" placeholder="Ingrese su apellido" formControlName="lastname">
+            @if (registerForm.controls['lastname'].touched && registerForm.controls['lastname'].getError('required')) {
+                <span>El campo es requerido</span>
+            }
+    </div>
+    <div>              
+        <label>Email</label>
+            <input type="email" placeholder="Ingrese su email" formControlName="email">
+            @if (registerForm.controls['email'].touched && registerForm.controls['email'].getError('required')) {
+                <span>El campo es requerido</span>
+            }
+
+            @if(alreadyExists) {
+                <span>El mail ya se encontro en el sistema. Ingrese uno distinto.</span>
+
+            }
+    </div>
+    <div>              
+        <label>Contraseña</label>
+            <input type="password" placeholder="Ingrese su contraseña" formControlName="password">
+            @if (registerForm.controls['password'].touched && registerForm.controls['password'].getError('required')) {
+                <span>El campo es requerido</span>
+            }
+    </div>
+    <div>              
+        <label>Repetir Contraseña</label>
+            <input type="password" placeholder="Repita su contraseña" formControlName="password2">
+            @if (registerForm.controls['password2'].touched && registerForm.controls['password2'].getError('required')) {
+                <span>El campo es requerido</span>
+            }
+            @if(registerForm.controls['password'].value != registerForm.controls['password2'].value && registerForm.controls['password2'].touched){
+                <span>Sos un pelotudo</span>
+            }
+    </div>
+    
+  
+    
+  
+    <button type="submit" [disabled]="registerForm.invalid">Registrar</button>
+  </form>
+  

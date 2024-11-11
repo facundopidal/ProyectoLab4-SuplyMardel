@@ -60,6 +60,10 @@ export class AuthService {
     return !!localStorage.getItem('role');
   }
 
+  getUserId(): string | null {
+    return localStorage.getItem('userId')
+  }
+
   private loggedIn = new BehaviorSubject<boolean>(this.isLoggedIn());
   isLoggedIn$ = this.loggedIn.asObservable()
 

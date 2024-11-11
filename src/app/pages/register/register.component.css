@@ -1,0 +1,92 @@
+/* Estilo principal para el formulario */
+form {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 500px;
+    margin: 20px auto;
+    font-family: 'Arial', sans-serif;
+  }
+  
+  /* Títulos y etiquetas */
+  label {
+    font-size: 1.1rem;
+    font-weight: bold;
+    color: #333;
+    margin-top: 15px;
+    display: block;
+  }
+  
+  /* Estilo para los inputs */
+  input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 1px;
+    border: 2px solid #cce7ff; /* Celeste suave */
+    border-radius: 4px;
+    font-size: 1rem;
+    background-color: #f9f9f9;
+    transition: border-color 0.3s;
+  }
+  
+  /* Estilo para el foco en los inputs */
+  input:focus {
+    border-color: #4a90e2; /* Azul claro */
+    outline: none;
+    background-color: #fff;
+  }
+  
+  /* Mensajes de error */
+  span {
+    color: #ff4d4d; /* Rojo para errores */
+    font-size: 0.9rem;
+    display: block;
+    margin-top: 5px;
+  }
+  
+  /* Botón de submit */
+  button {
+    background-color: #4a90e2; /* Azul */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin-top: 10px;
+    border-radius: 4px;
+    font-size: 1.1rem;
+    width: 100%;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  
+  /* Hover en el botón */
+  button:hover {
+    background-color: #357ab7; /* Azul más oscuro */
+  }
+  
+  /* Estilos para el formulario cuando es inválido */
+  button[disabled] {
+    background-color: #b0d0f3; /* Azul claro */
+    cursor: not-allowed;
+  }
+  
+  /* Estilos de responsividad */
+  @media (max-width: 600px) {
+    form {
+      padding: 20px;
+    }
+  
+    label {
+      font-size: 1rem;
+    }
+  
+    input {
+      font-size: 0.95rem;
+    }
+  
+    button {
+      font-size: 1rem;
+      padding: 10px;
+    }
+  }
+  

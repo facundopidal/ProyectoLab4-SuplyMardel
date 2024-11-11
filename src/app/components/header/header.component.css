@@ -50,6 +50,18 @@ header {
   color: #3688d4;
 }
 
+.register-anchor{
+  text-decoration: none;
+  background-color: #002b5c;
+  color: white;
+  padding: 6px;
+  border-radius: 10px;
+}
+
+.register-anchor:hover{
+  color: #3688d4;
+}
+
 .cart a {
   font-size: 24px;
   color: #000;

@@ -14,6 +14,7 @@ import { AdminGuard } from './services/adminauth.guard';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { SuccessfulPurchaseComponent } from './pages/successful-purchase/successful-purchase.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { RegisterComponent } from './pages/register/register.component';
 
 export const routes: Routes = [
     { path: '',component: HomeComponent },
@@ -24,6 +25,7 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent },
     { path: 'my-account', component: AccountComponent, canActivate: [AuthGuard]},
     { path: 'product/:id', component: ProductDetailsComponent },
+    { path: 'register', component: RegisterComponent},
     { path: 'admin',component: AdminComponent, canActivate: [AdminGuard] },
     { path: 'admin/clients',component: ClientsComponent, canActivate: [AdminGuard] },
     { path: 'admin/products',component: ProductsAdminComponent, canActivate: [AdminGuard] },

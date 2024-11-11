@@ -75,6 +75,20 @@
       "address": "Calle Lavalle 432",
       "email": "camilagonzalezfernandez@gmail.com",
       "password": "camigorda"
+    },
+    {
+      "id": "7822",
+      "name": "Rafael",
+      "lastname": "Videla",
+      "email": "rafa12@gmail.com",
+      "password": "quevuelvan"
+    },
+    {
+      "id": "9728",
+      "name": "Francisco",
+      "lastname": "Magnolo",
+      "email": "magnolo12@gmail.com",
+      "password": "soymagnolo"
     }
   ],
   "sales": [
@@ -125,6 +139,18 @@
       "id": "bb57",
       "idClient": "0",
       "idProduct": "2",
+      "quantity": 2
+    },
+    {
+      "id": "e897",
+      "idClient": "0",
+      "idProduct": "1",
+      "quantity": 1
+    },
+    {
+      "id": "0459",
+      "idClient": "0",
+      "idProduct": "3",
       "quantity": 1
     }
   ],
@@ -139,7 +165,7 @@
       "topic": "merchant_order"
     },
     {
-      "id": 117017704322,
+      "id": "117017704322",
       "action": "payment.created",
       "api_version": "v1",
       "data": {
@@ -171,7 +197,7 @@
       "topic": "payment"
     },
     {
-      "id": 117017685570,
+      "id": "117017685570",
       "action": "payment.created",
       "api_version": "v1",
       "data": {

@@ -22,9 +22,9 @@ export class AccountComponent implements OnInit{
 
   ngOnInit(): void {
     const id: any = localStorage.getItem('userId')
-    this.clientsService.getClientById(parseInt(id)).subscribe({
-        next: (clients) => {
-            this.client = clients[0]
+    this.clientsService.getClientById(id).subscribe({
+        next: (client) => {
+            this.client = client
         },
         error: (error) => {console.error(error)}
     })

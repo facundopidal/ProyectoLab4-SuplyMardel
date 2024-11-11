@@ -15,7 +15,7 @@ export class MercadoPagoService{
 
   constructor(private http: HttpClient) { }
 
-  private baseUrl = "https://lcvt5tbh-3003.brs.devtunnels.ms/create_preference"
+  private baseUrl = "http://localhost:3003/create_preference"
   goToPay(products: Product[]): Observable<PreferenceResponse> {
     console.log(products)
     return this.http.post<PreferenceResponse>(this.baseUrl, products)
