@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MenuComponent } from '../menu/menu.component';
 import { ProductsAdminComponent } from '../products/products.component';
 import { Product } from '../../../interfaces/product.js';
-import { ApiProductsService } from '../../../services/api-products.service';
+import { ApiProductsService } from '../../../services/ecommerce/api-products.service';
 
 @Component({
   selector: 'app-admin',
@@ -30,13 +30,31 @@ export class AdminComponent implements OnInit {
     });
   }
 
-  onEditProduct(productId: string) {
-    console.log('Edit product with ID:', productId);
-    // Lógica para editar el producto
+  showModal = false;
+  productIdToDelete: string | null = null;
+
+  openConfirmationModal(productId: string): void {
+    this.productIdToDelete = productId;
+    this.showModal = true;
   }
 
-  onDeleteProduct(productId: string) {
-    console.log('Delete product with ID:', productId);
-    // Lógica para eliminar el producto
+  confirmDelete(): void {
+    if (this.productIdToDelete !== null) {
+      this.deleteProduct(this.productIdToDelete);
+      this.productIdToDelete = null;
+    }
+    this.showModal = false;
   }
+
+  cancelDelete(): void {
+    this.productIdToDelete = null;
+    this.showModal = false;
+  }
+
+  deleteProduct(productId: string): void {
+    this.productsService.deleteProduct(productId).subscribe()
+    this.products = this.products.filter(product => product.id !== productId);
+  }
+
+  
 }

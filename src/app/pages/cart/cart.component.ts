@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
-import { CartService } from '../../services/cart.service';
+import { CartService } from '../../services/ecommerce/cart.service';
 import { Product } from '../../interfaces/product';
-import { ApiProductsService } from '../../services/api-products.service';
+import { ApiProductsService } from '../../services/ecommerce/api-products.service';
 import { forkJoin, of } from 'rxjs';
 import { switchMap } from 'rxjs/operators';
 

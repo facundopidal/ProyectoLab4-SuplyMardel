@@ -1,5 +1,5 @@
 import express from 'express';
-import { MercadoPagoConfig, Preference } from 'mercadopago';
+import { MercadoPagoConfig, Preference, MerchantOrder } from 'mercadopago';
 import cors from 'cors'
 
 const app = express();
@@ -83,6 +83,23 @@ app.post("/create_preference", async (req, res) => {
     res.status(500).json({ error: error.message });
   }
 });
+
+
+app.get("/merchant-order/:id", async(req,res) => {
+  console.log(req.params.id)
+  const order = new MerchantOrder(client)
+  console.log(order)
+  
+  try {
+    order.get({ merchantOrderId: req.params.id}).then(response => {
+      console.log(response)
+      res.json(response)
+    })
+    
+  } catch (error) {
+    console.log(error)
+  }
+})
 
 // // Endpoint para recibir notificaciones de Mercado Pago
 // app.post("/notifications", (req, res) => {

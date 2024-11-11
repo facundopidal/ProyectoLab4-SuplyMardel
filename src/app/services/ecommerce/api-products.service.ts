@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
-import { Product } from '../interfaces/product';
+import { Product } from '../../interfaces/product';
 
 @Injectable({
   providedIn: 'root'
@@ -24,15 +24,17 @@ export class ApiProductsService {
     return this.http.get<Product[]>(`${this.urlBase}?brand=${brand}`)
   }
 
-  postProducts(product: Product): Observable<Product[]>{
-    return this.http.post<Product[]>(this.urlBase, product)
+  addProduct(product: Product): Observable<Product>{
+    return this.http.post<Product>(this.urlBase, product)
   }
 
-  updateProduct(id:number, productParams: object): Observable<Product> {
+  updateProduct(id:string, productParams: object): Observable<Product> {
     return this.http.patch<Product>(`${this.urlBase}/${id}`, productParams)
   }
 
-  deleteProduct(id:number): Observable<Product> {
+  deleteProduct(id:string): Observable<Product> {
     return this.http.delete<Product>(`${this.urlBase}/${id}`)
   }
+
+
 }

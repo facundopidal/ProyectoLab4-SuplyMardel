@@ -9,17 +9,21 @@ import { LoginComponent } from './pages/login/login.component';
 import { ProductsAdminComponent } from './pages/admin/products/products.component';
 import { SalesComponent } from './pages/admin/sales/sales.component';
 import { AccountComponent } from './pages/account/account.component';
-import { AuthGuard } from './services/userauth.guard';
-import { AdminGuard } from './services/adminauth.guard';
+import { AuthGuard } from './services/auth/userauth.guard';
+import { AdminGuard } from './services/auth/adminauth.guard';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { SuccessfulPurchaseComponent } from './pages/successful-purchase/successful-purchase.component';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
 import { RegisterComponent } from './pages/register/register.component';
+import { CreateProductComponent } from './pages/admin/create-product/create-product.component';
+import { EditProductComponent } from './pages/admin/edit-product/edit-product.component';
+import { AddAddressComponent } from './pages/add-address/add-address.component';
 
 export const routes: Routes = [
     { path: '',component: HomeComponent },
     { path: 'cart',component: CartComponent, canActivate: [AuthGuard] },
     { path: 'cart/:id',component: CartComponent, canActivate: [AuthGuard] },
+    { path: 'add-address',component: AddAddressComponent, canActivate: [AuthGuard] },
     { path: 'about-us',component: AboutUsComponent },
     { path: 'contact',component: ContactComponent },
     { path: 'login', component: LoginComponent },
@@ -30,6 +34,8 @@ export const routes: Routes = [
     { path: 'admin/clients',component: ClientsComponent, canActivate: [AdminGuard] },
     { path: 'admin/products',component: ProductsAdminComponent, canActivate: [AdminGuard] },
     { path: 'admin/sales',component: SalesComponent, canActivate: [AdminGuard] }, 
+    { path: 'admin/create-product',component: CreateProductComponent, canActivate: [AdminGuard] }, 
+    { path: 'admin/edit-product/:id',component: EditProductComponent, canActivate: [AdminGuard] }, 
     { path: 'successfulpurchase',component: SuccessfulPurchaseComponent }, 
     { path: 'checkout',component: CheckoutComponent }, 
     { path: '**', redirectTo: ''}

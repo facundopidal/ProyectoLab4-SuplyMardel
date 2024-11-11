@@ -1,21 +1,10 @@
-* {
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-    background-color: #002b5c;
-}
 .account-container {
     display: flex;
     border: 2px solid #fff;
     width: 600px;
     padding: 20px;
     background-color: #002b5c;
+    font-family: "Arial";
 }
 .sidebar {
     width: 30%;
@@ -46,9 +35,11 @@ body {
     margin-top: 0;
     font-size: 20px;
     font-weight: normal;
+    color: #ddd;
 }
 .content p {
     margin: 5px 0;
+    color: #aaa;
 }
 .content .button {
     display: inline-block;
@@ -57,8 +48,10 @@ body {
     border: 2px solid #fff;
     border-radius: 8px;
     font-size: 14px;
+    background-color: transparent;
     text-decoration: none;
     color: #fff;
+    cursor: pointer;
 }
 .content .divider {
     margin: 10px 0;
@@ -68,7 +61,7 @@ body {
 .logout {
     cursor: pointer;
     background-color: transparent;
-    color: #000;
+    color: #fff;
     border: 1px solid #f00;
     padding: 5px;
     border-radius: 8px;

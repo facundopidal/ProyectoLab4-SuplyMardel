@@ -1,12 +1,27 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { Client } from '../../../interfaces/client';
+import { ClientsService } from '../../../services/clients/clients.service';
+import { MenuComponent } from '../menu/menu.component';
 
 @Component({
   selector: 'app-clients',
   standalone: true,
-  imports: [],
+  imports: [
+    MenuComponent
+  ],
   templateUrl: './clients.component.html',
   styleUrl: './clients.component.css'
 })
-export class ClientsComponent {
+export class ClientsComponent implements OnInit{
+  clients?: Client[]
+  cs = inject(ClientsService)
+  ngOnInit(): void {
+    this.cs.getClients().subscribe({
+      next : (res) => {
+        this.clients = res
+      },
+      error : (error) => {console.error(error)}
+    })
+  }
 
 }

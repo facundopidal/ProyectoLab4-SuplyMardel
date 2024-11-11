@@ -2,8 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { ClientsService } from '../../services/clients.service';
-import { AuthService } from '../../services/auth.service';
+import { ClientsService } from '../../services/clients/clients.service';
+import { AuthService } from '../../services/auth/auth.service';
 import { Client } from '../../interfaces/client';
 
 @Component({
@@ -30,7 +30,7 @@ export class RegisterComponent {
     lastname: ['', [Validators.required, Validators.minLength(3)]],
     email: ['', [Validators.required, Validators.minLength(3)]],
     password: ['', [Validators.required, Validators.minLength(3)]],
-    password2: ['', [Validators.required, Validators.minLength(3)]],
+    password2: ['', Validators.required],
   })
 
   register() {

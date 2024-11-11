@@ -1,1 +1,21 @@
-<p>clients works!</p>
+
+
+<section>
+    <app-menu />
+    <div class="clients-container">
+    
+        @for(client of clients; track client.id){
+            
+            <div class="card">
+                
+                <div class="card-body">
+                    <p class="card-id"><strong>ID: </strong>{{ client.id }}</p>
+                    <p class="card-name"><strong>Nombre: </strong>{{client.name}}</p>
+                    <p class="card-lastname"><strong>Apellido:</strong> {{ client.lastname }}</p>
+                    <p class="card-address"><strong>Domicilio:</strong> {{ client.address }}</p>
+                    <p class="card-email"><strong>Email:</strong> {{ client.email }}</p>
+                </div>
+            </div>
+        }
+    </div>
+</section>

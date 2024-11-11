@@ -2,7 +2,7 @@ import { ChangeDetectionStrategy, Component, inject, OnInit } from '@angular/cor
 import { NavBarComponent } from '../nav-bar/nav-bar.component';
 import { SearchBarComponent } from '../search-bar/search-bar.component';
 import { RouterLink } from '@angular/router';
-import { AuthService } from '../../services/auth.service';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
     selector: 'app-header',

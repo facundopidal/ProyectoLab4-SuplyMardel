@@ -2,8 +2,22 @@
     <app-menu />
     <div class="products">
     @for(product of products; track product.id) {
-        <app-admin-products [producto]="product" (editProduct)="onEditProduct($event)"
-        (deleteProduct)="onDeleteProduct($event)"/> 
+        <app-admin-products 
+        [producto]="product" 
+        (deleteProduct)="openConfirmationModal($event)"/> 
     }
-    </div>
+</div>
 </section>
+
+@if (showModal) {
+    
+    <div class="modal">
+        <div class="modal-content">
+          <p class="modal-p">¿Estás seguro de que quieres eliminar este producto?</p>
+          <div class="buttons">
+              <button class="btn-confirm" (click)="confirmDelete()">Sí</button>
+              <button class="btn-cancel" (click)="cancelDelete()">No</button>
+          </div>
+        </div>
+      </div>
+}

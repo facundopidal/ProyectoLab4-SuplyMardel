@@ -7,12 +7,18 @@
             @if (registerForm.controls['name'].touched && registerForm.controls['name'].getError('required')) {
                 <span>El campo es requerido</span>
             }
+            @if (registerForm.controls['name'].touched && registerForm.controls['name'].getError('minlength')) {
+                <span>Escriba minimo 3 caracteres</span>
+            }
     </div>
     <div>              
         <label>Apellido</label>
             <input type="text" placeholder="Ingrese su apellido" formControlName="lastname">
             @if (registerForm.controls['lastname'].touched && registerForm.controls['lastname'].getError('required')) {
                 <span>El campo es requerido</span>
+            }
+            @if (registerForm.controls['lastname'].touched && registerForm.controls['lastname'].getError('minlength')) {
+                <span>Escriba minimo 3 caracteres</span>
             }
     </div>
     <div>              
@@ -26,12 +32,18 @@
                 <span>El mail ya se encontro en el sistema. Ingrese uno distinto.</span>
 
             }
+            @if (registerForm.controls['email'].touched && registerForm.controls['email'].getError('minlength')) {
+                <span>Escriba minimo 3 caracteres</span>
+            }
     </div>
     <div>              
         <label>Contraseña</label>
             <input type="password" placeholder="Ingrese su contraseña" formControlName="password">
             @if (registerForm.controls['password'].touched && registerForm.controls['password'].getError('required')) {
                 <span>El campo es requerido</span>
+            }
+            @if (registerForm.controls['password'].touched && registerForm.controls['password'].getError('minlength')) {
+                <span>Escriba minimo 3 caracteres</span>
             }
     </div>
     <div>              
@@ -41,7 +53,7 @@
                 <span>El campo es requerido</span>
             }
             @if(registerForm.controls['password'].value != registerForm.controls['password2'].value && registerForm.controls['password2'].touched){
-                <span>Sos un pelotudo</span>
+                <span>Las contraseñas deben coincidir</span>
             }
     </div>
     

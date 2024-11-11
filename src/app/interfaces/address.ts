@@ -1,7 +1,10 @@
 export interface Address{
+    id?: string
     street:string;
     number: number;
     postalCode: number;
     city:string;
-    idCliente: number;
+    floor: number;
+    apartment: string;
+    idClient?: string;
 }

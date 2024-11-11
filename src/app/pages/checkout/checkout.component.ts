@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Product } from '../../interfaces/product';
-import { ApiProductsService } from '../../services/api-products.service';
+import { ApiProductsService } from '../../services/ecommerce/api-products.service';
 import { forkJoin } from 'rxjs';
-import { MercadoPagoService } from '../../services/mercado-pago.service';
+import { MercadoPagoService } from '../../services/external/mercado-pago.service';
 
 @Component({
   selector: 'app-checkout',

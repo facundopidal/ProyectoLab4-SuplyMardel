@@ -10,7 +10,7 @@
       <p class="card-weight"><strong>Peso: </strong>{{ producto.weight }}</p>
   
       <div class="card-actions">
-        <button (click)="onEdit()" class="btn btn-primary">Editar</button>
+        <button [routerLink]="['/admin/edit-product/', producto.id]" class="btn btn-primary">Editar</button>
         <button (click)="onDelete()" class="btn btn-danger">Eliminar</button>
       </div>
     </div>

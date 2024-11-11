@@ -6,14 +6,10 @@
       "brand": "ENA",
       "category": "Proteina",
       "price": 23580,
-      "stock": 34,
+      "stock": 33,
       "image": "https://http2.mlstatic.com/D_NQ_NP_2X_935480-MLA50231366542_062022-F.webp",
       "description": "Proteina isolada 80%",
-      "flavor": [
-        "chocolate",
-        "frutilla",
-        "cookies and cream"
-      ],
+      "flavor": "Frutilla",
       "weight": 954
     },
     {
@@ -25,10 +21,8 @@
       "stock": 20,
       "image": "https://content.optimumnutrition.com/i/on/on-creatine-micronized_Image_01?$TTL_PRODUCT_IMAGES$&locale=en-us,en-gb,*&w=509&sm=aspect&aspect=1:1&fmt=webp",
       "description": "Creatina monohidratada micronizada para mejorar fuerza y rendimiento",
-      "flavor": [
-        "Sin sabor"
-      ],
-      "weight": 300
+      "flavor": "Sin sabor",
+      "weight": 310
     },
     {
       "id": "2",
@@ -39,9 +33,7 @@
       "stock": 45,
       "image": "https://www.enasport.com/cdn/shop/products/BCAA_211.jpg?v=1683514389&width=1000",
       "description": "Aminoácidos de cadena ramificada para recuperación muscular y energía",
-      "flavor": [
-        "Frutas Tropicales"
-      ],
+      "flavor": "Frutas Tropicales",
       "weight": 400
     },
     {
@@ -53,9 +45,7 @@
       "stock": 15,
       "image": "https://www.heavenimagenes.com/heavencommerce/68ac9d04-8767-4aca-9951-49f2fea1383b/images/v2/STAR%20NUTRITION/28931_xlarge.jpg",
       "description": "Creatina que es creatina(es creatina)",
-      "flavor": [
-        "Frutas Tropicales"
-      ],
+      "flavor": "Frutas Tropicales",
       "weight": 300
     }
   ],
@@ -63,7 +53,7 @@
     {
       "id": "0",
       "name": "Lautaro",
-      "lastName": "Pidal Ruiz Diaz",
+      "lastname": "Pidal Ruiz Diaz",
       "address": "Av. Dorrego 281",
       "email": "lautaropidalruizdiaz@gmail.com",
       "password": "lautisensei"
@@ -71,7 +61,7 @@
     {
       "id": "1",
       "name": "Camila",
-      "lastName": "González Fernández",
+      "lastname": "González Fernández",
       "address": "Calle Lavalle 432",
       "email": "camilagonzalezfernandez@gmail.com",
       "password": "camigorda"
@@ -89,6 +79,20 @@
       "lastname": "Magnolo",
       "email": "magnolo12@gmail.com",
       "password": "soymagnolo"
+    },
+    {
+      "id": "17e8",
+      "name": "alenso",
+      "lastname": "loretto",
+      "email": "alensolore29@gmail.com",
+      "password": "utnbestfacu"
+    },
+    {
+      "id": "ef5d",
+      "name": "julian",
+      "lastname": "teixido",
+      "email": "juliteixido12@gmail.com",
+      "password": "juli"
     }
   ],
   "sales": [
@@ -136,19 +140,7 @@
   ],
   "cartxproduct": [
     {
-      "id": "bb57",
-      "idClient": "0",
-      "idProduct": "2",
-      "quantity": 2
-    },
-    {
-      "id": "e897",
-      "idClient": "0",
-      "idProduct": "1",
-      "quantity": 1
-    },
-    {
-      "id": "0459",
+      "id": "d0fb",
       "idClient": "0",
       "idProduct": "3",
       "quantity": 1
@@ -212,6 +204,161 @@
       "id": "f01f",
       "resource": "https://api.mercadolibre.com/merchant_orders/24860271620",
       "topic": "merchant_order"
+    },
+    {
+      "id": "116984644989",
+      "action": "payment.created",
+      "api_version": "v1",
+      "data": {
+        "id": "92728681313"
+      },
+      "date_created": "2024-11-11T14:06:50Z",
+      "live_mode": true,
+      "type": "payment",
+      "user_id": "2086871000"
+    },
+    {
+      "id": "3721",
+      "resource": "https://api.mercadolibre.com/merchant_orders/24872223241",
+      "topic": "merchant_order"
+    },
+    {
+      "id": "3f4d",
+      "resource": "92728973547",
+      "topic": "payment"
+    },
+    {
+      "id": "117036762194",
+      "action": "payment.created",
+      "api_version": "v1",
+      "data": {
+        "id": "92728973547"
+      },
+      "date_created": "2024-11-11T14:09:05Z",
+      "live_mode": true,
+      "type": "payment",
+      "user_id": "2086871000"
+    },
+    {
+      "id": "1044",
+      "resource": "https://api.mercadolibre.com/merchant_orders/24872223241",
+      "topic": "merchant_order"
+    },
+    {
+      "id": "6758",
+      "resource": "https://api.mercadolibre.com/merchant_orders/24872328517",
+      "topic": "merchant_order"
+    },
+    {
+      "id": "8470",
+      "resource": "93053524984",
+      "topic": "payment"
+    },
+    {
+      "id": "116986318237",
+      "action": "payment.created",
+      "api_version": "v1",
+      "data": {
+        "id": "93053524984"
+      },
+      "date_created": "2024-11-11T14:11:58Z",
+      "live_mode": true,
+      "type": "payment",
+      "user_id": "2086871000"
+    },
+    {
+      "id": "38c5",
+      "resource": "https://api.mercadolibre.com/merchant_orders/24872328517",
+      "topic": "merchant_order"
+    },
+    {
+      "id": "a05f",
+      "resource": "https://api.mercadolibre.com/merchant_orders/24872873565",
+      "topic": "merchant_order"
+    },
+    {
+      "id": "4f00",
+      "resource": "https://api.mercadolibre.com/merchant_orders/24872873565",
+      "topic": "merchant_order"
+    },
+    {
+      "id": "117037024382",
+      "action": "payment.created",
+      "api_version": "v1",
+      "data": {
+        "id": "92730843163"
+      },
+      "date_created": "2024-11-11T14:24:38Z",
+      "live_mode": true,
+      "type": "payment",
+      "user_id": "2086871000"
+    },
+    {
+      "id": "edbc",
+      "resource": "92730843163",
+      "topic": "payment"
+    },
+    {
+      "id": "9a1b",
+      "resource": "https://api.mercadolibre.com/merchant_orders/24872873565",
+      "topic": "merchant_order"
+    },
+    {
+      "id": "f932",
+      "resource": "92728681313",
+      "topic": "payment"
+    },
+    {
+      "id": "0493",
+      "resource": "https://api.mercadolibre.com/merchant_orders/24872137619",
+      "topic": "merchant_order"
+    },
+    {
+      "id": "3192",
+      "resource": "https://api.mercadolibre.com/merchant_orders/24888132332",
+      "topic": "merchant_order"
+    },
+    {
+      "id": "116986762357",
+      "action": "payment.created",
+      "api_version": "v1",
+      "data": {
+        "id": "92732497855"
+      },
+      "date_created": "2024-11-11T14:38:45Z",
+      "live_mode": true,
+      "type": "payment",
+      "user_id": "2086871000"
+    },
+    {
+      "id": "b1d3",
+      "resource": "92732497855",
+      "topic": "payment"
+    },
+    {
+      "id": "bf6e",
+      "resource": "https://api.mercadolibre.com/merchant_orders/24888132332",
+      "topic": "merchant_order"
+    }
+  ],
+  "addresses": [
+    {
+      "id": "7f81",
+      "street": "Rio Negro ",
+      "number": 5242,
+      "postalCode": 7600,
+      "city": "Mar del Plata",
+      "idClient": "0"
+    },
+    {
+      "id": "0f01",
+      "street": "Calle del rulo",
+      "number": 69,
+      "postalCode": 7600,
+      "city": "Mar del Plata",
+      "floor": null,
+      "apartment": "",
+      "idClient": "0"
     }
   ]
 }

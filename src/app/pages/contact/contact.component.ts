@@ -1,9 +1,9 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { NavBarComponent } from '../../components/nav-bar/nav-bar.component';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { MailSenderService } from '../../services/mail-sender.service';
-import { AuthService } from '../../services/auth.service';
-import { ClientsService } from '../../services/clients.service';
+import { MailSenderService } from '../../services/external/mail-sender.service';
+import { AuthService } from '../../services/auth/auth.service';
+import { ClientsService } from '../../services/clients/clients.service';
 import { Client } from '../../interfaces/client';
 import { RouterLink } from '@angular/router';
 import { CommonModule } from '@angular/common';

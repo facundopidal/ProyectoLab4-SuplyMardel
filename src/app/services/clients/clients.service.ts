@@ -1,7 +1,7 @@
 import { HttpClient } from "@angular/common/http";
 import { inject, Injectable } from "@angular/core";
 import { catchError, last, map, Observable, of } from "rxjs";
-import { Client } from "../interfaces/client";
+import { Client } from "../../interfaces/client";
 
 
 @Injectable({
