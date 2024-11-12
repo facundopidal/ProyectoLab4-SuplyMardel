@@ -1,0 +1,118 @@
+.delivery-options-container {
+    width: 66%;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  h2 {
+    font-size: 18px;
+    margin-bottom: 20px;
+  }
+  
+  .option {
+    display: flex;
+    align-items: center;
+    border: 1px solid #000;
+    padding: 15px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .option.selected {
+    border: 2px solid #000;
+  }
+  
+  input[type="radio"] {
+    margin-right: 10px;
+    pointer-events: none;
+  }
+  
+  .details {
+    flex-grow: 1;
+  }
+  
+  .details span {
+    font-weight: bold;
+  }
+  
+  .arrival {
+    font-size: 14px;
+    color: #888;
+  }
+  
+  .price {
+    font-size: 16px;
+    font-weight: bold;
+    white-space: nowrap;
+  }
+  
+  .order-summary-container {
+    width: 100%;
+    font-family: Arial, sans-serif;
+  }
+  
+  .product-card {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .product-image {
+    width: 50px;
+    height: 50px;
+    margin-right: 10px;
+  }
+  
+  .product-details {
+    flex-grow: 1;
+    font-size: 14px;
+  }
+  
+  .product-details span {
+    display: block;
+  }
+  
+  .product-price {
+    font-weight: bold;
+    white-space: nowrap;
+  }
+  
+  .summary {
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+  }
+  
+  .subtotal, .shipping-cost, .total {
+    display: flex;
+    justify-content: space-between;
+    margin: 5px 0;
+  }
+  
+  .total-amount {
+    font-size: 18px;
+    font-weight: bold;
+  }
+  
+  .coupon {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+  }
+  
+  .coupon input {
+    flex-grow: 1;
+    padding: 5px;
+    border: 1px solid #ddd;
+    border-radius: 4px 0 0 4px;
+  }
+  
+  .coupon button {
+    padding: 5px 10px;
+    border: 1px solid #ddd;
+    background-color: #f5f5f5;
+    border-radius: 0 4px 4px 0;
+    cursor: pointer;
+  }
+  

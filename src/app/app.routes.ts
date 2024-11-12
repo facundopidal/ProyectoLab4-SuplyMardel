@@ -1,4 +1,4 @@
-import { Routes } from '@angular/router';
+import { NoPreloading, Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { AboutUsComponent } from './pages/about-us/about-us.component';
@@ -13,11 +13,12 @@ import { AuthGuard } from './services/auth/userauth.guard';
 import { AdminGuard } from './services/auth/adminauth.guard';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { SuccessfulPurchaseComponent } from './pages/successful-purchase/successful-purchase.component';
-import { CheckoutComponent } from './pages/checkout/checkout.component';
+import { CheckoutComponent } from './pages/buy/checkout/checkout.component';
 import { RegisterComponent } from './pages/register/register.component';
 import { CreateProductComponent } from './pages/admin/create-product/create-product.component';
 import { EditProductComponent } from './pages/admin/edit-product/edit-product.component';
 import { AddAddressComponent } from './pages/add-address/add-address.component';
+import { FilteredProductsComponent } from './pages/filtered-products/filtered-products.component';
 
 export const routes: Routes = [
     { path: '',component: HomeComponent },
@@ -38,6 +39,7 @@ export const routes: Routes = [
     { path: 'admin/edit-product/:id',component: EditProductComponent, canActivate: [AdminGuard] }, 
     { path: 'successfulpurchase',component: SuccessfulPurchaseComponent }, 
     { path: 'checkout',component: CheckoutComponent }, 
+    { path: 'filtered-products', component: FilteredProductsComponent },
     { path: '**', redirectTo: ''}
 ];
 

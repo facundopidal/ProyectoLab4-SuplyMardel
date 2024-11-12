@@ -25,6 +25,7 @@ export class AccountComponent implements OnInit{
   client!: Client
   route = inject(Router)
   clientAddresses?: Address[]
+  limitAddresses: boolean = false
 
   ngOnInit(): void {
     const id: string = this.authService.getUserId()!
@@ -38,7 +39,18 @@ export class AccountComponent implements OnInit{
 
     this.addressService.getAddressesByClient(id).subscribe({
       next: (addresses) => {
-        this.clientAddresses = addresses
+        this.clientAddresses = addresses  
+        if(this.clientAddresses.length === 3)
+          this.limitAddresses = true
+      },
+      error: console.error
+    })
+  }
+
+  deleteAddress(idAddress: string) {
+    this.addressService.deleteAddressByID(idAddress).subscribe({
+      next: () => {
+        this.limitAddresses = false
       },
       error: console.error
     })

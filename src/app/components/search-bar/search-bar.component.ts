@@ -1,47 +1,18 @@
 import { CommonModule } from '@angular/common';
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+// import { FilterPipe } from '../search-filter/search-filter.component';
 import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { RouterLink } from '@angular/router';
 
 @Component({
     standalone: true,
-    imports: [CommonModule],
+    imports: [RouterLink],
     selector: 'app-search-bar',
     templateUrl: './search-bar.component.html',
     styleUrl: './search-bar.component.css'
 })
-export class SearchBarComponent implements OnInit {
-    title = 'Comidas Geniales';
-    searchTerm$ = new Subject<string>();
-    private listDeliciousDishes = [
-        'Ceviche',
-        'Arepa',
-        'Empanadas',
-        'Asado',
-        'Pizzas',
-        'Hamburguesas',
-        'Pollo a la Brasa',
-        'Pasta 4 Quesos',
-        'Lomo Saltado',
-        'Pastel',
-        'Arroz Chaufa',
-    ];
-    listFiltered: any = [];
+export class SearchBarComponent{
 
-    ngOnInit(): void {
-        this.listFiltered = this.listDeliciousDishes;
-        this.filterList();
-    }
-
-    filterList(): void {
-        this.searchTerm$
-            .pipe(
-                debounceTime(400),
-                distinctUntilChanged()
-            )
-            .subscribe(term => {
-                this.listFiltered = this.listDeliciousDishes
-                    .filter(item => item.toLowerCase().indexOf(term.toLowerCase()) >= 0);
-            });
-    }
-}
+   }

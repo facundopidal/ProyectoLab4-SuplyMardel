@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Product } from '../../interfaces/product';
-import { ApiProductsService } from '../../services/ecommerce/api-products.service';
+import { Product } from '../../../interfaces/product';
+import { ApiProductsService } from '../../../services/ecommerce/api-products.service';
 import { forkJoin } from 'rxjs';
-import { MercadoPagoService } from '../../services/external/mercado-pago.service';
+import { MercadoPagoService } from '../../../services/external/mercado-pago.service';
 
 @Component({
   selector: 'app-checkout',
@@ -14,8 +14,10 @@ import { MercadoPagoService } from '../../services/external/mercado-pago.service
 })
 export class CheckoutComponent {
   productsToBuy: { idProduct: string, quantity: number }[] = [];
-  detailedProducts: Product[] = [];
+  detailedProducts: any[] = [];
+  selectedOption: number = 1;
 
+  
   constructor(
     private route: ActivatedRoute,
     private productsService: ApiProductsService,
@@ -23,6 +25,7 @@ export class CheckoutComponent {
   ) {}
 
   ngOnInit(): void {
+    this.calculateTotals();
     this.route.queryParams.subscribe(params => {
       if (params['products']) {
         try {
@@ -60,5 +63,19 @@ export class CheckoutComponent {
       },
       error: console.error
     })
+  }
+
+  shippingCost: number = 1000;
+  subtotal: number = 0;
+  total: number = 0;
+
+
+  calculateTotals(): void {
+    this.subtotal = this.detailedProducts.reduce((acc: number, product: any) => acc + product.price * product.quantity, 0);
+    this.total = this.subtotal + this.shippingCost;
+  }
+
+  selectOption(option: number): void {
+    this.selectedOption = option;
   }
 }

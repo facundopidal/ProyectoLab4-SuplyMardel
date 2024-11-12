@@ -47,6 +47,30 @@
       "description": "Creatina que es creatina(es creatina)",
       "flavor": "Frutas Tropicales",
       "weight": 300
+    },
+    {
+      "id": "946a",
+      "name": "UnMonoConAk47",
+      "brand": "NoseEsUnMono",
+      "price": 10000000,
+      "stock": 1,
+      "image": "https://i1.sndcdn.com/avatars-000049738139-qqwjbe-t500x500.jpg",
+      "description": "Un Mono con metralleta, es un peligro, como este grupo codeando",
+      "category": "Monkey",
+      "flavor": "Mango",
+      "weight": 1000
+    },
+    {
+      "id": "4950",
+      "name": "asdfgh",
+      "brand": "asdfg",
+      "price": 1,
+      "stock": 1,
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/UTN_logo.jpg/270px-UTN_logo.jpg",
+      "description": "asdfasdfghjk",
+      "category": "sdf",
+      "flavor": "Chocolate",
+      "weight": 1
     }
   ],
   "clients": [
@@ -143,6 +167,42 @@
       "id": "d0fb",
       "idClient": "0",
       "idProduct": "3",
+      "quantity": 1
+    },
+    {
+      "id": "a0db",
+      "idClient": "0",
+      "idProduct": "2",
+      "quantity": 1
+    },
+    {
+      "id": "051e",
+      "idClient": "admin",
+      "idProduct": "946a",
+      "quantity": 1
+    },
+    {
+      "id": "5a89",
+      "idClient": "0",
+      "idProduct": "946a",
+      "quantity": 1
+    },
+    {
+      "id": "d756",
+      "idClient": "admin",
+      "idProduct": "1",
+      "quantity": 1
+    },
+    {
+      "id": "e575",
+      "idClient": "17e8",
+      "idProduct": "1",
+      "quantity": 1
+    },
+    {
+      "id": "d6b3",
+      "idClient": "ef5d",
+      "idProduct": "2",
       "quantity": 1
     }
   ],
@@ -358,6 +418,16 @@
       "city": "Mar del Plata",
       "floor": null,
       "apartment": "",
+      "idClient": "0"
+    },
+    {
+      "id": "96d0",
+      "street": "Larrrea",
+      "number": 3215,
+      "postalCode": 7600,
+      "city": "Mar del Plata",
+      "floor": "8",
+      "apartment": "A",
       "idClient": "0"
     }
   ]

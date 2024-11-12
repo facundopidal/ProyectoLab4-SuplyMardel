@@ -20,7 +20,7 @@
         }
     </div>
     <div>
-        <label>Código Postal</label>
+        <label>Código Postal *</label>
         <input type="number" formControlName="postalCode" min="0">
         @if(formulario.controls['postalCode'].getError('required') && formulario.controls['postalCode'].touched) {
             <span class="error">Campo Requerido</span>
@@ -30,7 +30,7 @@
         }
     </div>
     <div>
-        <label>Ciudad de la furia</label>
+        <label>Ciudad *</label>
         <input type="text" formControlName="city">
         @if(formulario.controls['city'].getError('required') && formulario.controls['city'].touched) {
             <span class="error">Campo Requerido</span>
@@ -48,4 +48,5 @@
         <input type="text" formControlName="apartment">
     </div>
     <button type="submit">Agregar</button>
+
 </form>

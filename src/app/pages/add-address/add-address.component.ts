@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 
@@ -12,7 +12,7 @@ import { AuthService } from '../../services/auth/auth.service';
   templateUrl: './add-address.component.html',
   styleUrl: './add-address.component.css'
 })
-export class AddAddressComponent {
+export class AddAddressComponent{
   route  = inject(Router);
   fb = inject(FormBuilder);
   addressesService = inject(AddressesService);
@@ -27,6 +27,7 @@ export class AddAddressComponent {
     floor: [null],
     apartment: ['',],
   })
+
 
   addAddress() {
     if(this.formulario.invalid) return
@@ -43,5 +44,7 @@ export class AddAddressComponent {
       }
     })
   }
+
+  
 
 }

@@ -1,24 +1,35 @@
 <app-nav-bar></app-nav-bar>
 <div class="account-container">
-    <div class="sidebar">
-        <div class="button">Historial de compras</div>
-        <button (click)="logout()" class="logout">Cerrar Sesion</button>
-    </div>
     <div class="content" *ngIf="client">
         <h2>MIS DATOS</h2>
         <div class="divider" ></div>
+        <p>Nombre: {{client.name}}</p>
+        <p>Apellido: {{client.lastname}} </p>
         <p>Email: {{client.email}}</p>
-        <!-- <p>contraseña: {{}}</p> -->
+        <div class="button">Historial de compras</div>
+        <button (click)="logout()" class="logout">Cerrar Sesion</button>
+        <hr>
+        <br>
         @for(address of clientAddresses; track address.id) {
-            <div>
-                <p>Domicilio {{$index + 1}}:</p>
-                <p>Direccion: {{address.street}} {{address.number}} </p>
-                <p>Ciudad: {{address.city}} </p>
-                <p>Piso: {{address.floor}} - Departamento: {{address.apartment}}</p>
+            <div class="address">
+                <div>
+                    <p>Domicilio {{$index + 1}}:</p>
+                    <p>Direccion: {{address.street}} {{address.number}} </p>
+                    <p>Ciudad: {{address.city}} </p>
+                    @if(address.floor){
+                        <p>Piso: {{address.floor}}</p>
+                    }
+                    @if(address.apartment){
+                        <p>Departamento: {{address.apartment}}</p>
+                    }
+                </div>
+                <div>
+                    <button class="trash-btn" (click)="deleteAddress(address.id!)">🗑️</button>
+                </div>
             </div>
             <br>
         }
-        <button routerLink="/add-address" class="button">Agregar domicilio</button>
+        <button routerLink="/add-address" class="button" [disabled]="limitAddresses">Agregar domicilio</button>
         <button class="button">Cambiar contraseña</button>
     </div>
 </div>
