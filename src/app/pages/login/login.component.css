@@ -110,5 +110,7 @@ input[type="password"] {
     text-decoration: underline;
 }
 
-
+.password-recovery {
+    color: #fff !important;
+}
 

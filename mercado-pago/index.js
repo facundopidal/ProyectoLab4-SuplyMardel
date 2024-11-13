@@ -102,30 +102,30 @@ app.get("/merchant-order/:id", async(req,res) => {
 })
 
 
-// Endpoint para recibir notificaciones de Mercado Pago
-app.post("/notifications", (req, res) => {
-  // Mercado Pago enviará información sobre el estado del pago aquí
-  console.log("req: ",req)
-  const paymentInfo = req.body;
+// // Endpoint para recibir notificaciones de Mercado Pago
+// app.post("/notifications", (req, res) => {
+//   // Mercado Pago enviará información sobre el estado del pago aquí
+//   console.log("req: ",req)
+//   const paymentInfo = req.body;
 
-  console.log("Notificación de Mercado Pago:", paymentInfo);
+//   console.log("Notificación de Mercado Pago:", paymentInfo);
 
-  // Dependiendo del estado del pago, puedes tomar diferentes acciones
-  if (paymentInfo.status === "approved") {
-    console.log("Pago aprobado:", paymentInfo);
-    // Aquí puedes actualizar el estado de la compra en tu base de datos, por ejemplo
-  } else if (paymentInfo.status === "pending") {
-    console.log("Pago pendiente:", paymentInfo);
-    // Aquí puedes manejar los pagos pendientes
-  } else if (paymentInfo.status === "rejected") {
-    console.log("Pago rechazado:", paymentInfo);
-    // Aquí puedes manejar los pagos rechazados
-  }
+//   // Dependiendo del estado del pago, puedes tomar diferentes acciones
+//   if (paymentInfo.status === "approved") {
+//     console.log("Pago aprobado:", paymentInfo);
+//     // Aquí puedes actualizar el estado de la compra en tu base de datos, por ejemplo
+//   } else if (paymentInfo.status === "pending") {
+//     console.log("Pago pendiente:", paymentInfo);
+//     // Aquí puedes manejar los pagos pendientes
+//   } else if (paymentInfo.status === "rejected") {
+//     console.log("Pago rechazado:", paymentInfo);
+//     // Aquí puedes manejar los pagos rechazados
+//   }
 
 
-  // Responde a Mercado Pago para confirmar que recibiste la notificación
-  res.status(200).send('ok');
-});
+//   // Responde a Mercado Pago para confirmar que recibiste la notificación
+//   res.status(200).send('ok');
+// });
 
 
 

@@ -23,6 +23,7 @@ import { LogoutGuard } from './services/auth/logout.guard';
 import { NotAdminGuard } from './services/auth/not-admin.guard';
 import { SearchedProductsComponent } from './pages/searched-products/searched-products.component';
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
+import { PasswordRecoveryComponent } from './pages/password-recovery/password-recovery.component';
 
 export const routes: Routes = [
     { path: '',component: HomeComponent },
@@ -30,6 +31,7 @@ export const routes: Routes = [
     { path: 'cart/:id',component: CartComponent, canActivate: [AuthGuard, NotAdminGuard] },
     { path: 'add-address',component: AddAddressComponent, canActivate: [AuthGuard] },
     { path: 'change-password', component: ChangePasswordComponent, canActivate: [AuthGuard] },
+    { path: 'password-recovery', component: PasswordRecoveryComponent, canActivate: [LogoutGuard]},
     { path: 'about-us',component: AboutUsComponent },
     { path: 'contact',component: ContactComponent },
     { path: 'login', component: LoginComponent,canActivate: [LogoutGuard]},

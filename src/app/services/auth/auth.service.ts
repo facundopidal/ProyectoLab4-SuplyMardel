@@ -10,7 +10,7 @@ import { catchError, map } from 'rxjs/operators';
 export class AuthService {
   private apiUrl = 'http://localhost:8000'; // URL de JSON Server
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) { }
 
   login(email: string, password: string): void {
     this.checkAdmin(email, password).subscribe(isAdmin => {
@@ -33,9 +33,9 @@ export class AuthService {
         });
       }
     });
-    
+
   }
-  
+
 
   private checkAdmin(email: string, password: string): Observable<boolean> {
     return this.http.get<{ email: string; password: string }>(`${this.apiUrl}/admin`).pipe(
@@ -50,7 +50,7 @@ export class AuthService {
       catchError(() => of(null))
     );
   }
-  
+
   private setSession(role: string): void {
     localStorage.setItem('role', role);
   }
@@ -82,6 +82,18 @@ export class AuthService {
     this.router.navigate(['/'])
     this.loggedIn.next(false)
     this.admin.next(false)
+  }
+
+  generateRandomPassword(length: number = 8): string {
+    const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+    let password = '';
+
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * characters.length);
+      password += characters[randomIndex];
+    }
+
+    return password;
   }
 }
 

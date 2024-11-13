@@ -21,6 +21,14 @@ export class ClientsService {
         return this.http.get<Client[]>(this.baseUrl)
     }
 
+    getClientByEmail(email: string): Observable<Client> {
+        return this.http.get<Client[]>(`${this.baseUrl}?email=${email}`).pipe(
+            map((clientArray) => {
+                return clientArray[0]
+            })
+        )
+    }
+
     updateClientByID(id: string, client: Client): Observable<Client> {
         return this.http.put<Client>(`${this.baseUrl}/${id}`, client)
     }  
@@ -32,14 +40,14 @@ export class ClientsService {
                 console.log(client)
                 return client ? true : false
             }),
-            catchError( () => of(false))
+            catchError( () => of(true))
         )
     }
 
     clientExists(email: string): Observable<boolean> {
         return this.http.get<Client[]>(`${this.baseUrl}?email=${email}`).pipe(
             map((clients) => {
-                if(clients.length > 0 )
+                if(clients.length > 0)
                     return true
                 return false
             }),
