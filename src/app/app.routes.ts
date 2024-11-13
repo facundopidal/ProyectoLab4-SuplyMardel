@@ -21,12 +21,15 @@ import { AddAddressComponent } from './pages/add-address/add-address.component';
 import { FilteredProductsComponent } from './pages/filtered-products/filtered-products.component';
 import { LogoutGuard } from './services/auth/logout.guard';
 import { NotAdminGuard } from './services/auth/not-admin.guard';
+import { SearchedProductsComponent } from './pages/searched-products/searched-products.component';
+import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 
 export const routes: Routes = [
     { path: '',component: HomeComponent },
     { path: 'cart',component: CartComponent, canActivate: [AuthGuard, NotAdminGuard] },
     { path: 'cart/:id',component: CartComponent, canActivate: [AuthGuard, NotAdminGuard] },
     { path: 'add-address',component: AddAddressComponent, canActivate: [AuthGuard] },
+    { path: 'change-password', component: ChangePasswordComponent, canActivate: [AuthGuard] },
     { path: 'about-us',component: AboutUsComponent },
     { path: 'contact',component: ContactComponent },
     { path: 'login', component: LoginComponent,canActivate: [LogoutGuard]},
@@ -42,6 +45,7 @@ export const routes: Routes = [
     { path: 'successfulpurchase',component: SuccessfulPurchaseComponent }, 
     { path: 'checkout',component: CheckoutComponent, canActivate: [AuthGuard, NotAdminGuard] }, 
     { path: 'filtered-products', component: FilteredProductsComponent },
+    { path: 's', component: SearchedProductsComponent},
     { path: '**', redirectTo: ''}
 ];
 

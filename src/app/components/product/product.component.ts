@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, inject, Input, OnInit, Output } from '@angular/core';
 import { Product } from '../../interfaces/product';
 import { RouterLink } from '@angular/router';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-product',
@@ -13,6 +14,7 @@ import { RouterLink } from '@angular/router';
 })
 export class ProductComponent {
   @Input() product!: Product
+
 
   onClickBuy() {
     // this.buy.emit(this.product.id)

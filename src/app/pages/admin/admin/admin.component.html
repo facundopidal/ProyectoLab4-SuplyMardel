@@ -3,7 +3,7 @@
     <div class="products">
     @for(product of products; track product.id) {
         <app-admin-products 
-        [producto]="product" 
+        [product]="product" 
         (deleteProduct)="openConfirmationModal($event)"/> 
     }
 </div>
