@@ -24,7 +24,7 @@ export class CheckoutComponent {
   subtotal: number = 0;
   total: number = 0;
 
-  clientAddresses?: Address[]
+  clientAddresses: Address[] = []
   addressesLimit: boolean = false
   openAddressForm: boolean = false
   selectedAddress: number = 0
@@ -83,8 +83,11 @@ export class CheckoutComponent {
     this.mpService.goToPay(products).subscribe({
       next: (response) => {
         this.checkoutUrl = response.init_point
+        console.log(response)
       },
-      error: console.error
+      error: (e) => {
+        console.log(e)
+      }
     })
   }
 

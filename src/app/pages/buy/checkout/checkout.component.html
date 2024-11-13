@@ -98,11 +98,11 @@
       </div>
     </div>
     <div class="payment-container">
-      @if(checkoutUrl && (clientAddresses?.length! > 0 && selectedOption !== 2)) {
+      @if(checkoutUrl && (clientAddresses.length! > 0 || selectedOption !== 2)) {
         <a href="{{checkoutUrl}}"><button class="payment-button">Continuar al pago</button></a>
       }
       @else {
-        @if(clientAddresses?.length! === 0 && selectedOption === 2) {
+        @if(clientAddresses.length! === 0 && selectedOption === 2) {
           <button class="payment-button" disabled>Seleccione un domicilio</button>
         } 
         @else {

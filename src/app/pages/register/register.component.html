@@ -23,7 +23,7 @@
     </div>
     <div>              
         <label>Email</label>
-            <input type="email" placeholder="Ingrese su email" formControlName="email">
+            <input type="email" placeholder="Ingrese su email" formControlName="email" maxlength="60">
             @if (registerForm.controls['email'].touched && registerForm.controls['email'].getError('required')) {
                 <span>El campo es requerido</span>
             }

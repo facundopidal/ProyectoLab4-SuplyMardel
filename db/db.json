@@ -65,7 +65,7 @@
       "name": "asdfgh",
       "brand": "asdfg",
       "price": 1,
-      "stock": 0,
+      "stock": 2,
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/UTN_logo.jpg/270px-UTN_logo.jpg",
       "description": "asdfasdfghjk",
       "category": "sdf",
@@ -116,14 +116,21 @@
       "name": "julian",
       "lastname": "teixido",
       "email": "juliteixido12@gmail.com",
-      "password": "juli"
+      "password": "juliancito"
     },
     {
       "id": "6969",
       "name": "Lorenzo",
       "lastname": "Aletto",
       "email": "lorenzoaletto28@gmail.com",
-      "password": "lolitomagnolo"
+      "password": "rafapete"
+    },
+    {
+      "id": "980f",
+      "name": "Admin",
+      "lastname": "Admin",
+      "email": "adminSuplyMardel@gmail.com",
+      "password": "12345678"
     }
   ],
   "sales": [
@@ -174,7 +181,7 @@
       "id": "d0fb",
       "idClient": "0",
       "idProduct": "3",
-      "quantity": 1
+      "quantity": 2
     },
     {
       "id": "e575",
@@ -193,6 +200,18 @@
       "idClient": "ef5d",
       "idProduct": "946a",
       "quantity": 1
+    },
+    {
+      "id": "ed89",
+      "idClient": "6969",
+      "idProduct": "946a",
+      "quantity": 1
+    },
+    {
+      "id": "5b72",
+      "idClient": "6969",
+      "idProduct": "0",
+      "quantity": 2
     }
   ],
   "admin": {
@@ -430,6 +449,16 @@
       "floor": null,
       "apartment": "",
       "idClient": "ef5d"
+    },
+    {
+      "id": "6fbf",
+      "street": "larrea",
+      "number": 111,
+      "postalCode": 111,
+      "city": "asd",
+      "floor": null,
+      "apartment": "",
+      "idClient": "6969"
     }
   ]
 }
