@@ -42,3 +42,7 @@
     transform: scale(1.02); /* Slightly enlarge the card on hover */
     transition: transform 0.2s; /* Smooth transition */
 }
+
+a {
+    text-decoration: none;
+}
