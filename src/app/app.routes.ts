@@ -19,12 +19,15 @@ import { CreateProductComponent } from './pages/admin/create-product/create-prod
 import { EditProductComponent } from './pages/admin/edit-product/edit-product.component';
 import { AddAddressComponent } from './pages/add-address/add-address.component';
 import { FilteredProductsComponent } from './pages/filtered-products/filtered-products.component';
+import { SearchedProductsComponent } from './pages/searched-products/searched-products.component';
+import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 
 export const routes: Routes = [
     { path: '',component: HomeComponent },
     { path: 'cart',component: CartComponent, canActivate: [AuthGuard] },
     { path: 'cart/:id',component: CartComponent, canActivate: [AuthGuard] },
     { path: 'add-address',component: AddAddressComponent, canActivate: [AuthGuard] },
+    { path: 'change-password', component: ChangePasswordComponent, canActivate: [AuthGuard] },
     { path: 'about-us',component: AboutUsComponent },
     { path: 'contact',component: ContactComponent },
     { path: 'login', component: LoginComponent },
@@ -39,7 +42,7 @@ export const routes: Routes = [
     { path: 'admin/edit-product/:id',component: EditProductComponent, canActivate: [AdminGuard] }, 
     { path: 'successfulpurchase',component: SuccessfulPurchaseComponent }, 
     { path: 'checkout',component: CheckoutComponent }, 
-    { path: 'filtered-products', component: FilteredProductsComponent },
+    { path: 's', component: SearchedProductsComponent},
     { path: '**', redirectTo: ''}
 ];
 

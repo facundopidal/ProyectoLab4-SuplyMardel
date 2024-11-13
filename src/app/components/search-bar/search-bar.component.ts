@@ -1,18 +1,30 @@
 import { CommonModule } from '@angular/common';
-import { Component, inject, OnInit } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-// import { FilterPipe } from '../search-filter/search-filter.component';
-import { Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
-import { RouterLink } from '@angular/router';
+import { Component, inject } from '@angular/core';
+import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { Router, RouterLink } from '@angular/router';
 
 @Component({
     standalone: true,
-    imports: [RouterLink],
+    imports: [ReactiveFormsModule,CommonModule,FormsModule],
     selector: 'app-search-bar',
     templateUrl: './search-bar.component.html',
     styleUrl: './search-bar.component.css'
 })
 export class SearchBarComponent{
+    //searchQuery: string = '';
 
-   }
+    constructor(private router: Router) {}
+    fb= inject(FormBuilder)
+    searchForm = this.fb.group({
+        searchQuery: ['', Validators.required]
+    })
+  
+    onSearch() {
+        if(this.searchForm.invalid) return
+        const query = this.searchForm.get('searchQuery')?.value
+        console.log(" hola");
+        
+        this.router.navigate(['/s'], { queryParams: { query: query } });
+      }
+    }
+  

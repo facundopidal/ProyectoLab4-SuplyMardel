@@ -21,6 +21,10 @@ export class ClientsService {
         return this.http.get<Client[]>(this.baseUrl)
     }
 
+    updateClientByID(id: string, client: Client): Observable<Client> {
+        return this.http.put<Client>(`${this.baseUrl}/${id}`, client)
+    }  
+
     registerClient(client : { name: string, lastname: string, email: string, password: string }): Observable<boolean> {
         
         return this.http.post<Client>(this.baseUrl, client).pipe(

@@ -65,7 +65,7 @@
       "name": "asdfgh",
       "brand": "asdfg",
       "price": 1,
-      "stock": 1,
+      "stock": 0,
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/UTN_logo.jpg/270px-UTN_logo.jpg",
       "description": "asdfasdfghjk",
       "category": "sdf",
@@ -188,12 +188,6 @@
       "quantity": 1
     },
     {
-      "id": "d756",
-      "idClient": "admin",
-      "idProduct": "1",
-      "quantity": 1
-    },
-    {
       "id": "e575",
       "idClient": "17e8",
       "idProduct": "1",
@@ -203,6 +197,12 @@
       "id": "d6b3",
       "idClient": "ef5d",
       "idProduct": "2",
+      "quantity": 1
+    },
+    {
+      "id": "c4ca",
+      "idClient": "admin",
+      "idProduct": "1",
       "quantity": 1
     }
   ],
@@ -401,34 +401,5 @@
       "topic": "merchant_order"
     }
   ],
-  "addresses": [
-    {
-      "id": "7f81",
-      "street": "Rio Negro ",
-      "number": 5242,
-      "postalCode": 7600,
-      "city": "Mar del Plata",
-      "idClient": "0"
-    },
-    {
-      "id": "0f01",
-      "street": "Calle del rulo",
-      "number": 69,
-      "postalCode": 7600,
-      "city": "Mar del Plata",
-      "floor": null,
-      "apartment": "",
-      "idClient": "0"
-    },
-    {
-      "id": "96d0",
-      "street": "Larrrea",
-      "number": 3215,
-      "postalCode": 7600,
-      "city": "Mar del Plata",
-      "floor": "8",
-      "apartment": "A",
-      "idClient": "0"
-    }
-  ]
+  "addresses": []
 }

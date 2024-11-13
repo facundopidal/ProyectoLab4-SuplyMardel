@@ -1,0 +1,14 @@
+<section class="products">
+    @for(product of filteredProducts; track product.id) {
+        @if(!isAdmin){
+            <app-product [product]="product"/>
+        }
+        @else {
+            <app-admin-products [product]="product"/>
+        }
+    }
+</section>
+    @if(filteredProducts.length==0){
+        <h2>No se encontró ningún producto</h2>
+        <a href="">Volver al inicio</a>
+    }

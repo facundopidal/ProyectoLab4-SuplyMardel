@@ -11,11 +11,11 @@ import { RouterLink } from '@angular/router';
   styleUrl: './products.component.css'
 })
 export class ProductsAdminComponent {
-  @Input() producto!: Product;
+  @Input() product!: Product;
   @Output() deleteProduct = new EventEmitter<string>();
 
 
   onDelete() {
-    this.deleteProduct.emit(this.producto.id);
+    this.deleteProduct.emit(this.product.id);
   }
 }
