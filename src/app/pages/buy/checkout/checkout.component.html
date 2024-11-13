@@ -98,16 +98,13 @@
       </div>
     </div>
     <div class="payment-container">
-      @if(checkoutUrl && (clientAddresses.length! > 0 || selectedOption !== 2)) {
-        <a href="{{checkoutUrl}}"><button class="payment-button">Continuar al pago</button></a>
+      @if(clientAddresses.length! > 0 || selectedOption !== 2) {
+        <button (click)="onClickPay()" class="payment-button">Continuar al pago</button>
       }
       @else {
         @if(clientAddresses.length! === 0 && selectedOption === 2) {
           <button class="payment-button" disabled>Seleccione un domicilio</button>
         } 
-        @else {
-          <button class="payment-button" disabled>No disponible</button>
-        }
       }
       <div class="payment-info">
         <p class="payment-text">Pagos seguros mediante</p>

@@ -72,18 +72,23 @@ export class CheckoutComponent {
         }));
         this.calculateTotals();
         console.log(this.detailedProducts)
-        this.redirectMercadoPago(this.detailedProducts)
       },
       error: err => console.error('Error fetching product details:', err)
     });
   }
 
+  onClickPay() {
+    this.redirectMercadoPago(this.detailedProducts)
+  }
+
   redirectMercadoPago(products: Product[]) {
     console.log(products)
-    this.mpService.goToPay(products).subscribe({
+    const addressParam = this.selectedOption === 1 ? null : this.clientAddresses[this.selectedAddress].id!
+    this.mpService.goToPay(products, this.shippingCost, addressParam).subscribe({
       next: (response) => {
         this.checkoutUrl = response.init_point
         console.log(response)
+        window.location.href = this.checkoutUrl
       },
       error: (e) => {
         console.log(e)

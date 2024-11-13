@@ -7,6 +7,12 @@
   width: 300px; /* Ajusta el tamaño como necesites */
 }
 
+.search-bar form{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
 .search-bar input {
   border: none;
   outline: none;

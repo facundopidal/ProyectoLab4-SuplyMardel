@@ -4,13 +4,14 @@ import { Router } from '@angular/router';
 import { Product } from '../../../interfaces/product';
 import { ApiProductsService } from '../../../services/ecommerce/api-products.service';
 import { MenuComponent } from '../menu/menu.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-create-product',
   standalone: true,
   imports: [
     ReactiveFormsModule,
-    MenuComponent
+    MenuComponent,CommonModule
   ],
   templateUrl: './create-product.component.html',
   styleUrl: './create-product.component.css'
@@ -33,6 +34,12 @@ export class CreateProductComponent {
     flavor: ['',],
     weight: [0,[Validators.required, Validators.min(0)]],
   })
+
+  categories = [
+    {id: 1, nombre: 'Proteinas'}, 
+    {id: 2, nombre: 'Creatinas'},
+    {id: 3, nombre: 'Aminoácidos'}, 
+    {id: 4, nombre: 'Preentreno'}] 
 
   updateUrl() {
     this.urlImage = this.formulario.get('image')?.value

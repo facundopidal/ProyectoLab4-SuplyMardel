@@ -20,9 +20,9 @@ app.use(cors());
 app.post("/create_preference", async (req, res) => {
   console.log("Datos recibidos en req", req.body);
   const mpItems = []
-  
-  for (let i = 0; i < req.body.length; i++) {
-    const { name, quantity, price, description } = req.body[i];
+
+  for (let i = 0; i < req.body.products.length; i++) {
+    const { name, quantity, price, description } = req.body.products[i];
     mpItems.push({
       title: name,
       quantity: quantity,
@@ -34,7 +34,15 @@ app.post("/create_preference", async (req, res) => {
       return res.status(400).json({ error: 'Faltan datos: nombre, cantidad o precio.' });
     }
   }
-
+  const shipping = {
+    cost: req.body.shippingPrice,
+    mode: req.body.idAddress ? "Andreani" : "Retiro",
+    receiver_address: {
+      zip_code: req.body.idAddress, //id Address
+      street_name: "Calle",
+      street_number: 123,
+    }
+  }
   // Crea una instancia de Preference con el cliente configurado
   const preference = new Preference(client);
 
@@ -44,19 +52,12 @@ app.post("/create_preference", async (req, res) => {
       body: {
         items: mpItems,
         back_urls: {
-          success: "http://localhost:4200/successful-purchase",  // URL cuando el pago es exitoso
+          success: "http://localhost:4200/successfulpurchase",  // URL cuando el pago es exitoso
           failure: "http://localhost:4200/failure",  // URL cuando el pago falla
           pending: "http://localhost:4200/pending",   // URL cuando el pago está pendiente
         },
-        payer: {
-          first_name: "Juan",
-          last_name: "Perez",
-          email: "test_user_12345@testuser.com",
-          identification: {
-              type: "ID",
-              number: 1
-          }
-      },
+        shipments: shipping,
+        binary_mode: true,
         auto_return: "approved",
         notification_url: "https://lcvt5tbh-8000.brs.devtunnels.ms/notifications", // URL para recibir notificaciones de Mercado Pago
       }
@@ -85,17 +86,17 @@ app.post("/create_preference", async (req, res) => {
 });
 
 
-app.get("/merchant-order/:id", async(req,res) => {
+app.get("/merchant-order/:id", async (req, res) => {
   console.log(req.params.id)
   const order = new MerchantOrder(client)
   console.log(order)
-  
+
   try {
-    order.get({ merchantOrderId: req.params.id}).then(response => {
+    order.get({ merchantOrderId: req.params.id }).then(response => {
       console.log(response)
       res.json(response)
     })
-    
+
   } catch (error) {
     console.log(error)
   }

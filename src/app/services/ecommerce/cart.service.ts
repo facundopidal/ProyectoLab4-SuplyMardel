@@ -1,6 +1,6 @@
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { Injectable } from "@angular/core";
-import { Observable } from "rxjs";
+import { catchError, forkJoin, map, Observable, switchMap } from "rxjs";
 
 @Injectable({
     providedIn: 'root'
@@ -24,5 +24,19 @@ export class CartService {
 
     deleteProductCart(id: string): Observable<{id: string, idClient: string, idProduct: string, quantity: number}>{
         return this.http.delete<{id: string, idClient: string, idProduct: string, quantity: number}>(`${this.baseUrl}/${id}`)
+    }
+
+    deleteCartByIdClient(idClient: string): Observable<void> {
+        return this.getCartProducts(idClient).pipe(
+            switchMap((cart) => {
+                const deleteObservables = cart.map(product => this.deleteProductCart(product.id));
+                return forkJoin(deleteObservables);  // Espera a que todas las eliminaciones terminen
+            }),
+            map(() => {}),  // Mapear a un Observable<void> para que no devuelva datos innecesarios
+            catchError((error) => {
+                console.error("Error al eliminar los productos del carrito:", error);
+                throw error;  // Propagar el error para manejo posterior
+            })
+        );
     }
 }

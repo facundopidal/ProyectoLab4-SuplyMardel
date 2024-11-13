@@ -1,3 +1,80 @@
 <div class="img-container">
-    <img src="RafaPepino.jpg" alt="RafaPepino"> 
-</div>
+    <body>
+        <div class="container">
+            <div class="header">
+                <h1>Compra Exitosa</h1>
+            </div>
+            <div class="info">
+                <label>ID de compra:</label>
+                <span>123456789</span>
+            </div>
+            <div class="info">
+                <label>ID del cliente:</label>
+                <span>987654321</span>
+            </div>
+            <div class="info">
+                <label>Fecha de compra:</label>
+                <span>2024-11-13</span>
+            </div>
+            <div class="info">
+                <label>Monto:</label>
+                <span>$500</span>
+            </div>
+            <div class="info">
+                <label>Estado de envío:</label>
+                <span>En tránsito</span>
+            </div>
+            <div class="info">
+                <label>Método de envío:</label>
+                <span>Correo exprés</span>
+            </div>
+            <div class="info">
+                <label>Dirección de envío:</label>
+                <span>Calle Falsa 123, Ciudad Ejemplo</span>
+            </div>
+            <div class="info">
+                <label>Estado de pago:</label>
+                <div class="status approved">Aprobado</div>
+            </div>
+            <div class="info">
+                <label>ID de la orden del comerciante:</label>
+                <span>MO123456</span>
+            </div>
+            <div class="info">
+                <label>Cancelado:</label>
+                <span>No</span>
+            </div>
+        </div>
+
+        <div class="order-summary-container">
+            @for(product of detailedProducts; track product.id) {
+        
+            <div class="product-card">
+              <img [src]="product.image" alt="{{ product.name }}" class="product-image" />
+              <div class="product-details">
+                <span>{{ product.name }}</span>
+                <span>{{ product.description }}</span>
+                <span>x {{ product.quantity }}</span>
+              </div>
+              <div class="product-price">
+                $ {{ product.price }}
+              </div>
+            </div>
+            }
+        
+            <div class="summary">
+              <div class="subtotal">
+                <span>Subtotal</span>
+                <span>$ {{ subtotal }}</span>
+              </div>
+              <div class="shipping-cost">
+                <span>Costo de envío</span>
+                <span>$ {{ shippingCost }}</span>
+              </div>
+              <div class="total">
+                <span>Total</span>
+                <span class="total-amount">$ {{ total }}</span>
+              </div>
+            </div>
+          </div>
+
