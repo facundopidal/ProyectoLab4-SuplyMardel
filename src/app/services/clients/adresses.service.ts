@@ -28,4 +28,8 @@ export class AddressesService {
     return this.http.patch<Address>(`${this.baseUrl}/${idAddress}`, editParams)
   }
 
+  getAddressById(idAddress: string): Observable<Address> {
+    return this.http.get<Address>(`${this.baseUrl}/${idAddress}`)
+  }
+
 }

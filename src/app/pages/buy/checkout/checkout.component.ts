@@ -1,14 +1,18 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { Product } from '../../../interfaces/product';
 import { ApiProductsService } from '../../../services/ecommerce/api-products.service';
 import { forkJoin } from 'rxjs';
 import { MercadoPagoService } from '../../../services/external/mercado-pago.service';
+import { Address } from '../../../interfaces/address';
+import { AddressesService } from '../../../services/clients/adresses.service';
+import { AuthService } from '../../../services/auth/auth.service';
+import { AddressFormComponent } from '../../../components/address-form/address-form.component';
 
 @Component({
   selector: 'app-checkout',
   standalone: true,
-  imports: [],
+  imports: [AddressFormComponent],
   templateUrl: './checkout.component.html',
   styleUrl: './checkout.component.css'
 })
@@ -16,16 +20,26 @@ export class CheckoutComponent {
   productsToBuy: { idProduct: string, quantity: number }[] = [];
   detailedProducts: any[] = [];
   selectedOption: number = 1;
+  shippingCost: number = 0;
+  subtotal: number = 0;
+  total: number = 0;
 
+  clientAddresses?: Address[]
+  addressesLimit: boolean = false
+  openAddressForm: boolean = false
+  selectedAddress: number = 0
+
+  checkoutUrl?: string
   
   constructor(
     private route: ActivatedRoute,
     private productsService: ApiProductsService,
-    private mpService: MercadoPagoService
+    private mpService: MercadoPagoService,
+    private addressesService: AddressesService,
+    private authService: AuthService
   ) {}
 
   ngOnInit(): void {
-    this.calculateTotals();
     this.route.queryParams.subscribe(params => {
       if (params['products']) {
         try {
@@ -36,6 +50,14 @@ export class CheckoutComponent {
         }
       }
     });
+    const idClient = this.authService.getUserId()
+    this.addressesService.getAddressesByClient(idClient!).subscribe({
+      next: (addresses) => {
+        this.clientAddresses = addresses
+      },
+      error: console.error
+    })
+
   }
 
   fetchProductDetails(): void {
@@ -48,6 +70,7 @@ export class CheckoutComponent {
           ...product,
           quantity: this.productsToBuy[index].quantity
         }));
+        this.calculateTotals();
         console.log(this.detailedProducts)
         this.redirectMercadoPago(this.detailedProducts)
       },
@@ -59,16 +82,11 @@ export class CheckoutComponent {
     console.log(products)
     this.mpService.goToPay(products).subscribe({
       next: (response) => {
-        console.log(response)
+        this.checkoutUrl = response.init_point
       },
       error: console.error
     })
   }
-
-  shippingCost: number = 1000;
-  subtotal: number = 0;
-  total: number = 0;
-
 
   calculateTotals(): void {
     this.subtotal = this.detailedProducts.reduce((acc: number, product: any) => acc + product.price * product.quantity, 0);
@@ -77,5 +95,25 @@ export class CheckoutComponent {
 
   selectOption(option: number): void {
     this.selectedOption = option;
+    if(option === 1) this.shippingCost = 0 //Sucursal
+    if(option === 2) this.shippingCost = 1000 //Andreani
+    this.calculateTotals()
+  }
+
+  onClickAddAddress(){
+    if(this.clientAddresses?.length === 3) {
+      this.addressesLimit = true
+      return
+    }
+    this.openAddressForm = true
+  }
+
+  selectAddress(addressNumber: number) {
+    this.selectedAddress = addressNumber;
+  }
+
+  addAddress(newAddress: Address) {
+    this.openAddressForm = false
+    this.clientAddresses?.push(newAddress)
   }
 }

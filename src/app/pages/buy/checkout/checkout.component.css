@@ -1,7 +1,12 @@
+section {
+  display: grid;
+  grid-template-columns: 2fr 1fr 0.1fr;
+}
+
 .delivery-options-container {
+    padding-top: 30px;
     width: 66%;
     margin: 0 auto;
-    font-family: Arial, sans-serif;
   }
   
   h2 {
@@ -30,6 +35,7 @@
   
   .details {
     flex-grow: 1;
+    font-family: "Noto Sans JP";
   }
   
   .details span {
@@ -47,9 +53,25 @@
     white-space: nowrap;
   }
   
+/* products */
+
+  @media (width < 800px ) {
+    section {
+      grid-template-columns: 1fr;
+    }
+    .order-summary-container {
+      display: none;
+    }
+    .delivery-options-container {
+      width: 80%;
+    }
+  }
+
   .order-summary-container {
-    width: 100%;
+    border: 1px solid #002b5c;
     font-family: Arial, sans-serif;
+    padding: 10px;
+    margin-top: 30px;
   }
   
   .product-card {
@@ -94,25 +116,101 @@
     font-size: 18px;
     font-weight: bold;
   }
-  
-  .coupon {
-    margin-top: 10px;
+
+  /* Addresses */
+
+  .address-card {
     display: flex;
-    align-items: center;
+    border: 1px solid #d1d1d1;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    margin: 12px auto;
+    background-color: #f9f9f9;
+    max-width: 400px;
+    transition: transform 0.2s;
   }
   
-  .coupon input {
-    flex-grow: 1;
-    padding: 5px;
-    border: 1px solid #ddd;
-    border-radius: 4px 0 0 4px;
+  .address-card:hover {
+    transform: scale(1.02);
+  }
+
+  .address-content {
+    display: flex;
+    gap: 20px;
   }
   
-  .coupon button {
-    padding: 5px 10px;
-    border: 1px solid #ddd;
-    background-color: #f5f5f5;
-    border-radius: 0 4px 4px 0;
+  .address-header p {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-bottom: 8px;
+  }
+  
+  .address-body p {
+    margin: 4px 0;
+  }
+
+  .selected-address {
+    border: 1px solid #3688d4;
+  }
+    
+  .add-btn {
+    display: flex;
+    justify-content: center;
+  }
+  .add-btn button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 5px 15px;
+    border: 2px solid #002b5c;
+    border-radius: 8px;
+    font-size: 14px;
+    background-color: transparent;
+    text-decoration: none;
+    color: #002b5c;
     cursor: pointer;
   }
+
+  .payment-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: none;
+    margin: auto;
+    margin-top: 15px;
+    border-radius: 15px;
+    padding: 15px;
+    width: 300px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4);
+  }
+  
+  .payment-button {
+    border: none;
+    border-radius: 15px;
+    padding: 10px 20px;
+    margin-top: 10px;
+    font-size: 18px;
+    background-color: #3688d4;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .payment-info {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+  }
+  
+  .payment-text {
+    margin: 0;
+    font-size: 14px;
+    color: gray;
+  }
+  
+  .payment-logo {
+    width: 40px; /* Ajusta el tamaño según lo necesario */
+    margin-left: 5px;
+  }
+  
   

@@ -50,6 +50,7 @@ export class AccountComponent implements OnInit{
   deleteAddress(idAddress: string) {
     this.addressService.deleteAddressByID(idAddress).subscribe({
       next: () => {
+        this.clientAddresses = this.clientAddresses?.filter((address => address.id !== idAddress))
         this.limitAddresses = false
       },
       error: console.error

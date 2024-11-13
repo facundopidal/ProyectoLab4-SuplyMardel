@@ -1,57 +1,120 @@
-<div>
-    <h3>Selecciona si deseas retirar o que te lo enviemos</h3>
+<section>
+
+  <div>
     <div class="delivery-options-container">
-        <h2>ENTREGA</h2>
-        
-        <div class="option" (click)="selectOption(1)" [class.selected]="selectedOption === 1">
-          <input type="radio" name="delivery" [checked]="selectedOption === 1" />
-          <div class="details">
-            <span>Retiro en sucursal</span>
-            <p class="arrival">Remedios de Escalada 875. De 9:00 a 17:00</p>
-          </div>
-          <div class="price">Gratis!</div>
+      <h2>ENTREGA</h2>
+
+      <div class="option" (click)="selectOption(1)" [class.selected]="selectedOption === 1">
+        <input type="radio" name="delivery" [checked]="selectedOption === 1" />
+        <div class="details">
+          <span>Retiro en sucursal</span>
+          <p class="arrival">Remedios de Escalada 875. De 9:00 a 17:00</p>
         </div>
-      
-        <div class="option" (click)="selectOption(2)" [class.selected]="selectedOption === 2">
-          <input type="radio" name="delivery" [checked]="selectedOption === 2" />
-          <div class="details">
-            <span>Andreani Estandar “Envío a domicilio”</span>
-            <p class="arrival">De 2 a 4 dias hábiles</p>
+        <div class="price">Gratis!</div>
+      </div>
+
+      <div class="option" (click)="selectOption(2)" [class.selected]="selectedOption === 2">
+        <input type="radio" name="delivery" [checked]="selectedOption === 2" />
+        <div class="details">
+          <span>Andreani Estandar “Envío a domicilio”</span>
+          <p class="arrival">De 2 a 4 dias hábiles</p>
+        </div>
+        <div class="price">$1000</div>
+      </div>
+      @if(selectedOption === 2) { <!-- Andreani-->
+      <div>
+        @for(address of clientAddresses; track address.id) {
+
+        <div class="address">
+          <div class="address-card" (click)="selectAddress($index)"
+            [class.selected-address]="selectedAddress === $index">
+            <input type="radio" name="delivery" [checked]="selectedAddress === $index" />
+            <div class="address-content">
+
+              <div class="address-header">
+                <p>Domicilio {{$index + 1}}:</p>
+              </div>
+              <div class="address-body">
+                <p>Direccion: {{address.street}} {{address.number}}</p>
+                <p>Ciudad: {{address.city}}</p>
+                @if(address.floor){
+                <p>Piso: {{address.floor}}</p>
+                }
+                @if(address.apartment){
+                <p>Departamento: {{address.apartment}}</p>
+                }
+              </div>
+            </div>
           </div>
-          <div class="price">VALOR APROX CONSEGUIDO CON LA API</div>
+
+        </div>
+        }
+        <div class="add-btn">
+          <button (click)="onClickAddAddress()">Agregar Domicilio</button>
+        </div>
+        @if(addressesLimit) {
+        <span class="error">Limite de direcciones</span>
+        }
+        @if(openAddressForm) {
+          <app-address-form (onAdd)="addAddress($event)" />
+        }
+
+      </div>
+      }
+    </div>
+
+  </div>
+  <div>
+
+    <div class="order-summary-container">
+      @for(product of detailedProducts; track product.id) {
+  
+      <div class="product-card">
+        <img [src]="product.image" alt="{{ product.name }}" class="product-image" />
+        <div class="product-details">
+          <span>{{ product.name }}</span>
+          <span>{{ product.description }}</span>
+          <span>x {{ product.quantity }}</span>
+        </div>
+        <div class="product-price">
+          $ {{ product.price }}
         </div>
       </div>
-</div>
-<div class="order-summary-container">
-  @for(product of detailedProducts; track product.id) {
-    
-    <div class="product-card">
-      <img [src]="product.image" alt="{{ product.name }}" class="product-image" />
-      <div class="product-details">
-        <span>{{ product.name }}</span>
-        <span>{{ product.description }}</span>
-        <span>x {{ product.quantity }}</span>
-      </div>
-      <div class="product-price">
-        $ {{ product.price }}
+      }
+  
+      <div class="summary">
+        <div class="subtotal">
+          <span>Subtotal</span>
+          <span>$ {{ subtotal }}</span>
+        </div>
+        <div class="shipping-cost">
+          <span>Costo de envío</span>
+          <span>$ {{ shippingCost }}</span>
+        </div>
+        <div class="total">
+          <span>Total</span>
+          <span class="total-amount">$ {{ total }}</span>
+        </div>
       </div>
     </div>
-  }
-  
-    <div class="summary">
-      <div class="subtotal">
-        <span>Subtotal</span>
-        <span>$ {{ subtotal }}</span>
-      </div>
-      <div class="shipping-cost">
-        <span>Costo de envío</span>
-        <span>$ {{ shippingCost }}</span>
-      </div>
-      <div class="total">
-        <span>Total</span>
-        <span class="total-amount">$ {{ total }}</span>
+    <div class="payment-container">
+      @if(checkoutUrl && (clientAddresses?.length! > 0 && selectedOption !== 2)) {
+        <a href="{{checkoutUrl}}"><button class="payment-button">Continuar al pago</button></a>
+      }
+      @else {
+        @if(clientAddresses?.length! === 0 && selectedOption === 2) {
+          <button class="payment-button" disabled>Seleccione un domicilio</button>
+        } 
+        @else {
+          <button class="payment-button" disabled>No disponible</button>
+        }
+      }
+      <div class="payment-info">
+        <p class="payment-text">Pagos seguros mediante</p>
+        <img class="payment-logo" src="logoMP.png" alt="Logo de método de pago">
       </div>
     </div>
-  
   </div>
   
+
+</section>
