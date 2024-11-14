@@ -13,7 +13,7 @@ export class SalesService {
   constructor(private cartService: CartService, private http: HttpClient) { }
   private baseUrl = ""
   
-    createSale(idClient: string, date: Date, paymentStatus: "approved" | "rejected", shipmentMethod: string, totalAmount: number, shippingAdress?: string): Observable<Sale>{
+    createSale(idClient: string, date: string, paymentStatus: "approved" | "rejected", shipmentMethod: string, totalAmount: number, shippingAdress?: string): Observable<Sale>{
       let productsXSale;
       let shipmentStatus: string;
       this.cartService.getCartProducts(idClient).subscribe({

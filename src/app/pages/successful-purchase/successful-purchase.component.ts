@@ -6,6 +6,9 @@ import { Client } from '../../interfaces/client';
 import { AuthService } from '../../services/auth/auth.service';
 import { ClientsService } from '../../services/clients/clients.service';
 import { MercadoPagoService } from '../../services/external/mercado-pago.service';
+import { Product } from '../../interfaces/product';
+import { Address } from '../../interfaces/address';
+import { AddressesService } from '../../services/clients/adresses.service';
 @Component({
   selector: 'app-successful-purchase',
   standalone: true,
@@ -15,25 +18,22 @@ import { MercadoPagoService } from '../../services/external/mercado-pago.service
 })
 export class SuccessfulPurchaseComponent implements OnInit {
   // Definir las propiedades para los parámetros de la URL
-  collectionId!: string;
-  collectionStatus!: string;
-  paymentId!: string;
   status!: string;
-  externalReference!: string;
-  paymentType!: string;
   merchantOrderId!: string;
   preferenceId!: string;
-  siteId!: string;
-  processingMode!: string;
-  merchantAccountId!: string;
+
 
   client?: Client
-  detailedProducts: any;
-  subtotal: any;
-  shippingCost: any;
-  total: any;
+  products: Product[] = [];
+  subtotal?: any;
+  shippingCost?: any;
+  total?: any;
+  shipmentMethod?: string;
+  shipmentStatus?: string;
+  formattedDate?: string;
+  shippingAddress?: Address
 
-  constructor(private route: ActivatedRoute, private salesServ: SalesService, 
+  constructor(private route: ActivatedRoute, private salesServ: SalesService, private addressServ: AddressesService,
     private authServ: AuthService, private clientServ: ClientsService, private mpServ: MercadoPagoService) { }
 
   ngOnInit(): void {
@@ -51,7 +51,6 @@ export class SuccessfulPurchaseComponent implements OnInit {
       this.merchantOrderId = params['merchant_order_id'];
       this.preferenceId = params['preference_id'];
 
-      // Ahora puedes utilizar estos valores para las operaciones necesarias
       this.handlePurchase();
       this.ejectCucumbers()
     });
@@ -61,8 +60,23 @@ export class SuccessfulPurchaseComponent implements OnInit {
     this.mpServ.getOrderData(parseInt(this.merchantOrderId)).subscribe({
       next: (res) => {
         console.log(res)
-        const formattedDate = this.formatDate(res.last_updated);
-        //this.salesServ.createSale(this.client.id!, )
+        this.formattedDate = this.formatDate(res.last_updated);
+        const addressId = localStorage.getItem("addressId") || "6042"
+        if(addressId) {
+          this.addressServ.getAddressById(addressId).subscribe({
+            next: (address) => {
+              this.shippingAddress = address
+              this.shipmentMethod = "Andreani"
+              this.shipmentStatus = "En camino"
+            }
+          })
+        }
+        this.subtotal = res.total_amount
+        this.shippingCost = res.shipping_cost
+        this.total = this.subtotal + this.shippingCost
+
+
+        //this.salesServ.createSale(this.client!.id, formattedDate, "approved", addressId ? "Andreani" : "Retiro en sucursal", res.total_amount + res.shipping_cost, addressId || undefined)
       }
     })
     

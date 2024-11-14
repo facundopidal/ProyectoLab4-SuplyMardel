@@ -1,7 +1,7 @@
 export interface Sale {
     id:string;
     id_client:string;
-    date: Date;
+    date: string;
     amount:number;
     shipmentStatus: string;
     shipmentMethod: string;

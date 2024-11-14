@@ -14,24 +14,22 @@
             </div>
             <div class="info">
                 <label>Fecha de compra:</label>
-                <span>2024-11-13</span>
+                <span>{{formattedDate}}</span>
             </div>
-            <div class="info">
-                <label>Monto:</label>
-                <span>$500</span>
-            </div>
-            <div class="info">
-                <label>Estado de envío:</label>
-                <span>En tránsito</span>
-            </div>
-            <div class="info">
-                <label>Método de envío:</label>
-                <span>Correo exprés</span>
-            </div>
-            <div class="info">
+            @if(shipmentMethod) {
+              <div class="info">
+                  <label>Estado de envío:</label>
+                  <span>{{shipmentStatus}}</span>
+              </div>
+              <div class="info">
+                  <label>Método de envío:</label>
+                  <span>{{shipmentMethod}}</span>
+              </div>
+                <div class="info">
                 <label>Dirección de envío:</label>
-                <span>Calle Falsa 123, Ciudad Ejemplo</span>
-            </div>
+                <span>{{shippingAddress?.street}} {{shippingAddress?.number}}</span>
+              </div>
+              }
             <div class="info">
                 <label>Estado de pago:</label>
                 <div class="status approved">Aprobado</div>
@@ -47,14 +45,14 @@
         </div>
 
         <div class="order-summary-container">
-            @for(product of detailedProducts; track product.id) {
+            @for(product of products; track product.id) {
         
             <div class="product-card">
               <img [src]="product.image" alt="{{ product.name }}" class="product-image" />
               <div class="product-details">
                 <span>{{ product.name }}</span>
                 <span>{{ product.description }}</span>
-                <span>x {{ product.quantity }}</span>
+                <span>x </span>
               </div>
               <div class="product-price">
                 $ {{ product.price }}

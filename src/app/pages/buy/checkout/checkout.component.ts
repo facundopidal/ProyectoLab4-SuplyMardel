@@ -79,6 +79,7 @@ export class CheckoutComponent {
 
   onClickPay() {
     this.redirectMercadoPago(this.detailedProducts)
+    localStorage.setItem("addressId", this.clientAddresses[this.selectedAddress].id || '')
   }
 
   redirectMercadoPago(products: Product[]) {
