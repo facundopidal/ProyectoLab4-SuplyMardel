@@ -42,7 +42,7 @@ export class ClientDetailsComponent implements OnInit {
   }
 
   fillSalesArray(): void {
-    this.salesService.getSalesByClientID(this.client.id).subscribe({
+    this.salesService.getSalesByClientId(this.client.id).subscribe({
       next: (sales: Sale[]) => {
         this.clientSales = sales;
         console.log('clientSales:', this.clientSales);

@@ -1,1 +1,13 @@
-<p>sale works!</p>
+<div class="card">
+    <a [routerLink]="['/sales', sale.id]">
+    </a>
+    <div class="card-body">
+        <a routerLink="/product/{{sale.id}}" class="texts-a">
+            <div class="texts">
+                <h5 class="card-title">{{ sale.name }}</h5>
+                <p class="card-price"> ${{ sale.amount }}</p>
+            </div>
+        </a>
+        <div class="buttons">
+    </div>
+</div>

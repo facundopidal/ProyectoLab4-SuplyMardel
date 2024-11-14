@@ -13,4 +13,5 @@ import { Sale } from '../../interfaces/sale';
 export class PurchasesComponent {
 
   sales: Sale[] = []
+  
 }

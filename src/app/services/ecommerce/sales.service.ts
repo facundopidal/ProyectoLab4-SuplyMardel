@@ -84,4 +84,6 @@ export class SalesService {
     return this.http.get<salesxProducts[]>(`${this.baserUrlSxP}/${idSale}`)
   }
 
+
+  
 }
