@@ -147,6 +147,18 @@
       "id_merchant_order": 6666
     },
     {
+      "id": "2",
+      "id_client": "0",
+      "date": "26/10/2024",
+      "amount": 10000,
+      "shipmentStatus": "Enviado",
+      "shipmentMethod": "Andreani",
+      "shippingAdress": "Av. Dorrego 281",
+      "paymentStatus": "approved",
+      "isCancelled": false,
+      "id_merchant_order": 7777
+    },
+    {
       "id": "1",
       "id_client": "1",
       "date": "25/10/2024",

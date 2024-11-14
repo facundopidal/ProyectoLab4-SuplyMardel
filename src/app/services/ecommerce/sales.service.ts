@@ -45,11 +45,7 @@ export class SalesService {
 
 
   getSalesByClientID(idClient: string): Observable<Sale[]> {
-    return this.http.get<Sale[]>(`${this.baseUrl}/${idClient}`).pipe(
-      map((salesArray) => {
-        return salesArray
-      })
-    )
+    return this.http.get<Sale[]>(`${this.baseUrl}/${idClient}`)
   }
 
   getProductsBySalesID(idSale: string): Observable<salesxProducts[]> {

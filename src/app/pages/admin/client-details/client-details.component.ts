@@ -17,10 +17,9 @@ import { ApiProductsService } from '../../../services/ecommerce/api-products.ser
   styleUrl: './client-details.component.css'
 })
 export class ClientDetailsComponent implements OnInit {
-  client!: Client
+  client!: Client;
   clientSales: Sale[] = [];
   saleProductsMap: { [saleId: string]: Product[] } = {};
-
 
   constructor(
     private route: ActivatedRoute,
@@ -29,39 +28,35 @@ export class ClientDetailsComponent implements OnInit {
     private productService: ApiProductsService
   ) {}
 
-
-
   ngOnInit(): void {
-    const id: any = this.route.snapshot.paramMap.get('id');
-    if(id){
-
+    const id = this.route.snapshot.paramMap.get('id');
+    if (id) {
       this.clientService.getClientById(id).subscribe({
         next: (client) => {
           this.client = client;
-          this.fillSalesArray()
+          this.fillSalesArray();
         },
         error: console.error
       });
     }
   }
 
-  fillSalesArray(): void{
-     this.salesService.getSalesByClientID(this.client.id).subscribe({
+  fillSalesArray(): void {
+    this.salesService.getSalesByClientID(this.client.id).subscribe({
       next: (sales: Sale[]) => {
         this.clientSales = sales;
         console.log('clientSales:', this.clientSales);
-        this.fillProductsxSalesArray()
-
+        this.fillProductsxSalesArray();
       },
       error: console.error
-     })
+    });
   }
 
   fillProductsxSalesArray(): void {
     const productsObservables = this.clientSales.map((sale) =>
       this.salesService.getProductsBySalesID(sale.id).pipe(
-        // Convertimos cada relación salesxProduct en un arreglo de productos
-        switchMap((saleProducts) => {
+        // Aseguramos que saleProducts tenga el tipo correcto
+        switchMap((saleProducts: { idProduct: string }[]) => {
           const productRequests = saleProducts.map((sp) =>
             this.productService.getProductById(sp.idProduct)
           );
@@ -71,9 +66,9 @@ export class ClientDetailsComponent implements OnInit {
     );
 
     forkJoin(productsObservables).subscribe({
-      next: (results) => {
+      next: (results: Product[][]) => {
         results.forEach((products, index) => {
-          const saleId: string = this.clientSales[index].id;
+          const saleId = this.clientSales[index].id;
           this.saleProductsMap[saleId] = products;
         });
         console.log('saleProductsMap:', this.saleProductsMap);
@@ -81,7 +76,4 @@ export class ClientDetailsComponent implements OnInit {
       error: console.error
     });
   }
-
 }
-
-
