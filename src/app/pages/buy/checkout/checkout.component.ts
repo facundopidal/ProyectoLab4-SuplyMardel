@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute, RouterLink } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Product } from '../../../interfaces/product';
 import { ApiProductsService } from '../../../services/ecommerce/api-products.service';
 import { forkJoin } from 'rxjs';
@@ -30,13 +30,15 @@ export class CheckoutComponent {
   selectedAddress: number = 0
 
   checkoutUrl?: string
+  checkoutIsClicked: boolean = false
   
   constructor(
     private route: ActivatedRoute,
     private productsService: ApiProductsService,
     private mpService: MercadoPagoService,
     private addressesService: AddressesService,
-    private authService: AuthService
+    private authService: AuthService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -78,8 +80,13 @@ export class CheckoutComponent {
   }
 
   onClickPay() {
+    this.checkoutIsClicked = true
+    if(this.selectedOption === 2 ) 
+      localStorage.setItem("addressId", this.clientAddresses[this.selectedAddress].id!)
+    else 
+      localStorage.removeItem("addressId")
+    
     this.redirectMercadoPago(this.detailedProducts)
-    localStorage.setItem("addressId", this.clientAddresses[this.selectedAddress].id || '')
   }
 
   redirectMercadoPago(products: Product[]) {
@@ -92,6 +99,8 @@ export class CheckoutComponent {
         window.location.href = this.checkoutUrl
       },
       error: (e) => {
+        alert("Ocurrio un error")
+        this.router.navigate(['/'])
         console.log(e)
       }
     })

@@ -39,6 +39,7 @@ export const routes: Routes = [
     { path: 'login', component: LoginComponent,canActivate: [LogoutGuard]},
     { path: 'my-account', component: AccountComponent, canActivate: [AuthGuard]},
     { path: 'product/:id', component: ProductDetailsComponent },
+    { path: ':type/:param', component: FilteredProductsComponent},
     { path: 'register', component: RegisterComponent, canActivate: [LogoutGuard]},
     { path: 'admin',component: AdminComponent, canActivate: [AdminGuard] },
     { path: 'change-password-admin',component: ChangePasswordAdminComponent, canActivate: [AdminGuard] },

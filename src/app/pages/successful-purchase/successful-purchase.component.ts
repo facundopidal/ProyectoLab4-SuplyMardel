@@ -9,6 +9,7 @@ import { MercadoPagoService } from '../../services/external/mercado-pago.service
 import { Product } from '../../interfaces/product';
 import { Address } from '../../interfaces/address';
 import { AddressesService } from '../../services/clients/adresses.service';
+import { Sale } from '../../interfaces/sale';
 @Component({
   selector: 'app-successful-purchase',
   standalone: true,
@@ -51,9 +52,21 @@ export class SuccessfulPurchaseComponent implements OnInit {
       this.merchantOrderId = params['merchant_order_id'];
       this.preferenceId = params['preference_id'];
 
-      this.handlePurchase();
+      this.handlePurchaseHardcode(); //LLAMO ESTO PARA NO EXPLOTAR LA API DE MP
       this.ejectCucumbers()
     });
+  }
+
+  handlePurchaseHardcode () {
+    console.log(this.merchantOrderId)
+    let addressId = "6042"
+    this.formattedDate = Date()
+    this.salesServ.createSale(this.authServ.getUserId()!, this.formattedDate, "approved", addressId ? "Andreani" : "Retiro en sucursal", 1 + 1000, this.merchantOrderId , addressId || undefined).subscribe({
+      next: (sale: Sale) => {
+        console.log(sale)
+      }
+    })
+    
   }
 
   handlePurchase(): void {
@@ -61,7 +74,7 @@ export class SuccessfulPurchaseComponent implements OnInit {
       next: (res) => {
         console.log(res)
         this.formattedDate = this.formatDate(res.last_updated);
-        const addressId = localStorage.getItem("addressId") || "6042"
+        const addressId = localStorage.getItem("addressId")
         if(addressId) {
           this.addressServ.getAddressById(addressId).subscribe({
             next: (address) => {
@@ -75,14 +88,9 @@ export class SuccessfulPurchaseComponent implements OnInit {
         this.shippingCost = res.shipping_cost
         this.total = this.subtotal + this.shippingCost
 
-
-        //this.salesServ.createSale(this.client!.id, formattedDate, "approved", addressId ? "Andreani" : "Retiro en sucursal", res.total_amount + res.shipping_cost, addressId || undefined)
+        //this.salesServ.createSale(this.client!.id, this.formattedDate, "approved", addressId ? "Andreani" : "Retiro en sucursal", res.total_amount + res.shipping_cost, addressId || undefined)
       }
     })
-    
-    
-
-    // Aquí puedes implementar la lógica para borrar el carrito, actualizar el stock, crear la venta, etc.
   }
   formatDate(dateString: string) {
     const date = new Date(dateString);

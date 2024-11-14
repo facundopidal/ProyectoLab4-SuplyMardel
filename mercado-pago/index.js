@@ -9,7 +9,7 @@ const PORT = 3003;
 
 // Configura el cliente de MercadoPago con el Access Token
 const client = new MercadoPagoConfig({
-  accessToken: 'APP_USR-4202869293381708-110815-773c915b5e1b2f20d2d7c180c8456f98-2086871000', // Reemplaza con tu token real
+  accessToken: 'APP_USR-5342132355704244-111414-d8c5b1ceebb14200456220a1448f2ac7-2094553819', // Reemplaza con tu token real
 });
 
 app.use(express.json());
@@ -56,6 +56,10 @@ app.post("/create_preference", async (req, res) => {
           failure: "http://localhost:4200/failure",  // URL cuando el pago falla
           pending: "http://localhost:4200/pending",   // URL cuando el pago está pendiente
         },
+        payer: {
+          name: "Juan Perez",
+          email: "test123@gmail.com"
+        },
         shipments: shipping,
         binary_mode: true,
         auto_return: "approved",
@@ -86,21 +90,42 @@ app.post("/create_preference", async (req, res) => {
 });
 
 
+// app.get("/merchant-order/:id", async (req, res) => {
+//   console.log(req.params.id)
+//   const order = new MerchantOrder(client)
+//   console.log(order)
+
+//   try {
+//     order.get({ merchantOrderId: req.params.id }).then(response => {
+//       console.log(response)
+//       res.json(response)
+//     })
+
+//   } catch (error) {
+//     console.log(error)
+//   }
+// })
+
 app.get("/merchant-order/:id", async (req, res) => {
-  console.log(req.params.id)
-  const order = new MerchantOrder(client)
-  console.log(order)
+  console.log("ID de Merchant Order:", req.params.id);
+
+  const order = new MerchantOrder(client);
 
   try {
-    order.get({ merchantOrderId: req.params.id }).then(response => {
-      console.log(response)
-      res.json(response)
-    })
+    // Uso de async-await con manejo de errores adecuado
+    const response = await order.get({ merchantOrderId: req.params.id });
 
+    console.log("Respuesta de Merchant Order:", response);
+    res.json(response.body); // Envía la respuesta de la orden al cliente
   } catch (error) {
-    console.log(error)
+    console.error("Error al obtener la orden del merchant:", error);
+    res.status(500).json({
+      error: "No se pudo obtener la orden del merchant",
+      details: error.message
+    });
   }
-})
+});
+
 
 
 // // Endpoint para recibir notificaciones de Mercado Pago

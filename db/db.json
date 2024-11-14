@@ -4,7 +4,7 @@
       "id": "0",
       "name": "Proteina Super mega pura",
       "brand": "ENA",
-      "category": "Proteina",
+      "category": "Proteinas",
       "price": 23580,
       "stock": 33,
       "image": "https://http2.mlstatic.com/D_NQ_NP_2X_935480-MLA50231366542_062022-F.webp",
@@ -16,7 +16,7 @@
       "id": "1",
       "name": "Creatina Monohidratada Ultra Pure",
       "brand": "Optimum Nutrition",
-      "category": "Creatina",
+      "category": "Creatinas",
       "price": 17990,
       "stock": 20,
       "image": "https://content.optimumnutrition.com/i/on/on-creatine-micronized_Image_01?$TTL_PRODUCT_IMAGES$&locale=en-us,en-gb,*&w=509&sm=aspect&aspect=1:1&fmt=webp",
@@ -27,7 +27,7 @@
     {
       "id": "2",
       "name": "BCAA 2:1:1 Recovery",
-      "brand": "MuscleTech",
+      "brand": "ENA",
       "category": "Aminoácidos",
       "price": 12500,
       "stock": 45,
@@ -39,8 +39,8 @@
     {
       "id": "3",
       "name": "Creatina Monohidratada Pura",
-      "brand": "StarNutrition",
-      "category": "Creatina",
+      "brand": "Star Nutrition",
+      "category": "Creatinas",
       "price": 25500,
       "stock": 15,
       "image": "https://www.heavenimagenes.com/heavencommerce/68ac9d04-8767-4aca-9951-49f2fea1383b/images/v2/STAR%20NUTRITION/28931_xlarge.jpg",
@@ -155,6 +155,66 @@
       "shippingAdress": "Calle Lavalle 432",
       "paymentStatus": "Pagado",
       "isCancelled": false
+    },
+    {
+      "id": "edbb",
+      "id_client": "0",
+      "date": "Thu Nov 14 2024 15:47:32 GMT-0300 (hora estándar de Argentina)",
+      "amount": 1001,
+      "shipmentStatus": "En camino",
+      "shipmentMethod": "Andreani",
+      "shippingAdress": "6042",
+      "paymentStatus": "approved",
+      "isCancelled": false,
+      "id_merchant_order": "24975533862"
+    },
+    {
+      "id": "1ed0",
+      "id_client": "0",
+      "date": "Thu Nov 14 2024 15:51:05 GMT-0300 (hora estándar de Argentina)",
+      "amount": 1001,
+      "shipmentStatus": "En camino",
+      "shipmentMethod": "Andreani",
+      "shippingAdress": "6042",
+      "paymentStatus": "approved",
+      "isCancelled": false,
+      "id_merchant_order": "24975533862"
+    },
+    {
+      "id": "9d57",
+      "id_client": "0",
+      "date": "Thu Nov 14 2024 15:52:50 GMT-0300 (hora estándar de Argentina)",
+      "amount": 1001,
+      "shipmentStatus": "En camino",
+      "shipmentMethod": "Andreani",
+      "shippingAdress": "6042",
+      "paymentStatus": "approved",
+      "isCancelled": false,
+      "id_merchant_order": "24975533862"
+    },
+    {
+      "id": "348c",
+      "id_client": "0",
+      "date": "Thu Nov 14 2024 15:56:38 GMT-0300 (hora estándar de Argentina)",
+      "amount": 1001,
+      "shipmentStatus": "En camino",
+      "shipmentMethod": "Andreani",
+      "shippingAdress": "6042",
+      "paymentStatus": "approved",
+      "isCancelled": false,
+      "id_merchant_order": "24975533862"
+    },
+    {
+      "id": "95ab",
+      "id_client": "0",
+      "date": "Thu Nov 14 2024 15:56:44 GMT-0300 (hora estándar de Argentina)",
+      "amount": 1001,
+      "shipmentStatus": "En camino",
+      "shipmentMethod": "Andreani",
+      "shippingAdress": "6042",
+      "paymentStatus": "approved",
+      "isCancelled": false,
+      "id_merchant_order": "24975533862"
     }
   ],
   "salesxProducts": [
@@ -204,474 +264,16 @@
       "idClient": "6969",
       "idProduct": "0",
       "quantity": 2
-    },
-    {
-      "id": "c4cf",
-      "idClient": "0",
-      "idProduct": "4950",
-      "quantity": 2
     }
   ],
   "admin": {
     "email": "adminSuplyMardel@gmail.com",
-    "password": "adminmomo"
+    "password": "contraseñasupersegura"
   },
   "notifications": [
     {
-      "id": "6b5c",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24845558893",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "117017704322",
-      "action": "payment.created",
-      "api_version": "v1",
-      "data": {
-        "id": "92980322944"
-      },
-      "date_created": "2024-11-10T16:31:11Z",
-      "live_mode": true,
-      "type": "payment",
-      "user_id": "2086871000"
-    },
-    {
-      "id": "52b3",
-      "resource": "92980322944",
-      "topic": "payment"
-    },
-    {
-      "id": "5c7d",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24845558893",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "c70c",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24860271620",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "f9ff",
-      "resource": "92656597245",
-      "topic": "payment"
-    },
-    {
-      "id": "117017685570",
-      "action": "payment.created",
-      "api_version": "v1",
-      "data": {
-        "id": "92656597245"
-      },
-      "date_created": "2024-11-10T16:33:28Z",
-      "live_mode": true,
-      "type": "payment",
-      "user_id": "2086871000"
-    },
-    {
-      "id": "f01f",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24860271620",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "116984644989",
-      "action": "payment.created",
-      "api_version": "v1",
-      "data": {
-        "id": "92728681313"
-      },
-      "date_created": "2024-11-11T14:06:50Z",
-      "live_mode": true,
-      "type": "payment",
-      "user_id": "2086871000"
-    },
-    {
-      "id": "3721",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24872223241",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "3f4d",
-      "resource": "92728973547",
-      "topic": "payment"
-    },
-    {
-      "id": "117036762194",
-      "action": "payment.created",
-      "api_version": "v1",
-      "data": {
-        "id": "92728973547"
-      },
-      "date_created": "2024-11-11T14:09:05Z",
-      "live_mode": true,
-      "type": "payment",
-      "user_id": "2086871000"
-    },
-    {
-      "id": "1044",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24872223241",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "6758",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24872328517",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "8470",
-      "resource": "93053524984",
-      "topic": "payment"
-    },
-    {
-      "id": "116986318237",
-      "action": "payment.created",
-      "api_version": "v1",
-      "data": {
-        "id": "93053524984"
-      },
-      "date_created": "2024-11-11T14:11:58Z",
-      "live_mode": true,
-      "type": "payment",
-      "user_id": "2086871000"
-    },
-    {
-      "id": "38c5",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24872328517",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "a05f",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24872873565",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "4f00",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24872873565",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "117037024382",
-      "action": "payment.created",
-      "api_version": "v1",
-      "data": {
-        "id": "92730843163"
-      },
-      "date_created": "2024-11-11T14:24:38Z",
-      "live_mode": true,
-      "type": "payment",
-      "user_id": "2086871000"
-    },
-    {
-      "id": "edbc",
-      "resource": "92730843163",
-      "topic": "payment"
-    },
-    {
-      "id": "9a1b",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24872873565",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "f932",
-      "resource": "92728681313",
-      "topic": "payment"
-    },
-    {
-      "id": "0493",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24872137619",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "3192",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24888132332",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "116986762357",
-      "action": "payment.created",
-      "api_version": "v1",
-      "data": {
-        "id": "92732497855"
-      },
-      "date_created": "2024-11-11T14:38:45Z",
-      "live_mode": true,
-      "type": "payment",
-      "user_id": "2086871000"
-    },
-    {
-      "id": "b1d3",
-      "resource": "92732497855",
-      "topic": "payment"
-    },
-    {
-      "id": "bf6e",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24888132332",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "7fc3",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24957156475",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "117035242447",
-      "action": "payment.created",
-      "api_version": "v1",
-      "data": {
-        "id": "92952510465"
-      },
-      "date_created": "2024-11-13T18:00:05Z",
-      "live_mode": true,
-      "type": "payment",
-      "user_id": "2086871000"
-    },
-    {
-      "id": "4f93",
-      "resource": "92952510465",
-      "topic": "payment"
-    },
-    {
-      "id": "e754",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24957156475",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "58ca",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24957156475",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "da18",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24975533862",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "361e",
-      "resource": "93286788376",
-      "topic": "payment"
-    },
-    {
-      "id": "117088116836",
-      "action": "payment.created",
-      "api_version": "v1",
-      "data": {
-        "id": "93286788376"
-      },
-      "date_created": "2024-11-13T19:50:15Z",
-      "live_mode": true,
-      "type": "payment",
-      "user_id": "2086871000"
-    },
-    {
-      "id": "157d",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24975533862",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "15a6",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24960832317",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "e961",
-      "resource": "92961378493",
-      "topic": "payment"
-    },
-    {
-      "id": "117088121634",
-      "action": "payment.created",
-      "api_version": "v1",
-      "data": {
-        "id": "92961378493"
-      },
-      "date_created": "2024-11-13T19:52:34Z",
-      "live_mode": true,
-      "type": "payment",
-      "user_id": "2086871000"
-    },
-    {
-      "id": "1833",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24960832317",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "c986",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24976307176",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "469d",
-      "resource": "93288503262",
-      "topic": "payment"
-    },
-    {
-      "id": "117088540526",
-      "action": "payment.created",
-      "api_version": "v1",
-      "data": {
-        "id": "93288503262"
-      },
-      "date_created": "2024-11-13T20:10:39Z",
-      "live_mode": true,
-      "type": "payment",
-      "user_id": "2086871000"
-    },
-    {
-      "id": "642b",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24976307176",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "5594",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24981593028",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "117091294406",
-      "action": "payment.created",
-      "api_version": "v1",
-      "data": {
-        "id": "93300975552"
-      },
-      "date_created": "2024-11-13T22:13:41Z",
-      "live_mode": true,
-      "type": "payment",
-      "user_id": "2086871000"
-    },
-    {
-      "id": "9d27",
-      "resource": "93300975552",
-      "topic": "payment"
-    },
-    {
-      "id": "8a17",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24981593028",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "bc8c",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24981994158",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "117091447148",
-      "action": "payment.created",
-      "api_version": "v1",
-      "data": {
-        "id": "93301941512"
-      },
-      "date_created": "2024-11-13T22:22:52Z",
-      "live_mode": true,
-      "type": "payment",
-      "user_id": "2086871000"
-    },
-    {
-      "id": "0fe8",
-      "resource": "93301941512",
-      "topic": "payment"
-    },
-    {
-      "id": "b817",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24981994158",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "d572",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24967505807",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "117091654704",
-      "action": "payment.created",
-      "api_version": "v1",
-      "data": {
-        "id": "93302658110"
-      },
-      "date_created": "2024-11-13T22:29:23Z",
-      "live_mode": true,
-      "type": "payment",
-      "user_id": "2086871000"
-    },
-    {
-      "id": "d526",
-      "resource": "93302658110",
-      "topic": "payment"
-    },
-    {
-      "id": "15b3",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24967505807",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "5ef5",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24967693895",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "117091794162",
-      "action": "payment.created",
-      "api_version": "v1",
-      "data": {
-        "id": "93303038766"
-      },
-      "date_created": "2024-11-13T22:33:44Z",
-      "live_mode": true,
-      "type": "payment",
-      "user_id": "2086871000"
-    },
-    {
-      "id": "0678",
-      "resource": "93303038766",
-      "topic": "payment"
-    },
-    {
-      "id": "b9b5",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24967693895",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "d603",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24967841377",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "980c",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24984674606",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "3376",
-      "resource": "92982440253",
-      "topic": "payment"
-    },
-    {
-      "id": "117092911330",
-      "action": "payment.created",
-      "api_version": "v1",
-      "data": {
-        "id": "92982440253"
-      },
-      "date_created": "2024-11-13T23:22:58Z",
-      "live_mode": true,
-      "type": "payment",
-      "user_id": "2086871000"
-    },
-    {
-      "id": "0663",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24984674606",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "132f",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24970092251",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "5ecc",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24988443476",
-      "topic": "merchant_order"
-    },
-    {
-      "id": "da15",
-      "resource": "https://api.mercadolibre.com/merchant_orders/24973703943",
+      "id": "7fdf",
+      "resource": "https://api.mercadolibre.com/merchant_orders/25011260994",
       "topic": "merchant_order"
     }
   ],
@@ -705,16 +307,6 @@
       "floor": null,
       "apartment": "",
       "idClient": "0"
-    },
-    {
-      "id": "2ffd",
-      "street": "chubut",
-      "number": 67,
-      "postalCode": 7600,
-      "city": "mardel",
-      "floor": null,
-      "apartment": "",
-      "idClient": "ef5d"
     },
     {
       "id": "6fbf",

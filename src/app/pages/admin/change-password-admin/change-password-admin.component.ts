@@ -32,8 +32,6 @@ export class ChangePasswordAdminComponent implements OnInit {
       next: (admin) => {
         this.admin = admin
         this.passwordCurrently = admin.password
-        console.log(admin);
-        
       }
     });
 

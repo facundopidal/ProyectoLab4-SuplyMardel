@@ -1,1 +1,11 @@
-<p>filtered-products works!</p>
+<app-nav-bar ></app-nav-bar>
+<div>
+    @for(product of products; track product.id) {
+        @if(isAdmin) {
+            <app-admin-products [product]="product"></app-admin-products>
+        }
+        @else {
+            <app-product [product]="product" />
+        }
+    }
+</div>

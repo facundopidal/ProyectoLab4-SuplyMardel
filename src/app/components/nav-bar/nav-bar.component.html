@@ -4,7 +4,7 @@
         <div class="dropdown-categories">
             <ul>
                 @for(category of categories; track $index) {
-                <li><a href="" class="category-anchor">{{category.nombre}}</a></li>
+                <li><a [routerLink]="['/categories' , category.name]" class="category-anchor">{{category.name}}</a></li>
                 }
             </ul>
         </div>
@@ -14,7 +14,7 @@
         <div class="dropdown-brands">
             <ul>
                 @for(brand of brands; track $index) {
-                    <li><a href="" class="brand-anchor">{{brand.nombre}}</a></li>
+                    <li><a [routerLink]="['/brands',brand.name]" class="brand-anchor">{{brand.name}}</a></li>
                 }
             </ul>
         </div>

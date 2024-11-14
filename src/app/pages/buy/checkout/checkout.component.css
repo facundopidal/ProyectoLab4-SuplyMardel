@@ -60,7 +60,8 @@ section {
       grid-template-columns: 1fr;
     }
     .order-summary-container {
-      display: none;
+      width: 50%;
+      margin: auto;
     }
     .delivery-options-container {
       width: 80%;

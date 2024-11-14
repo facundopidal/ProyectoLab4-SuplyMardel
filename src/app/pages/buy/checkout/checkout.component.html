@@ -99,7 +99,12 @@
     </div>
     <div class="payment-container">
       @if(clientAddresses.length! > 0 || selectedOption !== 2) {
-        <button (click)="onClickPay()" class="payment-button">Continuar al pago</button>
+        @if(!checkoutIsClicked) {
+          <button (click)="onClickPay()" class="payment-button">Continuar al pago</button>
+        }
+        @else {
+          <span>Procesando pago</span>
+        }
       }
       @else {
         @if(clientAddresses.length! === 0 && selectedOption === 2) {

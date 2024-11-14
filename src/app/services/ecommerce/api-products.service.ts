@@ -24,6 +24,10 @@ export class ApiProductsService {
     return this.http.get<Product[]>(`${this.urlBase}?brand=${brand}`)
   }
 
+  getProductsByCategory(category: String): Observable<Product[]> {
+    return this.http.get<Product[]>(`${this.urlBase}?category=${category}`)
+  }
+
   addProduct(product: Product): Observable<Product>{
     return this.http.post<Product>(this.urlBase, product)
   }
