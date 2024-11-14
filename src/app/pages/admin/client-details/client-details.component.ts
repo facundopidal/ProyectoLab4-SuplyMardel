@@ -2,23 +2,86 @@ import { Component, OnInit } from '@angular/core';
 import { Client } from '../../../interfaces/client';
 import { ClientsService } from '../../../services/clients/clients.service';
 import { ActivatedRoute } from '@angular/router';
+import { Sale } from '../../../interfaces/sale';
+import { Product } from '../../../interfaces/product';
+import { SalesService } from '../../../services/ecommerce/sales.service';
+import { forkJoin, switchMap } from 'rxjs';
+import { CommonModule } from '@angular/common';
+import { ApiProductsService } from '../../../services/ecommerce/api-products.service';
+
 @Component({
   selector: 'app-client-details',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './client-details.component.html',
   styleUrl: './client-details.component.css'
 })
 export class ClientDetailsComponent implements OnInit {
   client!: Client
-  constructor(private route: ActivatedRoute, private clientService: ClientsService) {}
+  clientSales: Sale[] = [];
+  saleProductsMap: { [saleId: string]: Product[] } = {};
+
+
+  constructor(
+    private route: ActivatedRoute,
+    private clientService: ClientsService, 
+    private salesService: SalesService, 
+    private productService: ApiProductsService
+  ) {}
+
+
+
   ngOnInit(): void {
-    const id: any = this.route.snapshot.paramMap.get('id')
-    this.clientService.getClientById(id).subscribe({
-      next: (client) => {
-        this.client = client;
+    const id: any = this.route.snapshot.paramMap.get('id');
+    if(id){
+
+      this.clientService.getClientById(id).subscribe({
+        next: (client) => {
+          this.client = client;
+          this.fillSalesArray()
+        },
+        error: console.error
+      });
+    }
+  }
+
+  fillSalesArray(): void{
+     this.salesService.getSalesByClientID(this.client.id).subscribe({
+      next: (sales: Sale[]) => {
+        this.clientSales = sales;
+        console.log('clientSales:', this.clientSales);
+        this.fillProductsxSalesArray()
+
       },
       error: console.error
-    })
+     })
   }
+
+  fillProductsxSalesArray(): void {
+    const productsObservables = this.clientSales.map((sale) =>
+      this.salesService.getProductsBySalesID(sale.id).pipe(
+        // Convertimos cada relación salesxProduct en un arreglo de productos
+        switchMap((saleProducts) => {
+          const productRequests = saleProducts.map((sp) =>
+            this.productService.getProductById(sp.idProduct)
+          );
+          return forkJoin(productRequests);
+        })
+      )
+    );
+
+    forkJoin(productsObservables).subscribe({
+      next: (results) => {
+        results.forEach((products, index) => {
+          const saleId: string = this.clientSales[index].id;
+          this.saleProductsMap[saleId] = products;
+        });
+        console.log('saleProductsMap:', this.saleProductsMap);
+      },
+      error: console.error
+    });
+  }
+
 }
+
+
