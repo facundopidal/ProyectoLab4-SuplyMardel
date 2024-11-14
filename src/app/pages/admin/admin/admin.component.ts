@@ -3,6 +3,7 @@ import { MenuComponent } from '../menu/menu.component';
 import { ProductsAdminComponent } from '../products/products.component';
 import { Product } from '../../../interfaces/product.js';
 import { ApiProductsService } from '../../../services/ecommerce/api-products.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-admin',

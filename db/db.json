@@ -234,17 +234,20 @@
     {
       "id": "0",
       "idSale": "0",
-      "idProduct": "0"
+      "idProduct": "0",
+      "quantity": 1
     },
     {
       "id": "1",
       "idSale": "0",
-      "idProduct": "1"
+      "idProduct": "1",
+      "quantity": 1
     },
     {
       "id": "2",
       "idSale": "1",
-      "idProduct": "2"
+      "idProduct": "2",
+      "quantity": 1
     }
   ],
   "cartxproduct": [
@@ -277,6 +280,18 @@
       "idClient": "6969",
       "idProduct": "0",
       "quantity": 2
+    },
+    {
+      "id": "22ef",
+      "idClient": "0",
+      "idProduct": "1",
+      "quantity": 1
+    },
+    {
+      "id": "07bf",
+      "idClient": "0",
+      "idProduct": "3",
+      "quantity": 1
     }
   ],
   "admin": {

@@ -1,13 +1,16 @@
-<div class="card">
-    <a [routerLink]="['/sales', sale.id]">
-    </a>
-    <div class="card-body">
-        <a routerLink="/product/{{sale.id}}" class="texts-a">
-            <div class="texts">
-                <h5 class="card-title">{{ sale.name }}</h5>
-                <p class="card-price"> ${{ sale.amount }}</p>
+<div class="SA">
+    <input type="text" placeholder="Buscar emails..." name="search" [(ngModel)]="filterClients">
+    <div *ngFor="let client of clients | filterClients: filterClients">
+        <a routerLink="/admin/client-details/{{client.id}}">
+            <div class="card">
+                <div class="card-body">
+                    <p class="card-id"><strong>ID: </strong>{{ client.id }}</p>
+                    <p class="card-name"><strong>Nombre: </strong>{{ client.name }}</p>
+                    <p class="card-lastname"><strong>Apellido:</strong> {{ client.lastname }}</p>
+                    <p class="card-address"><strong>Domicilio:</strong> {{ client.address }}</p>
+                    <p class="card-email"><strong>Email:</strong> {{ client.email }}</p>
+                </div>
             </div>
         </a>
-        <div class="buttons">
     </div>
 </div>

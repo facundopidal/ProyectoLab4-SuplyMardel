@@ -26,6 +26,7 @@ import { ChangePasswordComponent } from './pages/change-password/change-password
 import { PasswordRecoveryComponent } from './pages/password-recovery/password-recovery.component';
 import { ClientDetailsComponent } from './pages/admin/client-details/client-details.component';
 import { ChangePasswordAdminComponent } from './pages/admin/change-password-admin/change-password-admin.component';
+import { PurchasesComponent } from './pages/purchases/purchases.component';
 
 export const routes: Routes = [
     { path: '',component: HomeComponent },
@@ -41,14 +42,14 @@ export const routes: Routes = [
     { path: 'product/:id', component: ProductDetailsComponent },
     { path: ':type/:param', component: FilteredProductsComponent},
     { path: 'register', component: RegisterComponent, canActivate: [LogoutGuard]},
-    { path: 'admin',component: AdminComponent, canActivate: [AdminGuard] },
     { path: 'change-password-admin',component: ChangePasswordAdminComponent, canActivate: [AdminGuard] },
-    { path: 'admin/clients',component: ClientsComponent, canActivate: [AdminGuard]},
-    { path: 'admin/client-details/:id', component: ClientDetailsComponent, canActivate: [AdminGuard] },
-    { path: 'admin/products',component: ProductsAdminComponent, canActivate: [AdminGuard] },
-    { path: 'admin/sales',component: SalesComponent, canActivate: [AdminGuard] }, 
-    { path: 'admin/create-product',component: CreateProductComponent, canActivate: [AdminGuard] }, 
-    { path: 'admin/edit-product/:id',component: EditProductComponent, canActivate: [AdminGuard] }, 
+    { path: 'clients',component: ClientsComponent, canActivate: [AdminGuard]},
+    { path: 'client-details/:id', component: ClientDetailsComponent, canActivate: [AdminGuard] },
+    { path: 'products',component: ProductsAdminComponent, canActivate: [AdminGuard] },
+    { path: 'sales',component: SalesComponent, canActivate: [AdminGuard] }, 
+    { path: 'create-product',component: CreateProductComponent, canActivate: [AdminGuard]}, 
+    { path: 'admin/edit-product/:id',component: EditProductComponent, canActivate: [AdminGuard]}, 
+    { path: 'admin',component: AdminComponent, canActivate: [AdminGuard]},
     { path: 'successfulpurchase',component: SuccessfulPurchaseComponent }, 
     { path: 'checkout',component: CheckoutComponent, canActivate: [AuthGuard, NotAdminGuard] }, 
     { path: 'filtered-products', component: FilteredProductsComponent },

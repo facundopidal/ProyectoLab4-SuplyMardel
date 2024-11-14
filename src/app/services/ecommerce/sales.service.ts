@@ -75,6 +75,10 @@ export class SalesService {
     );
   }
 
+  getSales() {
+    return this.http.get<Sale[]>(this.baseUrl)
+  }
+
 
   getSalesByClientId(idClient: string) {
     return this.http.get<Sale[]>(`${this.baseUrl}/${idClient}`)

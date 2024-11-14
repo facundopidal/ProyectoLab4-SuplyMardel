@@ -1,6 +1,6 @@
 import { Component, Inject, inject } from '@angular/core';
 import { AuthService } from '../../../services/auth/auth.service';
-import { RouterLink } from '@angular/router';
+import { RouterLink, RouterModule, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
