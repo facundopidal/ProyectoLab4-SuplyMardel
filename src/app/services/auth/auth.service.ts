@@ -36,6 +36,13 @@ export class AuthService {
 
   }
 
+  getAdmin(){
+    return this.http.get<{email:string,password:string}>(`${this.apiUrl}/admin`)
+  }
+
+  updateAdmin(password: string){
+    return this.http.put<{email:string,password:string}>(`${this.apiUrl}/admin`,{email: "adminSuplyMardel@gmail.com",password: password})
+  }
 
   private checkAdmin(email: string, password: string): Observable<boolean> {
     return this.http.get<{ email: string; password: string }>(`${this.apiUrl}/admin`).pipe(

@@ -25,6 +25,7 @@ import { SearchedProductsComponent } from './pages/searched-products/searched-pr
 import { ChangePasswordComponent } from './pages/change-password/change-password.component';
 import { PasswordRecoveryComponent } from './pages/password-recovery/password-recovery.component';
 import { ClientDetailsComponent } from './pages/admin/client-details/client-details.component';
+import { ChangePasswordAdminComponent } from './pages/admin/change-password-admin/change-password-admin.component';
 
 export const routes: Routes = [
     { path: '',component: HomeComponent },
@@ -40,6 +41,7 @@ export const routes: Routes = [
     { path: 'product/:id', component: ProductDetailsComponent },
     { path: 'register', component: RegisterComponent, canActivate: [LogoutGuard]},
     { path: 'admin',component: AdminComponent, canActivate: [AdminGuard] },
+    { path: 'change-password-admin',component: ChangePasswordAdminComponent, canActivate: [AdminGuard] },
     { path: 'admin/clients',component: ClientsComponent, canActivate: [AdminGuard] },
     { path: 'admin/client-details/:id', component: ClientDetailsComponent, canActivate: [AdminGuard] },
     { path: 'admin/products',component: ProductsAdminComponent, canActivate: [AdminGuard] },
