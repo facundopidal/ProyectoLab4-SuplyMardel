@@ -3,6 +3,8 @@ import { Sale } from '../../interfaces/sale';
 import { CartService } from './cart.service';
 import { HttpClient } from '@angular/common/http';
 import { catchError, Observable, of, switchMap } from 'rxjs';
+import { salesxProducts } from '../../interfaces/salesxProducts';
+
 
 @Injectable({
   providedIn: 'root'
@@ -12,6 +14,8 @@ export class SalesService {
 
   constructor(private cartService: CartService, private http: HttpClient) { }
   private baseUrl = "http://localhost:8000/sales"
+  private baserUrlSxP = "http://localhost:8000/salesxProducts"
+
 
   createSale(
     idClient: string,
@@ -76,7 +80,8 @@ export class SalesService {
     return this.http.get<Sale[]>(`${this.baseUrl}/${idClient}`)
   }
 
-
-
+  getProductsBySalesID(idSale: string): Observable<salesxProducts[]> {
+    return this.http.get<salesxProducts[]>(`${this.baserUrlSxP}/${idSale}`)
+  }
 
 }

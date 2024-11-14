@@ -136,18 +136,31 @@
   "sales": [
     {
       "id": "0",
-      "idClient": "0",
+      "id_client": "0",
       "date": "25/10/2024",
       "amount": 2000,
       "shipmentStatus": "Enviado",
       "shipmentMethod": "Andreani",
       "shippingAdress": "Av. Dorrego 281",
-      "paymentStatus": "Pagado",
-      "isCancelled": false
+      "paymentStatus": "approved",
+      "isCancelled": false,
+      "id_merchant_order": 6666
+    },
+    {
+      "id": "2",
+      "id_client": "0",
+      "date": "26/10/2024",
+      "amount": 10000,
+      "shipmentStatus": "Enviado",
+      "shipmentMethod": "Andreani",
+      "shippingAdress": "Av. Dorrego 281",
+      "paymentStatus": "approved",
+      "isCancelled": false,
+      "id_merchant_order": 7777
     },
     {
       "id": "1",
-      "idClient": "1",
+      "id_client": "1",
       "date": "25/10/2024",
       "amount": 3500,
       "shipmentStatus": "En camino",
