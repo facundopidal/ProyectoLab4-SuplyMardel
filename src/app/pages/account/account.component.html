@@ -6,7 +6,9 @@
         <p>Nombre: {{client.name}}</p>
         <p>Apellido: {{client.lastname}} </p>
         <p>Email: {{client.email}}</p>
-        <div class="button">Historial de compras</div>
+        <div class="button">
+            <button routerLink="/sales">Historial de compras</button>
+        </div>
         <button (click)="logout()" class="logout">Cerrar Sesion</button>
         <hr>
         <br>

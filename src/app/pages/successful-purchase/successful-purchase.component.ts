@@ -52,7 +52,7 @@ export class SuccessfulPurchaseComponent implements OnInit {
       this.merchantOrderId = params['merchant_order_id'];
       this.preferenceId = params['preference_id'];
 
-      this.handlePurchaseHardcode(); //LLAMO ESTO PARA NO EXPLOTAR LA API DE MP
+      this.handlePurchase(); //LLAMO ESTO PARA NO EXPLOTAR LA API DE MP
       this.ejectCucumbers()
     });
   }

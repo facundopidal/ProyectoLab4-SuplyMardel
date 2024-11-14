@@ -21,7 +21,7 @@ export class SaleComponent implements OnInit {
   @Input() sale!: Sale;
   productsSale: salesxProducts[] = [];
   products: Product[] = []; // Array para almacenar los productos obtenidos
-
+  productsName: string=''
   ngOnInit(): void {
     // Primero obtenemos los salesxProducts para esta venta
     this.saleService.getProductsBySalesID(this.sale.id).pipe(

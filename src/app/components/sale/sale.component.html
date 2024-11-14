@@ -1,16 +1,12 @@
-<div class="SA">
-    <input type="text" placeholder="Buscar emails..." name="search" [(ngModel)]="filterClients">
-    <div *ngFor="let client of clients | filterClients: filterClients">
-        <a routerLink="/admin/client-details/{{client.id}}">
-            <div class="card">
-                <div class="card-body">
-                    <p class="card-id"><strong>ID: </strong>{{ client.id }}</p>
-                    <p class="card-name"><strong>Nombre: </strong>{{ client.name }}</p>
-                    <p class="card-lastname"><strong>Apellido:</strong> {{ client.lastname }}</p>
-                    <p class="card-address"><strong>Domicilio:</strong> {{ client.address }}</p>
-                    <p class="card-email"><strong>Email:</strong> {{ client.email }}</p>
-                </div>
-            </div>
-        </a>
+<div class="card">
+    <div class="card-body">
+        <p class="card-id"><strong>ID: </strong>{{ sale.id }}</p>
+        <p class="card-date"><strong>Fecha: </strong>{{ sale.date }}</p>
+        <p class="card-name"><strong>Nombre: </strong>{{ productsName }}</p>
+        <p class="card-amount"><strong>Total:</strong> {{ sale.amount }}</p>
+        <p class="card-address"><strong>Domicilio:</strong> {{sale.shippingAdress }}</p>
+    </div>
+    <div>
+        <a routerLink="sale-details/{{sale.id}}">Detalles</a>
     </div>
 </div>

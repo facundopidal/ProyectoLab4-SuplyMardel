@@ -1,0 +1,48 @@
+section {
+    display: flex;
+ }
+ 
+ .clients-container{
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align items to the top */
+    flex-wrap: wrap; /* Allow wrapping to the next line */
+    min-height: 100vh; /* Ensure it takes at least the full height of the viewport */
+    margin: 0;
+    background-color: #f4f4f4; /* Light background for contrast */
+    font-family: "Noto Sans JP";
+    font-size: 0.85rem;
+}
+
+.card {
+    background-color: white; /* Card background */
+    border: 1px solid #e0e0e0; /* Light border for the card */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Subtle shadow */
+    margin: 15px; /* Space between cards */
+    width: 300px; /* Fixed width for consistency */
+    overflow: hidden; /* Prevent overflow */
+    flex: 0 1 auto; /* Allow the card to grow and shrink */
+}
+
+.card-body {
+    padding: 20px; /* Padding inside the card */
+}
+
+.card-id, .card-name, .card-lastname, .card-address, .card-email {
+    color: #002b5c; /* Text color */
+    margin: 5px 0; /* Margin between paragraphs */
+}
+
+.card-id strong, .card-name strong, .card-lastname strong, .card-address strong, .card-email strong {
+    color: #002b5c; /* Strong text color */
+}
+
+.card:hover {
+    transform: scale(1.02); /* Slightly enlarge the card on hover */
+    transition: transform 0.2s; /* Smooth transition */
+}
+
+a {
+    text-decoration: none;
+}

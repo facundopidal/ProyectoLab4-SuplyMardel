@@ -258,18 +258,6 @@
       "quantity": 1
     },
     {
-      "id": "b14f",
-      "idClient": "ef5d",
-      "idProduct": "1",
-      "quantity": 2
-    },
-    {
-      "id": "e6ec",
-      "idClient": "ef5d",
-      "idProduct": "946a",
-      "quantity": 1
-    },
-    {
       "id": "ed89",
       "idClient": "6969",
       "idProduct": "946a",
@@ -292,6 +280,12 @@
       "idClient": "0",
       "idProduct": "3",
       "quantity": 1
+    },
+    {
+      "id": "7474",
+      "idClient": "ef5d",
+      "idProduct": "4950",
+      "quantity": 1
     }
   ],
   "admin": {
@@ -303,39 +297,14 @@
       "id": "7fdf",
       "resource": "https://api.mercadolibre.com/merchant_orders/25011260994",
       "topic": "merchant_order"
+    },
+    {
+      "id": "f643",
+      "resource": "https://api.mercadolibre.com/merchant_orders/25020567212",
+      "topic": "merchant_order"
     }
   ],
   "addresses": [
-    {
-      "id": "16c",
-      "street": "Rio Negro ",
-      "number": 1211,
-      "postalCode": 7600,
-      "city": "Mar del Plata",
-      "floor": null,
-      "apartment": "",
-      "idClient": "0"
-    },
-    {
-      "id": "8e0d",
-      "street": "fsd",
-      "number": 412,
-      "postalCode": 12,
-      "city": "hh9",
-      "floor": null,
-      "apartment": "",
-      "idClient": "0"
-    },
-    {
-      "id": "6042",
-      "street": "Chubut",
-      "number": 123213,
-      "postalCode": 1122,
-      "city": "zxczxc",
-      "floor": null,
-      "apartment": "",
-      "idClient": "0"
-    },
     {
       "id": "6fbf",
       "street": "larrea",

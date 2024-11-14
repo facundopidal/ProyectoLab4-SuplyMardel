@@ -1,1 +1,14 @@
-<p>sales works!</p>
+<app-nav-bar></app-nav-bar>
+<section>
+    @if(isAdmin) {   
+        <app-menu></app-menu>
+    }
+    <div class="sales-container">
+        <h3>{{isAdmin ? "Compras de clientes" : "Mis compras"}}</h3>
+        <div class="sales">
+            @for(sale of sales; track sale.id) {
+                <app-sale [sale]="sale"/>
+            }
+        </div>
+    </div>
+</section>

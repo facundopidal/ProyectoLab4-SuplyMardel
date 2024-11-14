@@ -1,0 +1,22 @@
+section {
+    display: flex;
+    font-family: "Noto Sans JP";
+    width: 100%;
+}
+
+.sales-container {
+    margin: auto;
+}
+.sales-container h3 {
+    margin-top: 50px;
+    text-align: center;
+    
+}
+
+.sales{
+    display: flex;
+    flex-wrap: wrap;
+    margin: auto;
+    justify-content: center;
+}
+

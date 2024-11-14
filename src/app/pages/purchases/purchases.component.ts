@@ -11,17 +11,8 @@ import { SalesService } from '../../services/ecommerce/sales.service';
   templateUrl: './purchases.component.html',
   styleUrl: './purchases.component.css'
 })
-export class PurchasesComponent implements OnInit{
+export class PurchasesComponent{
 
-  saleService = inject(SalesService)
-  sales: Sale[] = []
   
-  ngOnInit(): void {
-      this.saleService.getSales().subscribe({
-        next: (sales) => {
-          console.log(sales)
-        }
-      })
-  }
 
 }

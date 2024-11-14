@@ -75,17 +75,17 @@ export class SalesService {
     );
   }
 
-  getSales() {
+  getSales(): Observable<Sale[]> {
     return this.http.get<Sale[]>(this.baseUrl)
   }
 
 
   getSalesByClientId(idClient: string) {
-    return this.http.get<Sale[]>(`${this.baseUrl}/${idClient}`)
+    return this.http.get<Sale[]>(`${this.baseUrl}?id_client=${idClient}`)
   }
 
   getProductsBySalesID(idSale: string): Observable<salesxProducts[]> {
-    return this.http.get<salesxProducts[]>(`${this.baserUrlSxP}/${idSale}`)
+    return this.http.get<salesxProducts[]>(`${this.baserUrlSxP}?idSale=${idSale}`)
   }
 
 
