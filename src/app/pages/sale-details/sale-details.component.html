@@ -1,0 +1,32 @@
+<section>
+    @if (sale){
+        <div>
+            <div class="sale-details">
+
+                <h2>Detalles de la Venta</h2>
+            <p><strong>ID de la Venta:</strong> {{ sale.id }}</p>
+            <p><strong>Fecha:</strong> {{ sale.date }}</p>
+            <p><strong>Total:</strong> {{ sale.amount }}</p>
+            </div>
+          <div class="products-section">
+
+              <h3>Productos en esta Venta</h3>
+              <ul>
+                  @for (product of saleProducts; track product.id) {
+                      <li>
+                          <p><strong>Nombre:</strong> {{ product.name }}</p>
+                          <p><strong>Precio:</strong> {{ product.price }}</p>
+                          <p><strong>Cantidad:</strong> 
+                            {{ product.quantity }}
+                        </p>
+                        <hr />
+                    </li>
+                }
+            </ul>
+            </div>
+          </div>
+    }
+    @else {
+        <span>Venta no encontrada. :{{'('}}</span>
+    }
+</section>

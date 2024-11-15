@@ -1,0 +1,15 @@
+section {
+    display: flex;
+}
+.sales {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: center;
+}
+
+h3 {
+    margin-top: 20px;
+    text-align: center;
+
+}

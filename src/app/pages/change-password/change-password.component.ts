@@ -4,6 +4,7 @@ import { AuthService } from '../../services/auth/auth.service';
 import { ClientsService } from '../../services/clients/clients.service';
 import { Client } from '../../interfaces/client';
 import { Router } from '@angular/router';
+import { MailSenderService } from '../../services/external/mail-sender.service';
 
 
 @Component({
@@ -17,6 +18,7 @@ export class ChangePasswordComponent implements OnInit {
   router = inject(Router);
   fb = inject(FormBuilder);
   cs = inject(ClientsService);
+  ms = inject(MailSenderService)
   private authS = inject(AuthService);
   actualUser?: Client;
   ngOnInit(): void {
@@ -67,6 +69,22 @@ export class ChangePasswordComponent implements OnInit {
       this.cs.updateClientByID(this.actualUser?.id!,this.actualUser!).subscribe({
       next: (client) => {
         alert("Contraseña cambiada con éxtio")
+
+        
+        this.ms.sendMailToUser(
+          this.actualUser!.email,
+          "SuplyMardel Cambio de contraseña.",
+          "En este preciso momento " + Date() + " se realizó un cambio de contraseña en SuplyMardel"
+        ).subscribe({
+          next: (res) => {
+            console.log(res)
+
+          },
+          error: (e) => {
+            console.error(e)
+
+          }
+        })
         this.router.navigate(['/']);
       },
       error: (error) => {console.error(error)}

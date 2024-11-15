@@ -1,5 +1,5 @@
 export interface salesxProducts{
-    id: string;
+    id?: string;
     idSale: string;
     idProduct: string;
     quantity: number;

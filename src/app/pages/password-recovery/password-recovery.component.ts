@@ -51,8 +51,8 @@ export class PasswordRecoveryComponent {
         this.isSubmit = true
         this.mailerService.sendMailToUser(
           userEmail!,
-          "Cambio de contraseña. Si usted no pidio el cambio, ignore el email",
-          "Su codigo es este: " + this.randomPass
+          "SuplyMardel Cambio de contraseña.",
+          "Si usted no pidio el cambio, ignore el email, su codigo es este: " + this.randomPass
         ).subscribe({
           next: () => {
             this.isSubmit = true

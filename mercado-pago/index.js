@@ -116,7 +116,7 @@ app.get("/merchant-order/:id", async (req, res) => {
     const response = await order.get({ merchantOrderId: req.params.id });
 
     console.log("Respuesta de Merchant Order:", response);
-    res.json(response.body); // Envía la respuesta de la orden al cliente
+    res.json(response); // Envía la respuesta de la orden al cliente
   } catch (error) {
     console.error("Error al obtener la orden del merchant:", error);
     res.status(500).json({

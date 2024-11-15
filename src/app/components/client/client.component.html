@@ -1,0 +1,32 @@
+<div class="client-container">
+
+
+<div class="client-info">
+    <h2>Información del Cliente</h2>
+    <p><strong>Nombre:</strong> {{ client.name }} {{ client.lastname }}</p>
+    <p><strong>Email:</strong> {{ client.email }}</p>
+  </div>
+  
+  <div class="client-addresses">
+    <h3>Direcciones</h3>
+    @if(addresses.length > 0){
+        <ul>
+            @for(address of addresses; track address.id) {
+                <li class="address-card">
+                  <p><strong>Calle:</strong> {{ address.street }} {{ address.number }}</p>
+                  <p><strong>Ciudad:</strong> {{ address.city }}</p>
+                  <p><strong>Código Postal:</strong> {{ address.postalCode }}</p>
+                  @if(address.floor){<p><strong>Piso:</strong> {{ address.floor }}</p>}
+                  @if(address.apartment){<p><strong>Departamento:</strong> {{ address.apartment }}</p>}
+                </li>
+            }
+        </ul>
+    }
+    @else {
+
+        <p>No hay direcciones disponibles para este cliente.</p>
+    }
+    
+  </div>
+</div>
+  

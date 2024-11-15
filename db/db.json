@@ -6,7 +6,7 @@
       "brand": "ENA",
       "category": "Proteinas",
       "price": 23580,
-      "stock": 33,
+      "stock": 32,
       "image": "https://http2.mlstatic.com/D_NQ_NP_2X_935480-MLA50231366542_062022-F.webp",
       "description": "Proteina isolada 80%",
       "flavor": "Frutilla",
@@ -30,7 +30,7 @@
       "brand": "ENA",
       "category": "Aminoácidos",
       "price": 12500,
-      "stock": 45,
+      "stock": 43,
       "image": "https://www.enasport.com/cdn/shop/products/BCAA_211.jpg?v=1683514389&width=1000",
       "description": "Aminoácidos de cadena ramificada para recuperación muscular y energía",
       "flavor": "Frutas Tropicales",
@@ -78,38 +78,8 @@
       "id": "0",
       "name": "Lautaro",
       "lastname": "Pidal Ruiz Diaz",
-      "address": "Av. Dorrego 281",
       "email": "lautaropidalruizdiaz@gmail.com",
       "password": "lautisensei"
-    },
-    {
-      "id": "1",
-      "name": "Camila",
-      "lastname": "González Fernández",
-      "address": "Calle Lavalle 432",
-      "email": "camilagonzalezfernandez@gmail.com",
-      "password": "camigorda"
-    },
-    {
-      "id": "7822",
-      "name": "Rafael",
-      "lastname": "Videla",
-      "email": "rafa12@gmail.com",
-      "password": "quevuelvan"
-    },
-    {
-      "id": "9728",
-      "name": "Francisco",
-      "lastname": "Magnolo",
-      "email": "magnolo12@gmail.com",
-      "password": "soymagnolo"
-    },
-    {
-      "id": "17e8",
-      "name": "alenso",
-      "lastname": "loretto",
-      "email": "alensolore29@gmail.com",
-      "password": "utnbestfacu"
     },
     {
       "id": "ef5d",
@@ -123,7 +93,7 @@
       "name": "Lorenzo",
       "lastname": "Aletto",
       "email": "lorenzoaletto28@gmail.com",
-      "password": "rafapete"
+      "password": "rafacapo"
     },
     {
       "id": "980f",
@@ -131,189 +101,113 @@
       "lastname": "Admin",
       "email": "adminSuplyMardel@gmail.com",
       "password": "12345678"
+    },
+    {
+      "id": "65cf",
+      "name": "Facundo",
+      "lastname": "Pidal Ruiz Diaz",
+      "email": "facundopidalruizdiaz@gmail.com",
+      "password": "pidigordo"
     }
   ],
   "sales": [
     {
-      "id": "0",
-      "id_client": "0",
-      "date": "25/10/2024",
-      "amount": 2000,
-      "shipmentStatus": "Enviado",
-      "shipmentMethod": "Andreani",
-      "shippingAdress": "Av. Dorrego 281",
+      "id": "eb76",
+      "id_client": "65cf",
+      "date": "15/11/2024 02:15:00",
+      "amount": 25000,
+      "shipmentStatus": "A retirar",
+      "shipmentMethod": "Retiro en sucursal",
       "paymentStatus": "approved",
       "isCancelled": false,
-      "id_merchant_order": 6666
+      "id_merchant_order": "25018010049"
     },
     {
-      "id": "2",
-      "id_client": "0",
-      "date": "26/10/2024",
-      "amount": 10000,
-      "shipmentStatus": "Enviado",
-      "shipmentMethod": "Andreani",
-      "shippingAdress": "Av. Dorrego 281",
+      "id": "7ea1",
+      "id_client": "65cf",
+      "date": "15/11/2024 02:15:39",
+      "amount": 25000,
+      "shipmentStatus": "A retirar",
+      "shipmentMethod": "Retiro en sucursal",
       "paymentStatus": "approved",
       "isCancelled": false,
-      "id_merchant_order": 7777
-    },
-    {
-      "id": "1",
-      "id_client": "1",
-      "date": "25/10/2024",
-      "amount": 3500,
-      "shipmentStatus": "En camino",
-      "shipmentMethod": "Andreani",
-      "shippingAdress": "Calle Lavalle 432",
-      "paymentStatus": "Pagado",
-      "isCancelled": false
-    },
-    {
-      "id": "edbb",
-      "id_client": "0",
-      "date": "Thu Nov 14 2024 15:47:32 GMT-0300 (hora estándar de Argentina)",
-      "amount": 1001,
-      "shipmentStatus": "En camino",
-      "shipmentMethod": "Andreani",
-      "shippingAdress": "6042",
-      "paymentStatus": "approved",
-      "isCancelled": false,
-      "id_merchant_order": "24975533862"
-    },
-    {
-      "id": "1ed0",
-      "id_client": "0",
-      "date": "Thu Nov 14 2024 15:51:05 GMT-0300 (hora estándar de Argentina)",
-      "amount": 1001,
-      "shipmentStatus": "En camino",
-      "shipmentMethod": "Andreani",
-      "shippingAdress": "6042",
-      "paymentStatus": "approved",
-      "isCancelled": false,
-      "id_merchant_order": "24975533862"
-    },
-    {
-      "id": "9d57",
-      "id_client": "0",
-      "date": "Thu Nov 14 2024 15:52:50 GMT-0300 (hora estándar de Argentina)",
-      "amount": 1001,
-      "shipmentStatus": "En camino",
-      "shipmentMethod": "Andreani",
-      "shippingAdress": "6042",
-      "paymentStatus": "approved",
-      "isCancelled": false,
-      "id_merchant_order": "24975533862"
-    },
-    {
-      "id": "348c",
-      "id_client": "0",
-      "date": "Thu Nov 14 2024 15:56:38 GMT-0300 (hora estándar de Argentina)",
-      "amount": 1001,
-      "shipmentStatus": "En camino",
-      "shipmentMethod": "Andreani",
-      "shippingAdress": "6042",
-      "paymentStatus": "approved",
-      "isCancelled": false,
-      "id_merchant_order": "24975533862"
-    },
-    {
-      "id": "95ab",
-      "id_client": "0",
-      "date": "Thu Nov 14 2024 15:56:44 GMT-0300 (hora estándar de Argentina)",
-      "amount": 1001,
-      "shipmentStatus": "En camino",
-      "shipmentMethod": "Andreani",
-      "shippingAdress": "6042",
-      "paymentStatus": "approved",
-      "isCancelled": false,
-      "id_merchant_order": "24975533862"
+      "id_merchant_order": "25018010049"
     }
   ],
   "salesxProducts": [
     {
-      "id": "0",
-      "idSale": "0",
-      "idProduct": "0",
-      "quantity": 1
-    },
-    {
-      "id": "1",
-      "idSale": "0",
-      "idProduct": "1",
-      "quantity": 1
-    },
-    {
-      "id": "2",
-      "idSale": "1",
+      "id": "9cf1",
+      "idSale": "eb76",
       "idProduct": "2",
-      "quantity": 1
-    }
-  ],
-  "cartxproduct": [
-    {
-      "id": "e575",
-      "idClient": "17e8",
-      "idProduct": "1",
-      "quantity": 1
-    },
-    {
-      "id": "ed89",
-      "idClient": "6969",
-      "idProduct": "946a",
-      "quantity": 1
-    },
-    {
-      "id": "5b72",
-      "idClient": "6969",
-      "idProduct": "0",
       "quantity": 2
     },
     {
-      "id": "22ef",
-      "idClient": "0",
-      "idProduct": "1",
-      "quantity": 1
-    },
-    {
-      "id": "07bf",
-      "idClient": "0",
-      "idProduct": "3",
-      "quantity": 1
-    },
-    {
-      "id": "7474",
-      "idClient": "ef5d",
-      "idProduct": "4950",
+      "id": "08d9",
+      "idSale": "eb76",
+      "idProduct": "0",
       "quantity": 1
     }
   ],
+  "cartxproduct": [],
   "admin": {
     "email": "adminSuplyMardel@gmail.com",
     "password": "contraseñasupersegura"
   },
   "notifications": [
     {
-      "id": "7fdf",
-      "resource": "https://api.mercadolibre.com/merchant_orders/25011260994",
+      "id": "d18a",
+      "resource": "https://api.mercadolibre.com/merchant_orders/25017820675",
       "topic": "merchant_order"
     },
     {
-      "id": "f643",
-      "resource": "https://api.mercadolibre.com/merchant_orders/25020567212",
+      "id": "9f50",
+      "resource": "93108031849",
+      "topic": "payment"
+    },
+    {
+      "id": "117071042033",
+      "action": "payment.created",
+      "api_version": "v1",
+      "data": {
+        "id": "93108031849"
+      },
+      "date_created": "2024-11-15T04:08:04Z",
+      "live_mode": true,
+      "type": "payment",
+      "user_id": "2094553819"
+    },
+    {
+      "id": "b0dc",
+      "resource": "https://api.mercadolibre.com/merchant_orders/25017820675",
+      "topic": "merchant_order"
+    },
+    {
+      "id": "a319",
+      "resource": "https://api.mercadolibre.com/merchant_orders/25018010049",
+      "topic": "merchant_order"
+    },
+    {
+      "id": "f76d",
+      "resource": "93108687063",
+      "topic": "payment"
+    },
+    {
+      "id": "117122151606",
+      "action": "payment.created",
+      "api_version": "v1",
+      "data": {
+        "id": "93108687063"
+      },
+      "date_created": "2024-11-15T04:24:58Z",
+      "live_mode": true,
+      "type": "payment",
+      "user_id": "2094553819"
+    },
+    {
+      "id": "4ff5",
+      "resource": "https://api.mercadolibre.com/merchant_orders/25018010049",
       "topic": "merchant_order"
     }
   ],
-  "addresses": [
-    {
-      "id": "6fbf",
-      "street": "larrea",
-      "number": 111,
-      "postalCode": 111,
-      "city": "asd",
-      "floor": null,
-      "apartment": "",
-      "idClient": "6969"
-    }
-  ]
+  "addresses": []
 }

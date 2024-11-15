@@ -1,0 +1,93 @@
+:host {
+    font-family: "Noto Sans JP";
+    color: #002b5c;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para detalles de venta */
+.sale-details {
+    background-color: #002b5c;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.sale-details h2 {
+    margin-top: 0;
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.sale-details p {
+    font-size: 18px;
+    line-height: 1.5;
+}
+
+/* Estilos para la sección de productos */
+.products-section {
+    padding: 20px;
+    border: 2px solid #002b5c;
+    border-radius: 8px;
+}
+
+.products-section h3 {
+    font-size: 20px;
+    color: #002b5c;
+    margin-top: 0;
+    border-bottom: 2px solid #002b5c;
+    padding-bottom: 10px;
+}
+
+.products-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.products-section li {
+    padding: 15px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.products-section li:last-child {
+    border-bottom: none;
+}
+
+.products-section p {
+    font-size: 16px;
+    color: #002b5c;
+    margin: 5px 0;
+}
+
+.products-section strong {
+    font-weight: bold;
+    color: #002b5c;
+}
+
+hr {
+    border: none;
+    height: 1px;
+    background-color: #002b5c;
+    margin: 10px 0;
+}
+
+/* Estilos para el mensaje de error */
+span {
+    display: block;
+    text-align: center;
+    font-size: 18px;
+    color: #dc3545; /* color de alerta */
+    margin-top: 20px;
+}

@@ -21,7 +21,9 @@ export class MercadoPagoService{
     return this.http.post<PreferenceResponse>(`${this.baseUrl}create_preference`,{products: products, shippingPrice: shippingPrice, idAddress: idAddress})
   }
 
-  getOrderData(merchantOrderId: number): Observable<any> {
-    return this.http.get<any>(`${this.baseUrl}merchant-order/${merchantOrderId}`)
+
+
+  getOrderData(merchantOrderId: number): Observable<NonNullable<any>> {
+    return this.http.get<NonNullable<any>>(`${this.baseUrl}merchant-order/${merchantOrderId}`)
   }
 }

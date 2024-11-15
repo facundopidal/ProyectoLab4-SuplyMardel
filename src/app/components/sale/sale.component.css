@@ -1,6 +1,4 @@
-section {
-    display: flex;
- }
+
  
  .clients-container{
     display: flex;
@@ -23,6 +21,8 @@ section {
     width: 300px; /* Fixed width for consistency */
     overflow: hidden; /* Prevent overflow */
     flex: 0 1 auto; /* Allow the card to grow and shrink */
+    font-family: "Noto Sans JP";
+
 }
 
 .card-body {

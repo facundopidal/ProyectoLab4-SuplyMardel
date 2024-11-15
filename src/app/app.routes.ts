@@ -26,7 +26,7 @@ import { ChangePasswordComponent } from './pages/change-password/change-password
 import { PasswordRecoveryComponent } from './pages/password-recovery/password-recovery.component';
 import { ClientDetailsComponent } from './pages/admin/client-details/client-details.component';
 import { ChangePasswordAdminComponent } from './pages/admin/change-password-admin/change-password-admin.component';
-import { PurchasesComponent } from './pages/purchases/purchases.component';
+import { SaleDetailsComponent } from './pages/sale-details/sale-details.component';
 
 export const routes: Routes = [
     { path: '',component: HomeComponent },
@@ -44,9 +44,10 @@ export const routes: Routes = [
     { path: 'register', component: RegisterComponent, canActivate: [LogoutGuard]},
     { path: 'change-password-admin',component: ChangePasswordAdminComponent, canActivate: [AdminGuard] },
     { path: 'clients',component: ClientsComponent, canActivate: [AdminGuard]},
-    { path: 'client-details/:id', component: ClientDetailsComponent, canActivate: [AdminGuard] },
+    { path: 'admin/client-details/:id', component: ClientDetailsComponent, canActivate: [AdminGuard] },
     { path: 'products',component: ProductsAdminComponent, canActivate: [AdminGuard] },
     { path: 'sales',component: SalesComponent, canActivate: [AuthGuard] }, 
+    { path: 'c/sale-details/:id', component: SaleDetailsComponent},
     { path: 'create-product',component: CreateProductComponent, canActivate: [AdminGuard]}, 
     { path: 'admin/edit-product/:id',component: EditProductComponent, canActivate: [AdminGuard]}, 
     { path: 'admin',component: AdminComponent, canActivate: [AdminGuard]},

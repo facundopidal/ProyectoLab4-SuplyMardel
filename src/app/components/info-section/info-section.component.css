@@ -1,11 +1,16 @@
-.descripcion {
+.description {
+  display: flex;
   align-items: center;
   justify-content: center;
+  margin: auto;
+  width: 100%;
 }
 
 .mainImage{
-    width: 60%;
+    width: 40%;
     height: auto;
+    margin: auto;
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.8);
 }
 
 .info {

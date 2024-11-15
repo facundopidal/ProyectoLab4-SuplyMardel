@@ -40,6 +40,9 @@ export class SaleComponent implements OnInit {
     ).subscribe({
       next: (products: Product[]) => {
         this.products = products; // Guardamos el resultado en el array de productos
+        products.forEach(product => {
+          this.productsName += product.name + '\n'
+        })
         console.log(products)
         console.log('Productos obtenidos:', this.products);
       },
