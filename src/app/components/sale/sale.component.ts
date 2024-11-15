@@ -6,6 +6,8 @@ import { salesxProducts } from '../../interfaces/salesxProducts';
 import { Product } from '../../interfaces/product';
 import { switchMap, forkJoin } from 'rxjs';
 import { ApiProductsService } from '../../services/ecommerce/api-products.service';
+import { AddressesService } from '../../services/clients/adresses.service';
+import { Address } from '../../interfaces/address';
 
 @Component({
   selector: 'app-sale',
@@ -17,12 +19,21 @@ import { ApiProductsService } from '../../services/ecommerce/api-products.servic
 export class SaleComponent implements OnInit {
   private saleService = inject(SalesService);
   private productService = inject(ApiProductsService);
+  private addressesService = inject(AddressesService);
 
   @Input() sale!: Sale;
   productsSale: salesxProducts[] = [];
   products: Product[] = []; // Array para almacenar los productos obtenidos
   productsName: string=''
+  address ?: Address
   ngOnInit(): void {
+    if(this.sale.shippingAddressId)
+      this.addressesService.getAddressById(this.sale.shippingAddressId).subscribe({
+        next: (address) => {
+          this.address = address
+        }
+      })
+    
     // Primero obtenemos los salesxProducts para esta venta
     this.saleService.getProductsBySalesID(this.sale.id).pipe(
       // Luego hacemos una llamada a `productService.getProductById()` para cada idProduct

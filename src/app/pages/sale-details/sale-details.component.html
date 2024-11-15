@@ -6,7 +6,12 @@
                 <h2>Detalles de la Venta</h2>
             <p><strong>ID de la Venta:</strong> {{ sale.id }}</p>
             <p><strong>Fecha:</strong> {{ sale.date }}</p>
+            <p><strong>Método:</strong> {{ sale.shipmentMethod }}</p>
+            <p><strong>Estado:</strong> {{ sale.shipmentStatus}}</p>
             <p><strong>Total:</strong> {{ sale.amount }}</p>
+            @if(sale.isCancelled){
+                <p class="cancel">CANCELADA</p>
+            }
             </div>
           <div class="products-section">
 
@@ -23,6 +28,11 @@
                     </li>
                 }
             </ul>
+            @if(isAdmin) {
+                <div class="cancel-container">
+                    <button (click)="openConfirmationModal(sale.id) " class="cancel-btn">Cancelar Compra</button>
+                </div>
+            }
             </div>
           </div>
     }
@@ -30,3 +40,15 @@
         <span>Venta no encontrada. :{{'('}}</span>
     }
 </section>
+ 
+@if (showModal) {
+    <div class="modal">
+        <div class="modal-content">
+          <p class="modal-p">¿Estás seguro de que quieres eliminar este producto?</p>
+          <div class="buttons">
+              <button class="btn-confirm" (click)="confirmCancel()">Sí</button>
+              <button class="btn-cancel" (click)="cancelCancel()">No</button>
+          </div>
+        </div>
+      </div>
+}

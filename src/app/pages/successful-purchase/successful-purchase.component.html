@@ -6,7 +6,7 @@
             </div>
             <div class="info">
                 <label>ID de compra:</label>
-                <span>{{ this.merchantOrderId }}</span>
+                <span>{{ saleId }}</span>
             </div>
           
             <div class="info">
@@ -31,14 +31,6 @@
                 <label>Estado de pago:</label>
                 <div class="status approved">Aprobado</div>
             </div>
-            <div class="info">
-                <label>ID de la orden del comerciante:</label>
-                <span>MO123456</span>
-            </div>
-            <div class="info">
-                <label>Cancelado:</label>
-                <span>No</span>
-            </div>
         </div>
 
         <div class="order-summary-container">
@@ -47,9 +39,9 @@
             <div class="product-card">
               <img [src]="product.image" alt="{{ product.name }}" class="product-image" />
               <div class="product-details">
-                <span>{{ product.name }}</span>
+                <span>{{ product.name }} x {{ product.quantity }}</span>
                 <span>{{ product.description }}</span>
-                <span>x </span>
+                
               </div>
               <div class="product-price">
                 $ {{ product.price }}
@@ -64,7 +56,7 @@
               </div>
               <div class="shipping-cost">
                 <span>Costo de envío</span>
-                <span>$ {{ shippingCost }}</span>
+                <span>$ {{ shippingCost || '0' }}</span>
               </div>
               <div class="total">
                 <span>Total</span>

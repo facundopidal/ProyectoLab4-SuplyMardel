@@ -5,7 +5,7 @@ export interface Sale {
     amount:number;
     shipmentStatus: string;
     shipmentMethod: string;
-    shippingAdress?: string; //id del domicilio
+    shippingAddressId?: string; //id del domicilio
     paymentStatus: "approved" | "rejected";
     isCancelled: boolean;
     id_merchant_order: string;

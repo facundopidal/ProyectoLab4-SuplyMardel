@@ -42,7 +42,7 @@
     margin: 5px 0;
     color: #aaa;
 }
-.content .button {
+.button {
     display: inline-block;
     margin-top: 10px;
     padding: 5px 15px;
@@ -57,6 +57,13 @@
 .content .divider {
     margin: 10px 0;
     border-top: 1px solid #fff;
+}
+
+.side-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 40px;
 }
 
 .logout {

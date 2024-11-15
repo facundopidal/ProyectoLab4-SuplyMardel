@@ -1,12 +1,20 @@
 <div class="card">
     <div class="card-body">
+        <p class="card-date"><strong>{{ sale.date }}</strong></p>
+        <hr>
         <p class="card-id"><strong>ID: </strong>{{ sale.id }}</p>
-        <p class="card-date"><strong>Fecha: </strong>{{ sale.date }}</p>
         <p class="card-name"><strong>Nombre: </strong>{{ productsName }}</p>
-        <p class="card-amount"><strong>Total:</strong> {{ sale.amount }}</p>
-        <p class="card-address"><strong>Domicilio:</strong> {{sale.shippingAdress }}</p>
+        <p class="card-shipment-method"><strong>Metodo de envío: </strong> {{ sale.shipmentMethod }}</p>
+        @if(sale.shippingAddressId){
+            <p class="card-shipment-status"><strong>Estado de envío: </strong> {{ sale.shipmentStatus }}</p>
+            <p class="card-address"><strong>Domicilio:</strong> {{address!.street}} {{address!.number}}</p>
+        }
+        <div>
+            <p class="card-amount"><strong>$ {{ sale.amount }}</strong></p>
+        </div>
     </div>
-    <div>
+    <div class="btn-details">
         <a routerLink="/c/sale-details/{{sale.id}}">Detalles</a>
     </div>
 </div>
+

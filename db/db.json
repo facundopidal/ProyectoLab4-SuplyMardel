@@ -6,7 +6,7 @@
       "brand": "ENA",
       "category": "Proteinas",
       "price": 23580,
-      "stock": 32,
+      "stock": 33,
       "image": "https://http2.mlstatic.com/D_NQ_NP_2X_935480-MLA50231366542_062022-F.webp",
       "description": "Proteina isolada 80%",
       "flavor": "Frutilla",
@@ -30,7 +30,7 @@
       "brand": "ENA",
       "category": "Aminoácidos",
       "price": 12500,
-      "stock": 43,
+      "stock": 44,
       "image": "https://www.enasport.com/cdn/shop/products/BCAA_211.jpg?v=1683514389&width=1000",
       "description": "Aminoácidos de cadena ramificada para recuperación muscular y energía",
       "flavor": "Frutas Tropicales",
@@ -65,7 +65,7 @@
       "name": "asdfgh",
       "brand": "asdfg",
       "price": 1,
-      "stock": 2,
+      "stock": 0,
       "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/67/UTN_logo.jpg/270px-UTN_logo.jpg",
       "description": "asdfasdfghjk",
       "category": "sdf",
@@ -115,23 +115,24 @@
       "id": "eb76",
       "id_client": "65cf",
       "date": "15/11/2024 02:15:00",
-      "amount": 25000,
+      "amount": 45580,
       "shipmentStatus": "A retirar",
       "shipmentMethod": "Retiro en sucursal",
       "paymentStatus": "approved",
-      "isCancelled": false,
+      "isCancelled": true,
       "id_merchant_order": "25018010049"
     },
     {
-      "id": "7ea1",
+      "id": "7d8d",
       "id_client": "65cf",
-      "date": "15/11/2024 02:15:39",
-      "amount": 25000,
-      "shipmentStatus": "A retirar",
-      "shipmentMethod": "Retiro en sucursal",
+      "date": "15/11/2024 02:43:41",
+      "amount": 12502,
+      "shipmentStatus": "En Camino",
+      "shipmentMethod": "Andreani",
       "paymentStatus": "approved",
       "isCancelled": false,
-      "id_merchant_order": "25018010049"
+      "id_merchant_order": "25033503082",
+      "shippingAddressId": "d2ee"
     }
   ],
   "salesxProducts": [
@@ -146,9 +147,34 @@
       "idSale": "eb76",
       "idProduct": "0",
       "quantity": 1
+    },
+    {
+      "id": "beb5",
+      "idSale": "7d8d",
+      "idProduct": "2",
+      "quantity": 1
+    },
+    {
+      "id": "cb09",
+      "idSale": "7d8d",
+      "idProduct": "4950",
+      "quantity": 2
     }
   ],
-  "cartxproduct": [],
+  "cartxproduct": [
+    {
+      "id": "d0a4",
+      "idClient": "0",
+      "idProduct": "2",
+      "quantity": 2
+    },
+    {
+      "id": "1e44",
+      "idClient": "0",
+      "idProduct": "1",
+      "quantity": 1
+    }
+  ],
   "admin": {
     "email": "adminSuplyMardel@gmail.com",
     "password": "contraseñasupersegura"
@@ -207,7 +233,45 @@
       "id": "4ff5",
       "resource": "https://api.mercadolibre.com/merchant_orders/25018010049",
       "topic": "merchant_order"
+    },
+    {
+      "id": "51c7",
+      "resource": "https://api.mercadolibre.com/merchant_orders/25033503082",
+      "topic": "merchant_order"
+    },
+    {
+      "id": "c40f",
+      "resource": "93437342302",
+      "topic": "payment"
+    },
+    {
+      "id": 117071845085,
+      "action": "payment.created",
+      "api_version": "v1",
+      "data": {
+        "id": "93437342302"
+      },
+      "date_created": "2024-11-15T05:43:37Z",
+      "live_mode": true,
+      "type": "payment",
+      "user_id": "2094553819"
+    },
+    {
+      "id": "d14f",
+      "resource": "https://api.mercadolibre.com/merchant_orders/25033503082",
+      "topic": "merchant_order"
     }
   ],
-  "addresses": []
+  "addresses": [
+    {
+      "id": "d2ee",
+      "street": "chubut ",
+      "number": 1365,
+      "postalCode": 7600,
+      "city": "mar del plata",
+      "floor": null,
+      "apartment": "",
+      "idClient": "65cf"
+    }
+  ]
 }

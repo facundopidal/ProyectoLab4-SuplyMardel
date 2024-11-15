@@ -109,6 +109,39 @@ export class SalesService {
     })
   }
 
+  cancelSale(idSale: string) {
+    this.getSaleBySaleId(idSale).subscribe({
+      next: (sale) => {
+        sale.isCancelled = true
+        this.http.put<Sale>(`${this.baseUrl}/${sale.id}`, sale).subscribe({
+          next: (sale) => {
+            this.incrementStock(sale.id)
+          },
+          error: console.error
+        })
+      }
+    })
+  }
+
+  incrementStock(idSale: string) {
+    this.getProductsBySalesID(idSale).subscribe({
+      next: (sxpArray) => {
+        sxpArray.forEach(sxp => {
+          this.productsService.getProductById(sxp.idProduct).subscribe({
+            next: (product) => {
+              this.productsService.updateProduct(product.id!, {stock: product.stock + sxp.quantity}).subscribe({
+                next: (newProduct) => {
+                  console.log(newProduct)
+                }
+              })
+            },
+            error: console.error
+          })
+        })
+      }
+    })
+  }
+
   getSales(): Observable<Sale[]> {
     return this.http.get<Sale[]>(this.baseUrl)
   }
@@ -125,5 +158,7 @@ export class SalesService {
   getSaleBySaleId(idSale: string): Observable<Sale>{
     return this.http.get<Sale>(`${this.baseUrl}/${idSale}`)
   }
+
+  
   
 }

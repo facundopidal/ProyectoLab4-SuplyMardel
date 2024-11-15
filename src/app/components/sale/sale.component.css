@@ -38,6 +38,21 @@
     color: #002b5c; /* Strong text color */
 }
 
+.card-amount {
+    text-align: right;
+    font-size: 16px;
+}
+
+.btn-details {
+    text-align: center;
+}
+
+.btn-details a {
+    text-decoration: none;
+    border: 1px solid #002b5c;
+}
+
+
 .card:hover {
     transform: scale(1.02); /* Slightly enlarge the card on hover */
     transition: transform 0.2s; /* Smooth transition */

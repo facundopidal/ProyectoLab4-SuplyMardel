@@ -16,11 +16,6 @@
                 <div class="price-container">
                     <p class="product-price">${{priceFormatted}}</p>
                   <div class="quantity-selector">
-                    <div class="cart-item-quantity">
-                        <button class="quantity-button decrement" (click)="decrement()">-</button>
-                        <span class="quantity">{{quantity}}</span>
-                        <button class="quantity-button increment" (click)="increment()">+</button>
-                      </div>
                     <p class="stock-info">{{product.stock}} en stock</p>
                   </div>
                 </div>
@@ -28,8 +23,7 @@
               <!-- Opciones adicionales, como botones de pago -->
               <div class="payment-buttons">
                 @if(product.stock) {
-                  <button class="payment-button">COMPRAR YA MISMO</button>
-                  <button class="payment-button" [routerLink]="['/cart', product.id]">Agregar al casho</button>
+                  <button class="payment-button" [routerLink]="['/cart', product.id]">Agregar al carrito</button>
                 }
                 @else {
                   <span>Sin stock</span>

@@ -16,8 +16,4 @@ export class ProductComponent {
   @Input() product!: Product
 
 
-  onClickBuy() {
-    // this.buy.emit(this.product.id)
-  }
-
 }

@@ -1,0 +1,16 @@
+div{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 30px;
+    font-family: "Noto Sans JP";
+    height: 20vh;
+    color: red;
+}
+a {
+    text-decoration: none;
+    border: 1px solid #002b5c;
+    padding: 5px;
+    border-radius: 5px;
+}

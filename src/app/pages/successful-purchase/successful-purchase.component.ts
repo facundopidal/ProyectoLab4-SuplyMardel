@@ -11,6 +11,7 @@ import { Address } from '../../interfaces/address';
 import { AddressesService } from '../../services/clients/adresses.service';
 import { Sale } from '../../interfaces/sale';
 import { MailSenderService } from '../../services/external/mail-sender.service';
+import { ApiProductsService } from '../../services/ecommerce/api-products.service';
 @Component({
   selector: 'app-successful-purchase',
   standalone: true,
@@ -26,7 +27,7 @@ export class SuccessfulPurchaseComponent implements OnInit {
 
 
   client?: Client
-  products: Product[] = [];
+  products: any[] = [];
   subtotal?: any;
   shippingCost?: any;
   total?: any;
@@ -34,10 +35,18 @@ export class SuccessfulPurchaseComponent implements OnInit {
   shipmentStatus?: string;
   formattedDate?: string;
   shippingAddress?: Address
+  saleId?: string
 
-  constructor(private route: ActivatedRoute, private salesServ: SalesService, private addressServ: AddressesService,
-    private authServ: AuthService, private clientServ: ClientsService, private mpServ: MercadoPagoService, private ms: MailSenderService) { }
-
+  constructor(
+    private route: ActivatedRoute, 
+    private salesServ: SalesService, 
+    private addressServ: AddressesService,
+    private authServ: AuthService, 
+    private clientServ: ClientsService, 
+    private mpServ: MercadoPagoService, 
+    private ms: MailSenderService,
+    private productsService: ApiProductsService
+  ) { }
 
 
   ngOnInit(): void {
@@ -48,32 +57,7 @@ export class SuccessfulPurchaseComponent implements OnInit {
         this.client = client
         console.log(this.client!.email)
         ///mail al user
-        // this.ms.sendMailToUser(
-        //   this.client!.email,
-        //   "Se confirmó tu compra",
-        //   "Porque estas en tu puto prime"
-        // ).subscribe({
-        //   next: (res) => {
-        //     console.log(res)
-        //   },
-        //   error: (e) => {
-        //     console.error(e)
-        //   }
-        // })
-        // ///mail al admin
-        // this.ms.sendMailToAdmin(
-        //   "Realizó una compra: " + this.client!.email,
-        //   "La compra consiste en: " + "   string que explica que tiene la compra   ", this.client!.email
-        // ).subscribe({
-        //   next: (res) => {
-        //     console.log(res)
-        //   },
-        //   error: (e) => {
-        //     console.error(e)
-        //   }
-        // })
-
-
+        
       }
     })
 
@@ -84,12 +68,10 @@ export class SuccessfulPurchaseComponent implements OnInit {
       this.merchantOrderId = params['merchant_order_id'];
       this.preferenceId = params['preference_id'];
 
-      this.handlePurchase(); //LLAMO A HARDCODE PARA NO EXPLOTAR LA API DE MP
+      this.handlePurchase(); 
       this.ejectCucumbers()
 
     });
-
-
   }
 
   handlePurchaseHardcode() {
@@ -104,7 +86,6 @@ export class SuccessfulPurchaseComponent implements OnInit {
         console.log(e)
       }
     })
-
   }
 
   handlePurchase(): void {
@@ -128,16 +109,90 @@ export class SuccessfulPurchaseComponent implements OnInit {
         this.total = this.subtotal + this.shippingCost
 
         this.salesServ.createSale(this.client!.id, this.formattedDate, "approved", addressId ? "Andreani" : "Retiro en sucursal", res.total_amount + res.shipping_cost, this.merchantOrderId, addressId || undefined).subscribe({
-          next: (sale) => { console.log(sale) }
+          next: (sale) => { 
+
+            this.salesServ.getProductsBySalesID(sale.id).subscribe({
+              next: (sxpArray) => {
+                sxpArray.map(sxp => {
+                  this.getProductById(sxp.idProduct, sxp.quantity)
+                })
+                this.sendEmails()
+              }
+            })
+          }
         })
-
-
       },
       error: (e) => {
         console.log(e)
       }
     })
   }
+
+  getProductById(idProduct: string, quantity: number) {
+    this.productsService.getProductById(idProduct).subscribe({
+      next: (product) => {
+        this.products.push({...product, quantity: quantity})
+      },
+      error: console.error
+    })
+  }
+
+  sendEmails(){
+    const productsDetail = this.generatePurchaseDetails(this.shippingCost)
+    
+
+    this.ms.sendMailToUser(
+      this.client!.email,
+      "Confirmacion de compra con ID: " + this.saleId,
+      productsDetail
+    ).subscribe({
+      next: (res) => {
+        console.log(res)
+      },
+      error: (e) => {
+        console.error(e)
+      }
+    })
+    ///mail al admin
+    this.ms.sendMailToAdmin(
+      "Confirmacion de compra con ID: " + this.saleId +  ", de: " + this.client!.email,
+      productsDetail,
+      this.client!.email
+    ).subscribe({
+      next: (res) => {
+        console.log(res)
+      },
+      error: (e) => {
+        console.error(e)
+      }
+    })
+  }
+
+  generatePurchaseDetails(shippingCost: number): string {
+    let totalAmount = 0;
+    let purchaseDetails = "Detalle de la compra:\n\n";
+  
+    this.products.forEach((product, index) => {
+      const subtotal = product.price * product.quantity;
+      totalAmount += subtotal;
+  
+      purchaseDetails += `Producto ${index + 1}:\n`;
+      purchaseDetails += `- Nombre: ${product.name}\n`;
+      purchaseDetails += `- Marca: ${product.brand}\n`;
+      purchaseDetails += `- Categoría: ${product.category}\n`;
+      purchaseDetails += `- Sabor: ${product.flavor}\n`;
+      purchaseDetails += `- Peso: ${product.weight}g\n`;
+      purchaseDetails += `- Precio Unitario: $${product.price.toFixed(2)}\n`;
+      purchaseDetails += `- Cantidad: ${product.quantity}\n`;
+      purchaseDetails += `- Subtotal: $${subtotal.toFixed(2)}\n\n`;
+    });
+    totalAmount += shippingCost
+    purchaseDetails += `Costo de envío: $${shippingCost}`
+    purchaseDetails += `Total de la compra: $${totalAmount.toFixed(2)}\n`;
+    return purchaseDetails;
+  }
+
+
   formatDate(dateString: string) {
     const date = new Date(dateString);
     return new Intl.DateTimeFormat('es-ES', {
@@ -150,7 +205,6 @@ export class SuccessfulPurchaseComponent implements OnInit {
       hour12: false
     }).format(date).replace(',', '');
   }
-
 
   ejectCucumbers(): void {
     var scalar = 2;

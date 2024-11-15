@@ -1,1 +1,28 @@
-<p>edit-client works!</p>
+@if (actualClient) {
+    <form [formGroup]="formulario" (ngSubmit)="editarPerfil()" class="form-container">
+        <div class="form-group">
+            <label class="form-label">Nombre</label>
+            <input type="text" class="form-input" placeholder="{{actualClient.name}}" formControlName="name">
+            @if (formulario.controls['name'].touched && formulario.controls['name'].getError('required')) {
+                <span class="error-message">El campo es requerido</span>
+            }
+            @if (formulario.controls['name'].touched && formulario.controls['name'].getError('minlength')) {
+                <span class="error-message">Minimo 3 caracteres</span>
+            }
+        </div>
+        <div class="form-group">
+            <label class="form-label">Apellido</label>
+            <input type="text" class="form-input" placeholder="{{actualClient.lastname}}" formControlName="lastname">
+            @if (formulario.controls['lastname'].touched && formulario.controls['lastname'].getError('required')) {
+                <span class="error-message">El campo es requerido</span>
+            }
+            @if (formulario.controls['lastname'].touched && formulario.controls['lastname'].getError('minlength')) {
+                <span class="error-message">Minimo 3 caracteres</span>
+            }
+        </div>
+        <button type="submit" class="submit-button">Actualizar Datos</button>
+    </form>
+}
+@else {
+    <span class="warning-message">Ya rompste mucho por hoy...</span>
+}

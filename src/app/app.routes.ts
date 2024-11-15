@@ -27,6 +27,8 @@ import { PasswordRecoveryComponent } from './pages/password-recovery/password-re
 import { ClientDetailsComponent } from './pages/admin/client-details/client-details.component';
 import { ChangePasswordAdminComponent } from './pages/admin/change-password-admin/change-password-admin.component';
 import { SaleDetailsComponent } from './pages/sale-details/sale-details.component';
+import { EditClientComponent } from './pages/edit-client/edit-client.component';
+import { FailureComponent } from './pages/failure/failure.component';
 
 export const routes: Routes = [
     { path: '',component: HomeComponent },
@@ -46,7 +48,7 @@ export const routes: Routes = [
     { path: 'clients',component: ClientsComponent, canActivate: [AdminGuard]},
     { path: 'admin/client-details/:id', component: ClientDetailsComponent, canActivate: [AdminGuard] },
     { path: 'products',component: ProductsAdminComponent, canActivate: [AdminGuard] },
-    { path: 'sales',component: SalesComponent, canActivate: [AuthGuard] }, 
+    { path: 'sales',component: SalesComponent, canActivate: [AuthGuard] },
     { path: 'c/sale-details/:id', component: SaleDetailsComponent},
     { path: 'create-product',component: CreateProductComponent, canActivate: [AdminGuard]}, 
     { path: 'admin/edit-product/:id',component: EditProductComponent, canActivate: [AdminGuard]}, 
@@ -54,7 +56,9 @@ export const routes: Routes = [
     { path: 'successfulpurchase',component: SuccessfulPurchaseComponent }, 
     { path: 'checkout',component: CheckoutComponent, canActivate: [AuthGuard, NotAdminGuard] }, 
     { path: 'filtered-products', component: FilteredProductsComponent },
+    { path: 'edit', component: EditClientComponent}, 
     { path: 's', component: SearchedProductsComponent},
+    { path: 'failure', component: FailureComponent},
     { path: '**', redirectTo: ''}
 ];
 
