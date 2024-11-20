@@ -15,7 +15,7 @@ export class MercadoPagoService{
 
   constructor(private http: HttpClient) { }
 
-  private baseUrl = "https://lcvt5tbh-3003.brs.devtunnels.ms/"
+  private baseUrl = "https://t9pnxqsk-3003.brs.devtunnels.ms/"
   goToPay(products: Product[], shippingPrice: number, idAddress: string | null): Observable<PreferenceResponse> {
     console.log({products: products, shippingPrice: shippingPrice})
     return this.http.post<PreferenceResponse>(`${this.baseUrl}create_preference`,{products: products, shippingPrice: shippingPrice, idAddress: idAddress})

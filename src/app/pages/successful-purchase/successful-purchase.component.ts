@@ -17,7 +17,7 @@ import { ApiProductsService } from '../../services/ecommerce/api-products.servic
   standalone: true,
   imports: [],
   templateUrl: './successful-purchase.component.html',
-  styleUrl: './successful-purchase.component.css'
+  styleUrl: './successful-purchase.component.css',
 })
 export class SuccessfulPurchaseComponent implements OnInit {
   // Definir las propiedades para los parámetros de la URL
@@ -25,8 +25,7 @@ export class SuccessfulPurchaseComponent implements OnInit {
   merchantOrderId!: string;
   preferenceId!: string;
 
-
-  client?: Client
+  client?: Client;
   products: any[] = [];
   subtotal?: any;
   shippingCost?: any;
@@ -34,148 +33,186 @@ export class SuccessfulPurchaseComponent implements OnInit {
   shipmentMethod?: string;
   shipmentStatus?: string;
   formattedDate?: string;
-  shippingAddress?: Address
-  saleId?: string
+  shippingAddress?: Address;
+  saleId?: string;
 
   constructor(
-    private route: ActivatedRoute, 
-    private salesServ: SalesService, 
+    private route: ActivatedRoute,
+    private salesServ: SalesService,
     private addressServ: AddressesService,
-    private authServ: AuthService, 
-    private clientServ: ClientsService, 
-    private mpServ: MercadoPagoService, 
+    private authServ: AuthService,
+    private clientServ: ClientsService,
+    private mpServ: MercadoPagoService,
     private ms: MailSenderService,
     private productsService: ApiProductsService
-  ) { }
-
+  ) {}
 
   ngOnInit(): void {
-    const id = this.authServ.getUserId()
+    const id = this.authServ.getUserId();
 
     this.clientServ.getClientById(id!).subscribe({
       next: (client) => {
-        this.client = client
-        console.log(this.client!.email)
+        this.client = client;
+        console.log(this.client!.email);
         ///mail al user
-        
-      }
-    })
+      },
+    });
 
     // Obtener todos los parámetros de la URL
-    this.route.queryParams.subscribe(params => {
-
+    this.route.queryParams.subscribe((params) => {
       this.status = params['status'];
       this.merchantOrderId = params['merchant_order_id'];
       this.preferenceId = params['preference_id'];
 
-      this.handlePurchase(); 
-      this.ejectCucumbers()
-
+      this.handlePurchase(); //<-- Hardcode
+      this.ejectCucumbers();
     });
   }
 
   handlePurchaseHardcode() {
-    console.log(this.merchantOrderId)
-    let addressId = "6042"
-    this.formattedDate = Date()
-    this.salesServ.createSale(this.authServ.getUserId()!, this.formattedDate, "approved", addressId ? "Andreani" : "Retiro en sucursal", 1 + 1000, this.merchantOrderId, addressId || undefined).subscribe({
-      next: (sale: Sale) => {
-        console.log(sale)
-      },
-      error: (e) => {
-        console.log(e)
-      }
-    })
+    console.log(this.merchantOrderId);
+    let addressId = '6042';
+    this.formattedDate = this.formatDate(Date());
+    this.subtotal = 35980;
+    this.shippingCost = 1000;
+    this.total = 36980;
+    this.salesServ
+      .createSale(
+        this.authServ.getUserId()!,
+        this.formattedDate,
+        'approved',
+        addressId ? 'Andreani' : 'Retiro en sucursal',
+        1 + 1000,
+        this.merchantOrderId,
+        addressId || undefined
+      )
+      .subscribe({
+        next: (sale: Sale) => {
+          this.salesServ.getProductsBySalesID(sale.id).subscribe({
+            next: (sxpArray) => {
+              sxpArray.map((sxp) => {
+                this.getProductById(sxp.idProduct, sxp.quantity);
+              });
+              this.sendEmails();
+            },
+          });
+        },
+        error: (e) => {
+          console.log(e);
+        },
+      });
   }
 
   handlePurchase(): void {
-    console.log(this.merchantOrderId)
+    console.log(this.merchantOrderId);
     this.mpServ.getOrderData(parseInt(this.merchantOrderId)).subscribe({
       next: (res) => {
-        console.log(res)
+        console.log(res);
         this.formattedDate = this.formatDate(Date());
-        const addressId = localStorage.getItem("addressId")
+        const addressId = localStorage.getItem('addressId');
         if (addressId) {
           this.addressServ.getAddressById(addressId).subscribe({
             next: (address) => {
-              this.shippingAddress = address
-              this.shipmentMethod = "Andreani"
-              this.shipmentStatus = "En camino"
-            }
-          })
+              this.shippingAddress = address;
+              this.shipmentMethod = 'Andreani';
+              this.shipmentStatus = 'En camino';
+            },
+          });
         }
-        this.subtotal = res.total_amount
-        this.shippingCost = res.shipping_cost
-        this.total = this.subtotal + this.shippingCost
+        this.subtotal = res.total_amount;
+        this.shippingCost = res.shipping_cost;
+        this.total = this.subtotal + this.shippingCost;
 
-        this.salesServ.createSale(this.client!.id, this.formattedDate, "approved", addressId ? "Andreani" : "Retiro en sucursal", res.total_amount + res.shipping_cost, this.merchantOrderId, addressId || undefined).subscribe({
-          next: (sale) => { 
-
-            this.salesServ.getProductsBySalesID(sale.id).subscribe({
-              next: (sxpArray) => {
-                sxpArray.map(sxp => {
-                  this.getProductById(sxp.idProduct, sxp.quantity)
-                })
-                this.sendEmails()
-              }
-            })
-          }
-        })
+        this.salesServ
+          .createSale(
+            this.client!.id,
+            this.formattedDate,
+            'approved',
+            addressId ? 'Andreani' : 'Retiro en sucursal',
+            res.total_amount + res.shipping_cost,
+            this.merchantOrderId,
+            addressId || undefined
+          )
+          .subscribe({
+            next: (sale) => {
+              this.salesServ.getProductsBySalesID(sale.id).subscribe({
+                next: (sxpArray) => {
+                  sxpArray.map((sxp) => {
+                    this.getProductById(sxp.idProduct, sxp.quantity);
+                  });
+                  this.sendEmails();
+                },
+              });
+            },
+          });
       },
       error: (e) => {
-        console.log(e)
-      }
-    })
+        console.log(e);
+      },
+    });
   }
+
+  getProducts() {}
 
   getProductById(idProduct: string, quantity: number) {
     this.productsService.getProductById(idProduct).subscribe({
       next: (product) => {
-        this.products.push({...product, quantity: quantity})
+        this.products.push({ ...product, quantity: quantity });
       },
-      error: console.error
-    })
+      error: console.error,
+    });
   }
 
-  sendEmails(){
-    const productsDetail = this.generatePurchaseDetails(this.shippingCost)
-    
+  sendEmails() {
+    const productsDetail = this.generatePurchaseDetails(this.shippingCost);
+    console.log(productsDetail);
 
-    this.ms.sendMailToUser(
-      this.client!.email,
-      "Confirmacion de compra con ID: " + this.saleId,
-      productsDetail
-    ).subscribe({
-      next: (res) => {
-        console.log(res)
-      },
-      error: (e) => {
-        console.error(e)
-      }
-    })
+    return;
+    this.ms
+      .sendMailToUser(
+        this.client!.email,
+        'Confirmacion de compra con ID: ' + this.saleId,
+        productsDetail
+      )
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+        },
+        error: (e) => {
+          console.error(e);
+        },
+      });
     ///mail al admin
-    this.ms.sendMailToAdmin(
-      "Confirmacion de compra con ID: " + this.saleId +  ", de: " + this.client!.email,
-      productsDetail,
-      this.client!.email
-    ).subscribe({
-      next: (res) => {
-        console.log(res)
-      },
-      error: (e) => {
-        console.error(e)
-      }
-    })
+    this.ms
+      .sendMailToAdmin(
+        'Confirmacion de compra con ID: ' +
+          this.saleId +
+          ', de: ' +
+          this.client!.email,
+        productsDetail,
+        this.client!.email
+      )
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+        },
+        error: (e) => {
+          console.error(e);
+        },
+      });
   }
 
   generatePurchaseDetails(shippingCost: number): string {
     let totalAmount = 0;
-    let purchaseDetails = "Detalle de la compra:\n\n";
-  
+    let purchaseDetails = 'Detalle de la compra:\n\n';
+    console.log(this.products);
+
     this.products.forEach((product, index) => {
+      console.log(purchaseDetails);
+
       const subtotal = product.price * product.quantity;
       totalAmount += subtotal;
-  
+
       purchaseDetails += `Producto ${index + 1}:\n`;
       purchaseDetails += `- Nombre: ${product.name}\n`;
       purchaseDetails += `- Marca: ${product.brand}\n`;
@@ -186,12 +223,11 @@ export class SuccessfulPurchaseComponent implements OnInit {
       purchaseDetails += `- Cantidad: ${product.quantity}\n`;
       purchaseDetails += `- Subtotal: $${subtotal.toFixed(2)}\n\n`;
     });
-    totalAmount += shippingCost
-    purchaseDetails += `Costo de envío: $${shippingCost}`
+    totalAmount += shippingCost;
+    purchaseDetails += `Costo de envío: $${shippingCost}`;
     purchaseDetails += `Total de la compra: $${totalAmount.toFixed(2)}\n`;
     return purchaseDetails;
   }
-
 
   formatDate(dateString: string) {
     const date = new Date(dateString);
@@ -202,8 +238,10 @@ export class SuccessfulPurchaseComponent implements OnInit {
       hour: '2-digit',
       minute: '2-digit',
       second: '2-digit',
-      hour12: false
-    }).format(date).replace(',', '');
+      hour12: false,
+    })
+      .format(date)
+      .replace(',', '');
   }
 
   ejectCucumbers(): void {
@@ -216,7 +254,7 @@ export class SuccessfulPurchaseComponent implements OnInit {
       spread: 200,
       origin: { x: 0, y: 0.5 },
       shapes: [cucumber],
-      scalar
+      scalar,
     }).then(() => {
       console.log('La animación de confetti ha terminado');
     });
@@ -227,7 +265,7 @@ export class SuccessfulPurchaseComponent implements OnInit {
       spread: 200,
       origin: { x: 1, y: 0.5 },
       shapes: [cucumber],
-      scalar
+      scalar,
     }).then(() => {
       console.log('La animación de confetti ha terminado');
     });
@@ -237,7 +275,7 @@ export class SuccessfulPurchaseComponent implements OnInit {
       spread: 200,
       origin: { x: 0.5, y: 1 },
       shapes: [cucumber],
-      scalar
+      scalar,
     }).then(() => {
       console.log('La animación de confetti ha terminado');
     });
@@ -247,11 +285,9 @@ export class SuccessfulPurchaseComponent implements OnInit {
       spread: 200,
       origin: { x: 0.5, y: -0.5 },
       shapes: [cucumber],
-      scalar
+      scalar,
     }).then(() => {
       console.log('La animación de confetti ha terminado');
     });
   }
-
-
 }
