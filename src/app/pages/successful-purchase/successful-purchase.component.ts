@@ -100,7 +100,7 @@ export class SuccessfulPurchaseComponent implements OnInit {
             next: (address) => {
               this.shippingAddress = address
               this.shipmentMethod = "Andreani"
-              this.shipmentStatus = "En camino"
+              this.shipmentStatus = "Pendiente de ingreso"
             }
           })
         }

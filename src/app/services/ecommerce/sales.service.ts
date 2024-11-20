@@ -28,11 +28,13 @@ export class SalesService {
     shippingAdress?: string
   ): Observable<Sale> {
     let shipmentStatus: string;
+    let shippingNumber: string;
     let isCancelled = paymentStatus !== 'approved';
   
     // Establecer el estado del envío según el método y estado de pago
     if (paymentStatus === 'approved') {
-      shipmentStatus = shipmentMethod === "Retiro en sucursal" ? "A retirar" : "En camino";
+      shipmentStatus = shipmentMethod === "Retiro en sucursal" ? "A retirar" : "Pendiente de ingreso";
+      shippingNumber = "Pendiente"
     } else {
       shipmentStatus = "Cancelado";
     }
@@ -47,10 +49,11 @@ export class SalesService {
           amount: totalAmount,
           shipmentStatus: shipmentStatus,
           shipmentMethod: shipmentMethod,
-          shippingAdress: shippingAdress,
+          shippingAdressId: shippingAdress,
+          shippingNumber: shippingNumber,
           paymentStatus: paymentStatus,
           isCancelled: isCancelled,
-          id_merchant_order: id_merchant_order
+          id_merchant_order: id_merchant_order,
         };
         // Crear la venta en la base de datos
         return this.http.post<Sale>(this.baseUrl, saleData).pipe(
@@ -159,6 +162,8 @@ export class SalesService {
     return this.http.get<Sale>(`${this.baseUrl}/${idSale}`)
   }
 
-  
+  updateSale(idSale: string, saleParams: Object): Observable<Sale> {
+    return this.http.patch<Sale>(`${this.baseUrl}/${idSale}`, saleParams)
+  }
   
 }

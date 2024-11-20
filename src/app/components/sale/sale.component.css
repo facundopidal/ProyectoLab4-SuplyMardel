@@ -45,11 +45,15 @@
 
 .btn-details {
     text-align: center;
+    padding-bottom: 10px;
 }
 
 .btn-details a {
     text-decoration: none;
+    color: #002b5c;
     border: 1px solid #002b5c;
+    padding: 5px;
+    border-radius: 5px;
 }
 
 

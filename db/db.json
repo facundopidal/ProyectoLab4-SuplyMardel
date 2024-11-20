@@ -118,6 +118,7 @@
       "amount": 45580,
       "shipmentStatus": "A retirar",
       "shipmentMethod": "Retiro en sucursal",
+      "shippingNumber": "Pendiente",
       "paymentStatus": "approved",
       "isCancelled": true,
       "id_merchant_order": "25018010049"
@@ -127,8 +128,9 @@
       "id_client": "65cf",
       "date": "15/11/2024 02:43:41",
       "amount": 12502,
-      "shipmentStatus": "En Camino",
+      "shipmentStatus": "Entregado",
       "shipmentMethod": "Andreani",
+      "shippingNumber": "3600001078012",
       "paymentStatus": "approved",
       "isCancelled": false,
       "id_merchant_order": "25033503082",
@@ -245,7 +247,7 @@
       "topic": "payment"
     },
     {
-      "id": 117071845085,
+      "id": "117071845085",
       "action": "payment.created",
       "api_version": "v1",
       "data": {

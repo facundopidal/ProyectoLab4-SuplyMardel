@@ -9,11 +9,14 @@ import { forkJoin, switchMap } from 'rxjs';
 import { AuthService } from '../../services/auth/auth.service';
 import { MailSenderService } from '../../services/external/mail-sender.service';
 import { ClientsService } from '../../services/clients/clients.service';
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { MenuComponent } from '../admin/menu/menu.component';
 
 @Component({
   selector: 'app-sale-details',
   standalone: true,
-  imports: [],
+  imports: [CommonModule, FormsModule, MenuComponent],
   templateUrl: './sale-details.component.html',
   styleUrl: './sale-details.component.css'
 })
@@ -41,7 +44,7 @@ export class SaleDetailsComponent implements OnInit {
       this.saleService.getSaleBySaleId(id!).subscribe({
         next: (sale) => {
           this.sale = sale;
-          console.log(sale)
+          this.newShipmentStatus = sale.shipmentStatus
         },
         error: (error) => {
           console.error(error)
@@ -71,8 +74,6 @@ export class SaleDetailsComponent implements OnInit {
           products.forEach(product => {
             this.productsName += product.name + '\n'
           })
-          console.log(products)
-          console.log('Productos obtenidos:', this.saleProducts);
         },
         error: (error) => {
           console.error('Error al obtener los productos:', error);
@@ -81,24 +82,64 @@ export class SaleDetailsComponent implements OnInit {
     }
   }
 
+  showModalE = false;
+  newShippingNumber: string = '';
+  newShipmentStatus: "A retirar" | "Pendiente de ingreso" | "Ingresado" | "En camino" | "Entregado" = "A retirar";
+
+  openEditModal() {
+    this.newShippingNumber = this.sale.shippingNumber!
+    this.showModalE = true;
+  }
+
+  closeEditModal() {
+    this.showModalE = false;
+  }
+
+  updateShipment() {
+    this.saleService.updateSale(this.sale.id, {shipmentStatus: this.newShipmentStatus, shippingNumber: this.newShippingNumber}).subscribe()
+    this.sale.shippingNumber = this.newShippingNumber || this.sale.shippingNumber;
+    this.sale.shipmentStatus = this.newShipmentStatus;
+    this.clientsService.getClientById(this.sale.id_client).subscribe({
+      next: (client) => {
+        const mailMessage = "Su pedido esta " + this.sale.shipmentStatus.toLowerCase() + "!\n" +
+          (this.sale.shippingNumber !== "Pendiente" ? "Su codigo de seguimiento de Andreani es " + this.sale.shippingNumber: 
+          "En breve se le enviara su código de seguimiento");
+
+        this.ms.sendMailToUser(
+          client.email,
+          "Actualización de estado de compra " + this.sale.id,
+          mailMessage
+        ).subscribe()
+      }
+    })
+    this.closeEditModal();
+  }
+
+  stepCompleted(step: string): boolean {
+    const steps = ['Pendiente de ingreso', 'Ingresado', 'En camino', 'Entregado'];
+    const currentStepIndex = steps.indexOf(this.sale.shipmentStatus);
+    return steps.indexOf(step) <= currentStepIndex;
+  }
+
   showModal = false;
   saleToCancel: string | null = null;
-
+  
   openConfirmationModal(saleId: string): void {
     this.saleToCancel = saleId;
     this.showModal = true;
   }
-
+  
   confirmCancel(): void {
     if (this.saleToCancel !== null) {
       this.saleService.cancelSale(this.saleToCancel)
       this.saleToCancel = null;
       this.sale.isCancelled = true
     }
-    this.showModal = false;
-
+    this.showModalE = false;
+  
     this.clientsService.getClientById(this.sale.id_client).subscribe({
       next: (client) => {
+        ///mail al user
         this.ms.sendMailToUser(
           client.email,
           "Cancelación de compra",
@@ -125,20 +166,20 @@ export class SaleDetailsComponent implements OnInit {
         })
       }
     })
-
-    ///mail al user
-    
     
   }
-
+  
   cancelCancel(): void {
     this.saleToCancel = null;
     this.showModal = false;
   }
 
 
-
+  
 }
+
+
+
 
 
 

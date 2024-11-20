@@ -1,54 +1,145 @@
+@if(isAdmin) {
+    <app-menu />
+}
 <section>
     @if (sale){
-        <div>
-            <div class="sale-details">
+    <div>
+        <div class="sale-details">
 
-                <h2>Detalles de la Venta</h2>
+            <h2>Detalles de la Venta</h2>
             <p><strong>ID de la Venta:</strong> {{ sale.id }}</p>
             <p><strong>Fecha:</strong> {{ sale.date }}</p>
             <p><strong>Método:</strong> {{ sale.shipmentMethod }}</p>
             <p><strong>Estado:</strong> {{ sale.shipmentStatus}}</p>
             <p><strong>Total:</strong> {{ sale.amount }}</p>
             @if(sale.isCancelled){
-                <p class="cancel">CANCELADA</p>
+            <p class="cancel">CANCELADA</p>
             }
-            </div>
-          <div class="products-section">
+        </div>
 
-              <h3>Productos en esta Venta</h3>
-              <ul>
-                  @for (product of saleProducts; track product.id) {
-                      <li>
-                          <p><strong>Nombre:</strong> {{ product.name }}</p>
-                          <p><strong>Precio:</strong> {{ product.price }}</p>
-                          <p><strong>Cantidad:</strong> 
-                            {{ product.quantity }}
-                        </p>
-                        <hr />
-                    </li>
+        @if(sale.shipmentMethod === 'Andreani' && !sale.isCancelled){
+        <div class="tracking-module">
+            <div class="header">
+                <h2>El envío de Correo Andreani N° 
+                    <span>{{sale.shippingNumber ?? 'Pendiente' }}
+                    @if(isAdmin) {
+                        <i class="edit-icon" (click)="openEditModal()">✏️</i>
+                    }
+                </span>
+                </h2>
+                <a class="andreani-btn" href="https://www.andreani.com" target="_blank">Ir a Andreani</a>
+            </div>
+            <div class="status">
+                @if(sale.shipmentStatus === 'Pendiente de ingreso'){
+                    <h2 class="delivered">Pendiente de ingreso</h2>
+                    <p>Tu pedido todavía no fue despachado en Andreani. En la brevedad se cargara su código de seguimiento</p>
+                }
+                @if(sale.shipmentStatus === 'Ingresado'){
+                    <h2 class="delivered">Ingresado</h2>
+                    <p>Tu pedido ya fue despachado.</p>
+                }
+                @if(sale.shipmentStatus === 'En camino'){
+                    <h2 class="delivered">En Camino</h2>
+                    <p>Tu pedido está en camino! Podes seguirlo desde Andreani con el código de arriba.</p>
+                }
+                @if(sale.shipmentStatus === 'Entregado'){
+                    <h2 class="delivered">Entregado</h2>
+                    <p>Tu pedido fue entregado a tu domicilio.</p>
+                }
+            </div>
+            <div class="timeline">
+                <div class="step" [class.completed]="stepCompleted('Pendiente de ingreso')">
+                    <div class="circle">{{ stepCompleted('Pendiente de ingreso') ? '&#10003;' : "X" }}</div>
+                    <p>Pendiente de ingreso</p>
+                </div>
+                <div class="step" [class.completed]="stepCompleted('Ingresado')">
+                    <div class="circle">{{ stepCompleted('Ingresado') ? '&#10003;' : "X" }}</div>
+                    <p>Ingresado</p>
+                </div>
+                <div class="step" [class.completed]="stepCompleted('En camino')">
+                    <div class="circle">{{ stepCompleted('En camino') ? '&#10003;' : "X" }}</div>
+                    <p>En camino</p>
+                </div>
+                <div class="step" [class.completed]="stepCompleted('Entregado')">
+                    <div class="circle">{{ stepCompleted('Entregado') ? '&#10003;' : "X" }}</div>
+                    <p>Entregado</p>
+                </div>
+            </div>
+        </div>
+        }
+        <div class="products-section">
+
+            <h3>Productos en esta Venta</h3>
+            <ul>
+                @for (product of saleProducts; track product.id) {
+                <li>
+                    <p><strong>Nombre:</strong> {{ product.name }}</p>
+                    <p><strong>Precio:</strong> {{ product.price }}</p>
+                    <p><strong>Cantidad:</strong>
+                        {{ product.quantity }}
+                    </p>
+                    <hr />
+                </li>
                 }
             </ul>
-            @if(isAdmin) {
-                <div class="cancel-container">
-                    <button (click)="openConfirmationModal(sale.id) " class="cancel-btn">Cancelar Compra</button>
-                </div>
-            }
+            @if(isAdmin && !sale.isCancelled) {
+            <div class="cancel-container">
+                <button (click)="openConfirmationModal(sale.id) " class="cancel-btn">Cancelar Compra</button>
             </div>
-          </div>
+            }
+        </div>
+    </div>
     }
     @else {
-        <span>Venta no encontrada. :{{'('}}</span>
+    <span>Venta no encontrada. :{{'('}}</span>
     }
 </section>
- 
+
 @if (showModal) {
-    <div class="modal">
-        <div class="modal-content">
-          <p class="modal-p">¿Estás seguro de que quieres eliminar este producto?</p>
-          <div class="buttons">
-              <button class="btn-confirm" (click)="confirmCancel()">Sí</button>
-              <button class="btn-cancel" (click)="cancelCancel()">No</button>
-          </div>
-        </div>
-      </div>
+<div class="modal">
+    <div class="modal-content">
+        @if((sale.shipmentStatus === "A retirar" || sale.shipmentStatus === "Pendiente de ingreso")) {
+            <p class="modal-p">¿Estás seguro de que quieres cancelar esta venta?</p>
+            <div class="buttons">
+                <button class="btn-confirm" (click)="confirmCancel()">Sí</button>
+                <button class="btn-cancel" (click)="cancelCancel()">No</button>
+            </div>
+        }
+        @else {
+            <p>No es posible cancelar la venta porque el pedido ya fue ingresado.</p>
+            <button class="btn-cancel" (click)="cancelCancel()">Cerrar</button>
+        }
+        
+    </div>
+</div>
+}
+
+<!-- Modal -->
+ @if(showModalE) {
+ 
+<div class="modal" >
+    <div class="modal-content">
+      <h3>Actualizar Envío</h3>
+      <form (submit)="updateShipment()">
+        <label for="trackingNumber">Número de seguimiento:</label>
+        <input
+          id="trackingNumber"
+          type="text"
+          [(ngModel)]="newShippingNumber"
+          name="trackingNumber"
+        />
+  
+        <label for="shipmentStatus">Estado del envío:</label>
+        <select id="shipmentStatus" [(ngModel)]="newShipmentStatus" name="shipmentStatus">
+          <option value="Pendiente de ingreso">Pendiente de ingreso</option>
+          <option value="Ingresado">Ingresado</option>
+          <option value="En camino">En camino</option>
+          <option value="Entregado">Entregado</option>
+        </select>
+  
+        <button type="submit">Aceptar</button>
+        <button type="button" (click)="closeEditModal()">Cancelar</button>
+      </form>
+    </div>
+  </div>
 }
