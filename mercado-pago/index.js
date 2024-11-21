@@ -9,7 +9,7 @@ const PORT = 3003;
 
 // Configura el cliente de MercadoPago con el Access Token
 const client = new MercadoPagoConfig({
-  accessToken: 'APP_USR-5342132355704244-111414-d8c5b1ceebb14200456220a1448f2ac7-2094553819', // Reemplaza con tu token real
+  accessToken: 'APP_USR-2569729165014674-111505-086b463249b1109f0b354a3e7d25f43b-2096738943', // Reemplaza con tu token real
 });
 
 app.use(express.json());
@@ -63,7 +63,7 @@ app.post("/create_preference", async (req, res) => {
         shipments: shipping,
         binary_mode: true,
         auto_return: "approved",
-        notification_url: "https://lcvt5tbh-8000.brs.devtunnels.ms/notifications", // URL para recibir notificaciones de Mercado Pago
+        notification_url: "https://t9pnxqsk-8000.brs.devtunnels.ms/notifications", // URL para recibir notificaciones de Mercado Pago
       }
     });
 

@@ -72,7 +72,7 @@
                 <label for="category">Categoría:</label>
                 <select id="category" formControlName="category">
                     <option value="">--Seleccione--</option>
-                    <option *ngFor="let category of categories" [value]="category.id">
+                    <option *ngFor="let category of categories" [value]="category.nombre">
                         {{ category.nombre }}
                     </option>
                 </select>

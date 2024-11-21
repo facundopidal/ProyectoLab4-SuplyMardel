@@ -30,7 +30,7 @@ export class CreateProductComponent {
     stock: [0,[Validators.required, Validators.min(0)]],
     image: ['',[Validators.required, Validators.minLength(5)]],
     description: ['',[Validators.required, Validators.minLength(10)]],
-    category: ['',[Validators.required, Validators.minLength(3)]],
+    category: ['',],
     flavor: ['',],
     weight: [0,[Validators.required, Validators.min(0)]],
   })
@@ -47,6 +47,8 @@ export class CreateProductComponent {
   
 
   agregarProducto(){
+    console.log(1);
+    
     if(this.formulario.invalid) return
     const producto = this.formulario.getRawValue() as Product;
 
