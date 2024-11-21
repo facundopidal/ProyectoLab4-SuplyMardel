@@ -34,7 +34,7 @@ export class PasswordRecoveryComponent {
     repeatNewPassword: ['', [Validators.required, Validators.minLength(8)]]
   })
 
-  randomPass: string = this.authService.generateRandomPassword();
+  randomCode: string = this.authService.generateRandomPassword();
   clientToChange?: Client
   
   onSubmit() {
@@ -52,7 +52,7 @@ export class PasswordRecoveryComponent {
         this.mailerService.sendMailToUser(
           userEmail!,
           "SuplyMardel Cambio de contraseña.",
-          "Si usted no pidio el cambio, ignore el email, su codigo es este: " + this.randomPass
+          "Si usted no pidio el cambio, ignore el email, su codigo es este: " + this.randomCode
         ).subscribe({
           next: () => {
             this.isSubmit = true
@@ -61,20 +61,14 @@ export class PasswordRecoveryComponent {
             this.isSubmit = false
             alert("Ocurrio un error")
           }
-        })
-
-        let clientToChange: Client;
-
-        clientToChange = client
-        clientToChange.password = this.randomPass
-        
+        })        
       }
     })
   }
 
   onChange() {
     if(this.formRecovery.invalid) return
-    if (this.randomPass !==  this.formRecovery.get('code')?.value) return;
+    if (this.randomCode !==  this.formRecovery.get('code')?.value) return;
     const password = this.formRecovery.value.newPassword
     const repeatPassword = this.formRecovery.value.repeatNewPassword
 
