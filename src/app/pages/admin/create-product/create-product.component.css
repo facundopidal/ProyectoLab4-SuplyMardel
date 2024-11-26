@@ -2,6 +2,14 @@ section {
     display: flex;
     width: 100%;
 }
+.bloque {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.bloque-imagen input{
+    width: 90%;
+}
 
 .card {
     background-color: #f0f8ff; /* Azul claro */
@@ -31,6 +39,10 @@ input, select, button {
     font-size: 14px;
 }
 
+select {
+    width: 192px;
+}
+
 input:focus, select:focus {
     outline: none;
     border-color: #0073e6; /* Azul vibrante */
@@ -58,3 +70,4 @@ a{
     font-size: 14px; /* Tamaño de letra pequeño */
     margin-top: 5px;
 }
+

@@ -4,97 +4,116 @@
 
         <form [formGroup]="formulario" (ngSubmit)="agregarProducto()">
             <!-- Nombre -->
-            <div>
-                <label>Nombre</label>
-                <input type="text" placeholder="Ingrese el nombre del producto" formControlName="name">
-                @if (formulario.controls['name'].touched && formulario.controls['name'].getError('required')) {
-                <span class="error">El campo es requerido</span>
-                }
-                @if (formulario.controls['name'].touched && formulario.controls['name'].getError('minlength')) {
-                <span class="error">Minimo 5 caracteres</span>
-                }
-            </div>
-            <div>
-                <label>Marca</label>
-                <input type="text" placeholder="Ingrese la marca del producto" formControlName="brand">
-                @if (formulario.controls['brand'].touched && formulario.controls['brand'].getError('required')) {
-                <span class="error">El campo es requerido</span>
-                }
-                @if (formulario.controls['brand'].touched && formulario.controls['brand'].getError('minlength')) {
-                <span class="error">Minimo 2 caracteres</span>
-                }
-            </div>
-            <div>
-                <label>Precio</label>
-                <input type="number" placeholder="Ingrese el precio" formControlName="price" min="0">
-                @if (formulario.controls['price'].touched && formulario.controls['price'].getError('required')) {
-                <span class="error">El campo es requerido</span>
-                }
-                @if (formulario.controls['price'].touched && formulario.controls['price'].getError('min')) {
-                <span classs="error">El precio no puede ser negativo</span>
-                }
-            </div>
-            <div>
-                <label>Stock</label>
-                <input type="number" placeholder="Ingrese el stock" formControlName="stock" min="0">
-                @if (formulario.controls['stock'].touched && formulario.controls['stock'].getError('required')) {
-                <span classs="error">El campo es requerido</span>
-                }
-                @if (formulario.controls['stock'].touched && formulario.controls['stock'].getError('min')) {
-                <span class="error">El stock no puede ser negativo</span>
-                }
-            </div>
-            <div>
+             <div class="bloque">
+                 <div>
+                     <label>Nombre</label>
+                     <br>
+                     <input type="text" placeholder="Ingrese el nombre del producto" formControlName="name">
+                     @if (formulario.controls['name'].touched && formulario.controls['name'].getError('required')) {
+                     <div class="error">El campo es requerido</div>
+                     }
+                     @if (formulario.controls['name'].touched && formulario.controls['name'].getError('minlength')) {
+                     <div class="error">Minimo 5 caracteres</div>
+                     }
+                 </div>
+                 <div>
+                     <label>Marca</label>
+                     <br>
+                     <input type="text" placeholder="Ingrese la marca del producto" formControlName="brand">
+                     @if (formulario.controls['brand'].touched && formulario.controls['brand'].getError('required')) {
+                     <div class="error">El campo es requerido</div>
+                     }
+                     @if (formulario.controls['brand'].touched && formulario.controls['brand'].getError('minlength')) {
+                     <div class="error">Minimo 2 caracteres</div>
+                     }
+                 </div>
+             </div>
+             <div class="bloque">
+                 <div>
+                     <label>Precio</label>
+                     <br>
+                     <input type="number" placeholder="Ingrese el precio" formControlName="price" min="0">
+                     @if (formulario.controls['price'].touched && formulario.controls['price'].getError('required')) {
+                     <div class="error">El campo es requerido</div>
+                     }
+                     @if (formulario.controls['price'].touched && formulario.controls['price'].getError('min')) {
+                     <div classs="error">El precio no puede ser cero ni negativo</div>
+                     }
+                 </div>
+                 <div>
+                     <label>Stock</label>
+                     <br>
+                     <input type="number" placeholder="Ingrese el stock" formControlName="stock" min="0">
+                     @if (formulario.controls['stock'].touched && formulario.controls['stock'].getError('required')) {
+                     <div classs="error">El campo es requerido</div>
+                     }
+                     @if (formulario.controls['stock'].touched && formulario.controls['stock'].getError('min')) {
+                     <div class="error">El stock no puede ser negativo</div>
+                     }
+                 </div>
+             </div>
+             <div class="bloque">
+                 <div>
+                     <label>Descripción</label>
+                     <br>
+                     <input type="text" placeholder="Ingrese descripcion" formControlName="description">
+                     @if (formulario.controls['description'].touched &&
+                     formulario.controls['description'].getError('required')) {
+                     <div class="error">El campo es requerido</div>
+                     }
+                     @if (formulario.controls['description'].touched &&
+                     formulario.controls['description'].getError('minlength')) {
+                     <div class="error">Minimo 10 caracteres</div>
+                     }
+                 </div>
+                 <div>
+                     <label for="category">Categoría</label>
+                     <br>
+                     <select id="category" formControlName="category">
+                         <option value="">--Seleccione--</option>
+                         <option *ngFor="let category of categories" [value]="category.nombre">
+                             {{ category.nombre }}
+                         </option>
+                     </select>
+                 </div>
+             </div>
+             <div class="bloque">
+                 <div>
+                     <label>Sabor</label>
+                     <br>
+                     <select formControlName="flavor">
+                         <option>Chocolate</option>
+                         <option>Frutilla</option>
+                         <option>Vanilla</option>
+                         <option>Cookies and Cream</option>
+                         <option>Mango</option>
+                     </select>
+                 </div>
+                 <div>
+                     <label>Peso</label>
+                     <br>
+                     <input type="number" placeholder="Ingrese peso en gramos" formControlName="weight" min="0">
+                     @if (formulario.controls['weight'].touched && formulario.controls['weight'].getError('required')) {
+                     <div class="error">El campo es requerido</div>
+                     }
+                     @if (formulario.controls['weight'].touched && formulario.controls['weight'].getError('min')) {
+                     <div class="error">El peso debe ser positivo</div>
+                     }
+                 </div>
+             </div>
+            <div class="bloque-imagen">
                 <label>Imagen</label>
+                <br>
                 <input type="text" placeholder="Ingrese el link de la imagen" formControlName="image"
                     (input)="updateUrl()">
                 <a href="{{urlImage}}" target="_blank">Ver</a>
                 @if (formulario.controls['image'].touched && formulario.controls['image'].getError('required')) {
-                <span class="error">El campo es requerido</span>
+                    
+                <div class="error">El campo es requerido</div>
                 }
                 @if (formulario.controls['image'].touched && formulario.controls['image'].getError('minlength')) {
-                <span class="error">Minimo 5 caracteres</span>
-                }
-            </div>
-            <div>
-                <label>Descripcion</label>
-                <input type="text" placeholder="Ingrese descripcion" formControlName="description">
-                @if (formulario.controls['description'].touched &&
-                formulario.controls['description'].getError('required')) {
-                <span class="error">El campo es requerido</span>
-                }
-                @if (formulario.controls['description'].touched &&
-                formulario.controls['description'].getError('minlength')) {
-                <span class="error">Minimo 10 caracteres</span>
-                }
-            </div>
-            <div>
-                <label for="category">Categoría:</label>
-                <select id="category" formControlName="category">
-                    <option value="">--Seleccione--</option>
-                    <option *ngFor="let category of categories" [value]="category.nombre">
-                        {{ category.nombre }}
-                    </option>
-                </select>
-            </div>
-            <div>
-                <label>Sabor</label>
-                <select formControlName="flavor">
-                    <option>Chocolate</option>
-                    <option>Frutilla</option>
-                    <option>Vanilla</option>
-                    <option>Cookies and Cream</option>
-                    <option>Mango</option>
-                </select>
-            </div>
-            <div>
-                <label>Peso</label>
-                <input type="number" placeholder="Ingrese peso en gramos" formControlName="weight" min="0">
-                @if (formulario.controls['weight'].touched && formulario.controls['weight'].getError('required')) {
-                <span class="error">El campo es requerido</span>
-                }
-                @if (formulario.controls['weight'].touched && formulario.controls['weight'].getError('min')) {
-                <span class="error">Minimo 5 caracteres</span>
+                    
+                <div class="error">Minimo 5 caracteres</div>
                 }
             </div>
 

@@ -52,9 +52,9 @@ app.post("/create_preference", async (req, res) => {
       body: {
         items: mpItems,
         back_urls: {
-          success: "http://localhost:4200/successfulpurchase",  // URL cuando el pago es exitoso
-          failure: "http://localhost:4200/failure",  // URL cuando el pago falla
-          pending: "http://localhost:4200/pending",   // URL cuando el pago está pendiente
+          success: "http://localhost:4200/successfulpurchase",  
+          failure: "http://localhost:4200/failure",  
+          pending: "http://localhost:4200/pending",   
         },
         payer: {
           name: "Juan Perez",
@@ -63,14 +63,13 @@ app.post("/create_preference", async (req, res) => {
         shipments: shipping,
         binary_mode: true,
         auto_return: "approved",
-        notification_url: "https://t9pnxqsk-8000.brs.devtunnels.ms/notifications", // URL para recibir notificaciones de Mercado Pago
+        notification_url: "https://t9pnxqsk-8000.brs.devtunnels.ms/notifications", // URL para recibir notificaciones de Mercado Pago (Por ahora no utilizadas)
       }
     });
 
-    // Imprime la respuesta completa para depuración
     console.log("Respuesta de Mercado Pago completa:", JSON.stringify(response, null, 2));
 
-    // Verificamos si la respuesta contiene las propiedades necesarias
+    
     if (response.id && response.init_point) {
       res.status(200).json({
         id: response.id,
@@ -90,21 +89,7 @@ app.post("/create_preference", async (req, res) => {
 });
 
 
-// app.get("/merchant-order/:id", async (req, res) => {
-//   console.log(req.params.id)
-//   const order = new MerchantOrder(client)
-//   console.log(order)
 
-//   try {
-//     order.get({ merchantOrderId: req.params.id }).then(response => {
-//       console.log(response)
-//       res.json(response)
-//     })
-
-//   } catch (error) {
-//     console.log(error)
-//   }
-// })
 
 app.get("/merchant-order/:id", async (req, res) => {
   console.log("ID de Merchant Order:", req.params.id);
@@ -112,11 +97,10 @@ app.get("/merchant-order/:id", async (req, res) => {
   const order = new MerchantOrder(client);
 
   try {
-    // Uso de async-await con manejo de errores adecuado
     const response = await order.get({ merchantOrderId: req.params.id });
 
     console.log("Respuesta de Merchant Order:", response);
-    res.json(response); // Envía la respuesta de la orden al cliente
+    res.json(response); 
   } catch (error) {
     console.error("Error al obtener la orden del merchant:", error);
     res.status(500).json({

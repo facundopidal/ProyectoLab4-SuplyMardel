@@ -95,6 +95,18 @@
       "category": "Preentreno",
       "flavor": "Vanilla",
       "weight": 280
+    },
+    {
+      "id": "888b",
+      "name": "Proteina Super 80%",
+      "brand": "ENA ",
+      "price": 23580,
+      "stock": 32,
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_935480-MLA50231366542_062022-F.webp",
+      "description": "Proteina isolada 80%",
+      "category": "Proteinas",
+      "flavor": "Frutilla",
+      "weight": 954
     }
   ],
   "clients": [
