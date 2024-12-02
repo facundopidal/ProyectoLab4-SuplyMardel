@@ -12,6 +12,14 @@ section {
     max-width: 600px;
     margin: auto;
 }
+.bloque {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.bloque-imagen input{
+    width: 90%;
+}
 
 form {
     display: flex;
@@ -29,6 +37,10 @@ input, select, button {
     border-radius: 4px;
     border: 1px solid #003366;
     font-size: 14px;
+}
+
+select {
+    width: 192px;
 }
 
 input:focus, select:focus {

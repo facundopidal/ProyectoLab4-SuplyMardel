@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Product } from '../../../interfaces/product';
@@ -16,12 +16,16 @@ import { CommonModule } from '@angular/common';
   templateUrl: './create-product.component.html',
   styleUrl: './create-product.component.css'
 })
-export class CreateProductComponent {
+export class CreateProductComponent implements OnInit{
 
   route  = inject(Router);
   fb = inject(FormBuilder);
   service = inject(ApiProductsService);
   urlImage?: string
+
+  ngOnInit(): void {
+      this.formulario.controls['price'].setValue(parseInt(''))
+  }
   
   formulario = this.fb.nonNullable.group({
     name: ['',[Validators.required, Validators.minLength(5)]],
