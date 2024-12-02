@@ -54,7 +54,7 @@
                  </div>
                  <div class="bloque">
                     <div>
-                        <label>Descripcion</label>
+                        <label>Descripción</label>
                         <br>
                         <input type="text" placeholder="Ingrese descripcion" formControlName="description">
                         @if (formulario.controls['description'].touched && formulario.controls['description'].getError('required')) {
@@ -106,7 +106,10 @@
                     <label>Imagen</label>
                     <br>
                     <input type="text" placeholder="Ingrese el link de la imagen" formControlName="image" (input)="updateUrl()">
-                    <a href="{{urlImage}}" target="_blank">Ver</a>
+                    <a href="{{urlImage}}" target="_blank"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" class="image-eye" fill="currentColor" class="bi bi-eye-fill" viewBox="0 0 16 16">
+                        <path d="M10.5 8a2.5 2.5 0 1 1-5 0 2.5 2.5 0 0 1 5 0"/>
+                        <path d="M0 8s3-5.5 8-5.5S16 8 16 8s-3 5.5-8 5.5S0 8 0 8m8 3.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7"/>
+                      </svg></a>
                     @if (formulario.controls['image'].touched && formulario.controls['image'].getError('required')) {
                         <div class="error">El campo es requerido</div>
                     }

@@ -63,6 +63,7 @@ button {
   background-color: #002b5c;
   color: white;
   cursor: pointer;
+  font-family: "Noto Sans JP";
 }
 .buttons span{
   margin: auto;

@@ -58,8 +58,13 @@ input[type="password"] {
     font-size: 1em;
 }
 
+.error {
+    color: #fff;
+}
+
 /* Botón de inicio de sesión */
 .login-button {
+    margin-top: 10px;
     width: 100%;
     padding: 12px;
     background-color: #555;
@@ -93,17 +98,21 @@ input[type="password"] {
 /* Estilos para la sección de registro */
 .div-register {
     margin-top: 20px;
+    align-items: center;
+    justify-items: center;
 }
 
 .div-register label {
     font-size: 0.9em;
-    color: #555;
+    color: lightslategray;
+    padding-bottom: 5px;
 }
 
 .div-register a {
     font-weight: bold;
-    color: #333;
+    color: white;
     text-decoration: none;
+    font-family: "Noto Sans JP";
 }
 
 .div-register a:hover {
@@ -112,5 +121,6 @@ input[type="password"] {
 
 .password-recovery {
     color: #fff !important;
+    font-family: "Noto Sans JP";
 }
 

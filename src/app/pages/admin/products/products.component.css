@@ -114,3 +114,14 @@
       margin-bottom: 0.5rem;
   }
 }
+
+button{
+  font-family: "Noto Sans JP";
+}
+
+.btnp{
+  border: none;
+  background-color: transparent;
+}
+
+

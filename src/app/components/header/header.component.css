@@ -44,6 +44,7 @@ header {
   color: white;
   padding: 6px;
   border-radius: 10px;
+  font-family: "Noto Sans JP";
 }
 
 .login-anchor:hover{
@@ -56,6 +57,7 @@ header {
   color: white;
   padding: 6px;
   border-radius: 10px;
+  font-family: "Noto Sans JP";
 }
 
 .register-anchor:hover{

@@ -25,6 +25,7 @@ form {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    font-family: "Noto Sans JP";
 }
 
 label {
@@ -69,4 +70,8 @@ a{
     color: #e60000; /* Rojo */
     font-size: 14px; /* Tamaño de letra pequeño */
     margin-top: 5px;
+}
+
+.image-eye {
+    color: #002b5c;
 }

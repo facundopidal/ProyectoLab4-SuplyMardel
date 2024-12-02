@@ -4,11 +4,25 @@
     <div class="card">
         <h3>Inicio de sesión</h3>
         <div class="form-card">
-            <form (ngSubmit)="login()">
-                <label>Mail</label>
-                <input type="email" [(ngModel)]="email" name="email" placeholder="Email" required>
-                <input type="password" [(ngModel)]="password" name="password" placeholder="Password" required>
-                <button class="login-button" type="submit">Iniciar sesión</button>
+            <form (ngSubmit)="login()" [formGroup]="form">
+                <label>Correo Electrónico</label>
+                <input type="email" formControlName="email"  placeholder="ejemplo@gmail.com" required>
+                @if((form.controls['email'].getError('required') || form.controls['email'].getError('email')) && form.controls['email'].touched) {
+                    <p class="error">Ingrese su email</p>
+                
+                } 
+                @if(form.controls['email'].getError('minlength') && form.controls['email'].touched) {
+                    <p class="error">Ingrese mínimo 12 caracteres</p>
+                }
+                <label>Contraseña</label>
+                <input type="password" formControlName="password" placeholder="" required>
+                @if(form.controls['password'].getError('required') && form.controls['password'].touched) {
+                    <p class="error">Ingrese su contraseña</p>
+                }
+                @if(form.controls['password'].getError('minlength') && form.controls['password'].touched) {
+                    <p class="error">Ingrese mínimo 8 caracteres</p>
+                }
+                <button class="login-button" type="submit" [disabled]="form.invalid">Iniciar sesión</button>
             </form>
             <a class="password-recovery" routerLink="/password-recovery">Olvidaste tu contraseña?</a>
         </div>

@@ -16,6 +16,7 @@ export class ProductDetailsComponent implements OnInit {
   product!: Product
   priceFormatted !: string
   quantity: number = 1;  // Valor inicial de cantidad
+  isAdmin: boolean = false
 
   increment() {
     this.quantity += 1;
@@ -30,6 +31,7 @@ export class ProductDetailsComponent implements OnInit {
   constructor(private route: ActivatedRoute, private productsService: ApiProductsService) { }
 
   ngOnInit(): void {
+
     const id: any = this.route.snapshot.paramMap.get('id')
     this.productsService.getProductById(id).subscribe({ 
       next: (product) => {

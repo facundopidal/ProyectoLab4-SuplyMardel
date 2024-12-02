@@ -25,6 +25,10 @@
 
 }
 
+.cancelled {
+    box-shadow: 0 2px 4px rgba(255, 0, 0, 0.7); /* Subtle shadow */
+}
+
 .card-body {
     padding: 20px; /* Padding inside the card */
 }

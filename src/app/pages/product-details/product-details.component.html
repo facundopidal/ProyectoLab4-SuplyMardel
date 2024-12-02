@@ -21,16 +21,16 @@
                 </div>
       
               <!-- Opciones adicionales, como botones de pago -->
-              <div class="payment-buttons">
-                @if(product.stock) {
-                  <button class="payment-button" [routerLink]="['/cart', product.id]">Agregar al carrito</button>
-                }
-                @else {
-                  <span>Sin stock</span>
-                }
-              </div>
-            </div>
-      
+               
+                 <div class="payment-buttons">
+                   @if(product.stock) {
+                     <button class="payment-button" [routerLink]="['/cart', product.id]">Agregar al carrito</button>
+                   }
+                   @else {
+                     <span>Sin stock</span>
+                   }
+                 </div>
+               </div>
             <!-- Descripción del producto -->
             <div class="product-description">
               <p>{{product.description}}</p>
