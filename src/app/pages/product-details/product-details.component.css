@@ -95,6 +95,7 @@
     border: 1px solid #000;
     background-color: #fff;
     cursor: pointer;
+    font-family: "Noto Sans JP";
   }
   .payment-buttons span{
     flex: 1;

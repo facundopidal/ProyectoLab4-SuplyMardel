@@ -1,18 +1,20 @@
 <section>
     <app-menu />
-    <div class="clients-container">
-        <input type="text" placeholder="Buscar emails..." name="search" [(ngModel)]="filterClients">
-        <div *ngFor="let client of clients | filterClients: filterClients">
-            <a routerLink="/admin/client-details/{{client.id}}">
-                <div class="card">
-                    <div class="card-body">
-                        <p class="card-id"><strong>ID: </strong>{{ client.id }}</p>
-                        <p class="card-name"><strong>Nombre: </strong>{{ client.name }}</p>
-                        <p class="card-lastname"><strong>Apellido:</strong> {{ client.lastname }}</p>
-                        <p class="card-email"><strong>Email:</strong> {{ client.email }}</p>
+    <main>
+        <input type="text" placeholder="Buscar emails..." name="search" [(ngModel)]="filterClients" class="search">
+        <div class="clients-container">
+            <div *ngFor="let client of clients | filterClients: filterClients">
+                <a routerLink="/admin/client-details/{{client.id}}">
+                    <div class="card">
+                        <div class="card-body">
+                            <p class="card-id"><strong>ID: </strong>{{ client.id }}</p>
+                            <p class="card-name"><strong>Nombre: </strong>{{ client.name }}</p>
+                            <p class="card-lastname"><strong>Apellido:</strong> {{ client.lastname }}</p>
+                            <p class="card-email"><strong>Email:</strong> {{ client.email }}</p>
+                        </div>
                     </div>
-                </div>
-            </a>
+                </a>
+            </div>
         </div>
-    </div>
+    </main>
 </section>

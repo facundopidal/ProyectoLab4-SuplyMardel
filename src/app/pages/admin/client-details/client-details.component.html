@@ -1,18 +1,25 @@
 <section>
   <app-menu></app-menu>
   @if(client){
-      <div class="client">
-          <app-client [client]="client" />
-        
-          <h3>Compras Realizadas</h3>
-          <div class="sales">
-            <div *ngFor="let sale of clientSales">  
-              <app-sale [sale]="sale"></app-sale>
-            </div>
-          </div>
-        </div>
+  <div class="client">
+    <app-client [client]="client" />
+
+    @if(clientSales === []) {
+    <div class="title">
+      <h3>Compras Realizadas</h3>
+    </div>
+    <div class="sales">
+      <div *ngFor="let sale of clientSales">
+        <app-sale [sale]="sale"></app-sale>
+      </div>
+    </div>
+    }
+    @else {
+    <p>No se encontraron compras asociadas a este cliente.</p>
+    }
+  </div>
   }
   @else{
-      <span>Cliente no encontrado. :{{'('}}</span>
+  <span>Cliente no encontrado. :{{'('}}</span>
   }
 </section>

@@ -21,15 +21,20 @@
                 </div>
       
               <!-- Opciones adicionales, como botones de pago -->
-               
-                 <div class="payment-buttons">
+              <div class="payment-buttons">
+               @if(!isAdmin) {
                    @if(product.stock) {
                      <button class="payment-button" [routerLink]="['/cart', product.id]">Agregar al carrito</button>
                    }
                    @else {
                      <span>Sin stock</span>
                    }
-                 </div>
+                  }
+                  @else {
+                    <button [routerLink]="['/admin/edit-product/', product.id]" class="payment-button">Editar</button>
+                  }
+                </div>
+
                </div>
             <!-- Descripción del producto -->
             <div class="product-description">

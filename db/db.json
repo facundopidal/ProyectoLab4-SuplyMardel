@@ -251,13 +251,13 @@
       "id": "3840",
       "idClient": "65cf",
       "idProduct": "1886",
-      "quantity": 3
+      "quantity": 1
     },
     {
       "id": "43ae",
       "idClient": "65cf",
       "idProduct": "2",
-      "quantity": 1
+      "quantity": 2
     }
   ],
   "admin": {

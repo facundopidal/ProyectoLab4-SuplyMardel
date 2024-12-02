@@ -33,12 +33,13 @@
     padding: 20px; /* Padding inside the card */
 }
 
-.card-id, .card-name, .card-lastname, .card-address, .card-email {
+.card-id, .card-name, .card-lastname, .card-address, .card-email, .card-shipment-status, .card-shipment-method  {
     color: #002b5c; /* Text color */
     margin: 5px 0; /* Margin between paragraphs */
 }
 
-.card-id strong, .card-name strong, .card-lastname strong, .card-address strong, .card-email strong {
+.card-id strong, .card-name strong, .card-lastname strong, .card-address strong,
+ .card-email strong, .card-shipment-status strong, .card-shipment-method strong {
     color: #002b5c; /* Strong text color */
 }
 

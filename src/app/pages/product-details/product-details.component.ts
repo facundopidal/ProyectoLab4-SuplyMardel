@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Product } from '../../interfaces/product';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { ApiProductsService } from '../../services/ecommerce/api-products.service';
+import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
   selector: 'app-product-details',
@@ -28,9 +29,10 @@ export class ProductDetailsComponent implements OnInit {
     }
   }
 
-  constructor(private route: ActivatedRoute, private productsService: ApiProductsService) { }
+  constructor(private route: ActivatedRoute, private productsService: ApiProductsService, private authService: AuthService) { }
 
   ngOnInit(): void {
+    this.isAdmin = this.authService.isAdmin()
 
     const id: any = this.route.snapshot.paramMap.get('id')
     this.productsService.getProductById(id).subscribe({ 

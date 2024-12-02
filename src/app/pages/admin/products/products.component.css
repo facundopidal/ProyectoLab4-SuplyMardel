@@ -18,6 +18,7 @@
 }
 
 /* Imagen de la tarjeta */
+
 .card-img-top {
   max-height: 10rem;
   object-fit: contain;
@@ -122,6 +123,11 @@ button{
 .btnp{
   border: none;
   background-color: transparent;
+  width: 100%;
+  text-align: left;
 }
 
+.btnp p{
+  line-height: 17px;
+}
 

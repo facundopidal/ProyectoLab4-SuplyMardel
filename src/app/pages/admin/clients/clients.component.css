@@ -1,11 +1,26 @@
  section {
     display: flex;
  }
+
+ .search {
+    margin: 20px;
+    padding: 8px;
+    border: 1.5px solid #002b5c;
+    border-radius: 8px;
+    box-sizing: content-box;
+    outline: none;
+    font-family: "Noto Sans JP";
+ }
+
+ .search:focus-visible {
+    border: 1.5px solid #3688d4;
+ }
  
  .clients-container{
     display: flex;
     justify-content: center;
     align-items: flex-start; /* Align items to the top */
+    align-content: flex-start;
     flex-wrap: wrap; /* Allow wrapping to the next line */
     min-height: 100vh; /* Ensure it takes at least the full height of the viewport */
     margin: 0;

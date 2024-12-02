@@ -4,7 +4,7 @@ import { CartService } from '../../services/ecommerce/cart.service';
 import { Product } from '../../interfaces/product';
 import { ApiProductsService } from '../../services/ecommerce/api-products.service';
 import { forkJoin, of } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { catchError, switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-cart',
@@ -33,34 +33,50 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.clientId = localStorage.getItem('userId');
     this.newProductId = this.route.snapshot.paramMap.get('id');
-
+  
     // Paso 1: Obtener los productos en el carrito
     this.cartService.getCartProducts(this.clientId).pipe(
       switchMap((rawProducts) => {
         this.rawCartproducts = rawProducts;
-
+  
         // Paso 2: Verificar si hay un nuevo producto para agregar
         if (this.newProductId) {
-          const existingProduct = this.rawCartproducts.find(
-            (product) => product.idProduct === this.newProductId
-          );
+          return this.productsService.getProductById(this.newProductId).pipe(
+            switchMap((product) => {
+              // Si el producto no existe, simplemente retornar los productos actuales sin hacer nada
+              if (!product) {
+                this.router.navigate(['/cart'])
+              }
+  
+              const existingProduct = this.rawCartproducts.find(
+                (cartProduct) => cartProduct.idProduct === this.newProductId
+              );
 
-          // Si no existe en el carrito, agregarlo
-          if (!existingProduct) {
-            return this.cartService.addProductToCart(this.clientId, this.newProductId, 1).pipe(
-              switchMap((cartProduct) => {
-                // Agregar el nuevo producto al array después de guardarlo en el backend
-                this.rawCartproducts.push({ id: cartProduct.id, idProduct: this.newProductId, quantity: 1 });
-                return of(this.rawCartproducts); // Continuar con el siguiente paso
-              })
-            );
-          } else {
-            // Si el producto ya está en el carrito, actualizar la cantidad
-            existingProduct.quantity++;
-            return this.cartService.updateQuantity(existingProduct.id, existingProduct.quantity).pipe(
-              switchMap(() => of(this.rawCartproducts))
-            );
-          }
+  
+              // Si no existe en el carrito, agregarlo
+              if (!existingProduct) {
+                return this.cartService.addProductToCart(this.clientId, this.newProductId, 1).pipe(
+                  switchMap((cartProduct) => {
+                    // Agregar el nuevo producto al array después de guardarlo en el backend
+                    this.rawCartproducts.push({ id: cartProduct.id, idProduct: this.newProductId, quantity: 1 });
+                    return of(this.rawCartproducts); // Continuar con el siguiente paso
+                  })
+                );
+              } else {
+                // Si el producto ya está en el carrito, actualizar la cantidad
+                existingProduct.quantity++;
+                return this.cartService.updateQuantity(existingProduct.id, existingProduct.quantity).pipe(
+                  switchMap(() => of(this.rawCartproducts))
+                );
+              }
+            }),
+            
+            catchError ((error)=> {
+              of(this.rawCartproducts)
+              this.router.navigate(['/cart'])
+              throw error
+            })
+          );
         } else {
           return of(this.rawCartproducts);
         }
@@ -75,11 +91,12 @@ export class CartComponent implements OnInit {
     ).subscribe({
       next: (productsArray) => {
         this.products = productsArray; // Asignar directamente a `products`
-        this.updateTotal()
+        this.updateTotal();
       },
-      error: (error) => console.error(error)
+      error: (error) => console.error(error),
     });
   }
+  
 
   incrementQuantity(index: number, product: Product): void {
     const cartProduct = this.rawCartproducts[index];
