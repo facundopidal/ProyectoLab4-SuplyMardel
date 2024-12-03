@@ -52,8 +52,11 @@ aside a:hover {
 
 .logout {
     cursor: pointer;
-    color: #000;
-    border: 1px solid #f00;
+    color: white;
+    border: 1px solid grey;
+    background-color: #f00;
     padding: 5px;
     border-radius: 8px;
+    font-family: "Noto Sans JP";
+    font-weight: bold;
 }
