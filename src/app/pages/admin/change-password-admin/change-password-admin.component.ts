@@ -20,13 +20,17 @@ export class ChangePasswordAdminComponent implements OnInit {
   router = inject(Router);
 
   formRecovery = this.fb.nonNullable.group({
-    password: ['', [Validators.required, Validators.minLength(8)]],
+    actualPassword: ['', [Validators.required, Validators.minLength(8)]],
     newPassword: ['', [Validators.required, Validators.minLength(8)]],
     repeatNewPassword: ['', [Validators.required, Validators.minLength(8)]],
   });
 
   admin: any 
   passwordCurrently?: string;
+  OldPasswordRepeated = false;
+  NotSamePassword = false;
+  IncorrectPassword = false;
+  
   ngOnInit() {
     this.authService.getAdmin().subscribe({
       next: (admin) => {
@@ -40,10 +44,22 @@ export class ChangePasswordAdminComponent implements OnInit {
 
   onChange() {
     if (this.formRecovery.invalid) return;
-    if (this.passwordCurrently !== this.formRecovery.get('password')?.value) return;
-    const password = this.formRecovery.value.newPassword;
-    const repeatPassword = this.formRecovery.value.repeatNewPassword;
-    if (password !== repeatPassword) return;
+    const actualPassword = this.formRecovery.get('actualPassword')?.value
+    const newPassword = this.formRecovery.get('newPassword')?.value;
+    const repeatNewPassword = this.formRecovery.get('repeatNewPassword')?.value;
+
+    if (actualPassword != this.passwordCurrently) {
+      this.IncorrectPassword = true;
+      return;
+    }
+    if (actualPassword == newPassword) {
+      this.OldPasswordRepeated = true;
+      return;
+    }
+    if (newPassword != repeatNewPassword) {
+      this.NotSamePassword = true;
+      return;
+    }
 
     this.admin.password = this.formRecovery.value.newPassword;
     this.authService.updateAdmin(this.formRecovery.value.newPassword!).subscribe({

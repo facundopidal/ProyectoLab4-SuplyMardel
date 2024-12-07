@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class MailSenderService {
 
   constructor(private http: HttpClient) { }
-  private adminMail = "juliteixido12@gmail.com"
+  private adminMail = "suplymardel@gmail.com"
   private baseUrl = "http://localhost:3000/"
 
   sendMailToAdmin(subject:string, text:string, client:string): Observable<any> {

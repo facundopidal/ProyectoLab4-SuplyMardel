@@ -24,7 +24,7 @@
               <div class="payment-buttons">
                @if(!isAdmin) {
                    @if(product.stock) {
-                     <button class="payment-button" [routerLink]="['/cart', product.id]">Agregar al carrito</button>
+                     <button class="payment-button" [routerLink]="['/cart', product.id]"><strong>Agregar al carrito</strong></button>
                    }
                    @else {
                      <span>Sin stock</span>
@@ -37,6 +37,20 @@
 
                </div>
             <!-- Descripción del producto -->
+            <div class="product-description">
+              <div class="lock-purchase">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="lock-svg" viewBox="0 0 16 16">
+                  <path d="M8 1a2 2 0 0 1 2 2v4H6V3a2 2 0 0 1 2-2m3 6V3a3 3 0 0 0-6 0v4a2 2 0 0 0-2 2v5a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V9a2 2 0 0 0-2-2"/>
+                </svg>
+                  <p class="lock-purchase-p"> Compra Protegida mediante</p>
+                  <img class="mp-image" src="https://getlogovector.com/wp-content/uploads/2023/12/mercado-pago-logo-vector-2023.png" />
+              </div>
+            </div>
+            <div class="product-description">
+              <p><strong>Sabor</strong>: {{product.flavor}}</p>
+              <p><strong>Peso</strong>: {{product.weight}}gr</p>
+              <p><strong>{{product.category}} de marca {{product.brand}}.</strong></p>
+            </div>
             <div class="product-description">
               <p>{{product.description}}</p>
             </div>

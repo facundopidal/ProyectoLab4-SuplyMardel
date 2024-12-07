@@ -6,8 +6,11 @@
         <p class="card-name"><strong>Nombre: </strong>{{ productsName }}</p>
         <p class="card-shipment-method"><strong>Metodo de envío: </strong> {{ sale.shipmentMethod }}</p>
         @if(sale.shippingAddressId){
-            <p class="card-shipment-status"><strong>Estado de envío: </strong> {{ sale.shipmentStatus }}</p>
             <p class="card-address"><strong>Domicilio:</strong> {{address!.street}} {{address!.number}}</p>
+        }
+        @if (sale.isCancelled) {
+            
+            <p class="cancelled-p">CANCELADA</p>
         }
         <div>
             <p class="card-amount"><strong>$ {{ sale.amount }}</strong></p>

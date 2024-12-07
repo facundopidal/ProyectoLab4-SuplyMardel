@@ -5,12 +5,49 @@ div{
     align-items: center;
     padding-top: 30px;
     font-family: "Noto Sans JP";
-    height: 20vh;
+    gap: 10px;
+}
+h3 {
     color: red;
 }
+
+
 a {
     text-decoration: none;
     border: 1px solid #002b5c;
     padding: 5px;
     border-radius: 5px;
+    cursor: pointer;
+}
+
+.whatsapp{
+    background-color: #29a71a;
+}
+
+.whatsapp span{
+    vertical-align: super;
+    color:#fff;
+    font-size:bold;
+    padding-left: 7px;
+}
+
+.whatsapp img {
+    height: 2rem;
+    border-radius: 50%;
+    margin-left: 10px;
+    vertical-align: bottom;
+}
+
+.contact {
+    padding: 8px;
+}
+
+.contact span{
+    vertical-align: super;
+}
+
+.contact img{
+    height: 2rem;
+    margin-left: 10px;
+    vertical-align: bottom;
 }

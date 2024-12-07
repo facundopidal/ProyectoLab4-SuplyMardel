@@ -5,7 +5,7 @@ import { MailSenderService } from '../../services/external/mail-sender.service';
 import { AuthService } from '../../services/auth/auth.service';
 import { ClientsService } from '../../services/clients/clients.service';
 import { Client } from '../../interfaces/client';
-import { RouterLink } from '@angular/router';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 @Component({
@@ -17,6 +17,7 @@ import { CommonModule } from '@angular/common';
 })
 export class ContactComponent implements OnInit{
   fb = inject(FormBuilder)
+  router = inject(Router)
   private mailService = inject(MailSenderService)
   private authService = inject(AuthService)
   private clientService = inject(ClientsService)
@@ -50,8 +51,16 @@ export class ContactComponent implements OnInit{
     const {subject, message, userEmail} = this.form.getRawValue()
 
     this.mailService.sendMailToAdmin(subject, message, userEmail).subscribe({
-      next: (res) => {console.log(res)},
-      error: console.error
+      next: (res) => {
+        console.log(res)
+        alert("Correo enviado correctamente!")
+        this.router.navigate(['/'])
+      },
+      error: (error) => {
+        console.error(error)
+        alert("Ocurrio un error al enviar")
+        this.router.navigate(['/'])
+      } 
     })
   }
 

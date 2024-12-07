@@ -12,6 +12,8 @@ import { ClientsService } from '../../services/clients/clients.service';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MenuComponent } from '../admin/menu/menu.component';
+import { Clipboard } from '@angular/cdk/clipboard';
+
 
 @Component({
   selector: 'app-sale-details',
@@ -21,6 +23,7 @@ import { MenuComponent } from '../admin/menu/menu.component';
   styleUrl: './sale-details.component.css'
 })
 export class SaleDetailsComponent implements OnInit {
+
   sale!: Sale;
   saleProducts: any[] = [];
   productsSale: salesxProducts[] = [];
@@ -32,7 +35,8 @@ export class SaleDetailsComponent implements OnInit {
     private productsService: ApiProductsService,
     private authService: AuthService,
     private ms: MailSenderService,
-    private clientsService: ClientsService
+    private clientsService: ClientsService,
+    private clipboard: Clipboard
   ) { }
 
   isAdmin: boolean = true
@@ -44,7 +48,6 @@ export class SaleDetailsComponent implements OnInit {
       this.saleService.getSaleBySaleId(id!).subscribe({
         next: (sale) => {
           this.sale = sale;
-          this.newShipmentStatus = sale.shipmentStatus
         },
         error: (error) => {
           console.error(error)
@@ -84,7 +87,7 @@ export class SaleDetailsComponent implements OnInit {
 
   showModalE = false;
   newShippingNumber: string = '';
-  newShipmentStatus: "A retirar" | "Pendiente de ingreso" | "Ingresado" | "En camino" | "Entregado" = "A retirar";
+  //newShipmentStatus: "A retirar" | "Pendiente de ingreso" | "Ingresado" | "En camino" | "Entregado" = "A retirar";
 
   openEditModal() {
     this.newShippingNumber = this.sale.shippingNumber!
@@ -96,18 +99,16 @@ export class SaleDetailsComponent implements OnInit {
   }
 
   updateShipment() {
-    this.saleService.updateSale(this.sale.id, {shipmentStatus: this.newShipmentStatus, shippingNumber: this.newShippingNumber}).subscribe()
+    this.saleService.updateSale(this.sale.id, { shippingNumber: this.newShippingNumber}).subscribe()
     this.sale.shippingNumber = this.newShippingNumber || this.sale.shippingNumber;
-    this.sale.shipmentStatus = this.newShipmentStatus;
     this.clientsService.getClientById(this.sale.id_client).subscribe({
       next: (client) => {
-        const mailMessage = "Su pedido esta " + this.sale.shipmentStatus.toLowerCase() + "!\n" +
-          (this.sale.shippingNumber !== "Pendiente" ? "Su codigo de seguimiento de Andreani es " + this.sale.shippingNumber: 
-          "En breve se le enviara su código de seguimiento");
+        const mailMessage = "Su pedido ha sido despachado. Le adjuntamos su código de seguimiento de Andreani: " + this.sale.shippingNumber + 
+        ".\nPara acceder al estado de su envío debe acceder a la página de andreani y allí ingresar su código de seguimiento.\n  https://www.andreani.com";
 
         this.ms.sendMailToUser(
           client.email,
-          "Actualización de estado de compra " + this.sale.id,
+          "Código de seguimiento de compra Nro: " + this.sale.id,
           mailMessage
         ).subscribe()
       }
@@ -115,11 +116,6 @@ export class SaleDetailsComponent implements OnInit {
     this.closeEditModal();
   }
 
-  stepCompleted(step: string): boolean {
-    const steps = ['Pendiente de ingreso', 'Ingresado', 'En camino', 'Entregado'];
-    const currentStepIndex = steps.indexOf(this.sale.shipmentStatus);
-    return steps.indexOf(step) <= currentStepIndex;
-  }
 
   showModal = false;
   saleToCancel: string | null = null;
@@ -174,7 +170,20 @@ export class SaleDetailsComponent implements OnInit {
     this.showModal = false;
   }
 
+  copyShippingNumber(): void {
+    this.clipboard.copy(this.sale.shippingNumber!)
+  }
 
+
+  /* Codigo de envios de andreani
+  
+  stepCompleted(step: string): boolean {
+    const steps = ['Pendiente de ingreso', 'Ingresado', 'En camino', 'Entregado'];
+    const currentStepIndex = steps.indexOf(this.sale.shipmentStatus);
+    return steps.indexOf(step) <= currentStepIndex;
+  }
+
+  */
   
 }
 

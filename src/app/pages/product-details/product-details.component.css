@@ -131,4 +131,17 @@
     }
   }
   
+  .lock-purchase {
+    display: flex;
+    align-items: center;
+  }
+  
+  .lock-purchase-p {
+    font-size: 15px !important;
+    padding: 8px;
+  }
+
+  .mp-image {
+    height: 4em;
+  }
   

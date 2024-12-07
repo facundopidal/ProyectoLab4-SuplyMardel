@@ -1,8 +1,12 @@
 section {
     display: flex;
     font-family: "Noto Sans JP";
-
 }
+
+.client {
+    width: 100%;
+}
+
 .sales {
     display: flex;
     flex-wrap: wrap;
@@ -21,6 +25,5 @@ h3 {
 }
 
 p {
-    margin: 0 30px;
-
+    text-align: center;
 }

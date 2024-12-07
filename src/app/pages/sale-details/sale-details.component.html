@@ -10,7 +10,6 @@
             <p><strong>ID de la Venta:</strong> {{ sale.id }}</p>
             <p><strong>Fecha:</strong> {{ sale.date }}</p>
             <p><strong>Método:</strong> {{ sale.shipmentMethod }}</p>
-            <p><strong>Estado:</strong> {{ sale.shipmentStatus}}</p>
             <p><strong>Total:</strong> ${{ sale.amount }}</p>
             @if(sale.isCancelled){
             <p class="cancel">CANCELADA</p>
@@ -20,49 +19,26 @@
         @if(sale.shipmentMethod === 'Andreani' && !sale.isCancelled){
         <div class="tracking-module">
             <div class="header">
-                <h2>El envío de Correo Andreani N° 
+                <div>
+                    <h2>Envío mediante Andreani</h2>
+                    <span class="info-span">Consultá el estado del envío copiando el número de seguimiento y consultando la Web de Andreani</span>    
+                </div>
+                <div class="andreani-redirect">
                     <span>{{sale.shippingNumber ?? 'Pendiente' }}
-                    @if(isAdmin) {
-                        <i class="edit-icon" (click)="openEditModal()">✏️</i>
-                    }
-                </span>
-                </h2>
-                <a class="andreani-btn" href="https://www.andreani.com" target="_blank">Ir a Andreani</a>
-            </div>
-            <div class="status">
-                @if(sale.shipmentStatus === 'Pendiente de ingreso'){
-                    <h2 class="delivered">Pendiente de ingreso</h2>
-                    <p>Tu pedido todavía no fue despachado en Andreani. En la brevedad se cargara su código de seguimiento</p>
-                }
-                @if(sale.shipmentStatus === 'Ingresado'){
-                    <h2 class="delivered">Ingresado</h2>
-                    <p>Tu pedido ya fue despachado.</p>
-                }
-                @if(sale.shipmentStatus === 'En camino'){
-                    <h2 class="delivered">En Camino</h2>
-                    <p>Tu pedido está en camino! Podes seguirlo desde Andreani con el código de arriba.</p>
-                }
-                @if(sale.shipmentStatus === 'Entregado'){
-                    <h2 class="delivered">Entregado</h2>
-                    <p>Tu pedido fue entregado a tu domicilio.</p>
-                }
-            </div>
-            <div class="timeline">
-                <div class="step" [class.completed]="stepCompleted('Pendiente de ingreso')">
-                    <div class="circle">{{ stepCompleted('Pendiente de ingreso') ? '&#10003;' : "X" }}</div>
-                    <p>Pendiente de ingreso</p>
-                </div>
-                <div class="step" [class.completed]="stepCompleted('Ingresado')">
-                    <div class="circle">{{ stepCompleted('Ingresado') ? '&#10003;' : "X" }}</div>
-                    <p>Ingresado</p>
-                </div>
-                <div class="step" [class.completed]="stepCompleted('En camino')">
-                    <div class="circle">{{ stepCompleted('En camino') ? '&#10003;' : "X" }}</div>
-                    <p>En camino</p>
-                </div>
-                <div class="step" [class.completed]="stepCompleted('Entregado')">
-                    <div class="circle">{{ stepCompleted('Entregado') ? '&#10003;' : "X" }}</div>
-                    <p>Entregado</p>
+                        @if(isAdmin) {
+                            <i class="edit-icon" (click)="openEditModal()">✏️</i>
+                        }
+                        @else {
+                            @if(sale.shippingNumber !== 'Pendiente') {
+                                <button (click)="copyShippingNumber()" class="copy-button" title="Copiar código">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="red" viewBox="0 0 16 16">
+                                        <path fill-rule="evenodd" d="M4 2a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1zM2 5a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h8a1 1 0 0 0 1-1v-1h1v1a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h1v1z"/>
+                                    </svg>
+                                </button>
+                            }
+                        }
+                    </span>
+                    <a class="andreani-btn" href="https://www.oca.com.ar" target="_blank">Ir a Andreani <img src="andreani-icon.png"></a>
                 </div>
             </div>
         </div>
@@ -74,7 +50,7 @@
                 @for (product of saleProducts; track product.id) {
                 <li>
                     <p><strong>Nombre:</strong> {{ product.name }}</p>
-                    <p><strong>Precio:</strong> {{ product.price }}</p>
+                    <p><strong>Precio:</strong> ${{ product.price }}</p>
                     <p><strong>Cantidad:</strong>
                         {{ product.quantity }}
                     </p>
@@ -84,7 +60,7 @@
             </ul>
             @if(isAdmin && !sale.isCancelled) {
             <div class="cancel-container">
-                <button (click)="openConfirmationModal(sale.id) " class="cancel-btn">Cancelar Compra</button>
+                <button (click)="openConfirmationModal(sale.id) " class="cancel-btn"><strong>Cancelar Compra</strong></button>
             </div>
             }
         </div>
@@ -128,14 +104,6 @@
           [(ngModel)]="newShippingNumber"
           name="trackingNumber"
         />
-  
-        <label for="shipmentStatus">Estado del envío:</label>
-        <select id="shipmentStatus" [(ngModel)]="newShipmentStatus" name="shipmentStatus">
-          <option value="Pendiente de ingreso">Pendiente de ingreso</option>
-          <option value="Ingresado">Ingresado</option>
-          <option value="En camino">En camino</option>
-          <option value="Entregado">Entregado</option>
-        </select>
   
         <button type="submit">Aceptar</button>
         <button type="button" (click)="closeEditModal()">Cancelar</button>

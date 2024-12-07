@@ -1,4 +1,4 @@
-<app-nav-bar></app-nav-bar>
+s<app-nav-bar></app-nav-bar>
 <div class="account-container">
     <div class="content" *ngIf="client">
         <h2>MIS DATOS</h2>
@@ -10,27 +10,31 @@
         <button routerLink="/change-password" class="button">Cambiar contraseña</button>
         <hr>
         <br>
+        <div class="addresses">
+        <h4>Domicilios:</h4>
+        <ul>
         @for(address of clientAddresses; track address.id) {
-            <div class="address">
-                <div>
-                    <p>Domicilio {{$index + 1}}:</p>
-                    <p>Direccion: {{address.street}} {{address.number}} </p>
-                    <p>Ciudad: {{address.city}} </p>
-                    @if(address.floor){
-                        <p>Piso: {{address.floor}}</p>
-                    }
-                    @if(address.apartment){
-                        <p>Departamento: {{address.apartment}}</p>
-                    }
+            <li>
+                <div class="address">
+                    <div>
+                        <p>Direccion: {{address.street}} {{address.number}} </p>
+                        <p>Ciudad: {{address.city}} </p>
+                        @if(address.floor){
+                            <p>Piso: {{address.floor}}</p>
+                        }
+                        @if(address.apartment){
+                            <p>Departamento: {{address.apartment}}</p>
+                        }
+                    </div>
+                    <div>
+                        <button class="trash-btn" (click)="deleteAddress(address.id!)">🗑️</button>
+                    </div>
                 </div>
-                <div>
-                    <button class="trash-btn" (click)="deleteAddress(address.id!)">🗑️</button>
-                </div>
-            </div>
+            </li>
             <br>
         }
-        <div>
-            <button routerLink="/add-address" class="button" [disabled]="limitAddresses">Agregar domicilio</button>
+        </ul>
+            <button routerLink="/add-address" class="button" [disabled]="limitAddresses">+</button>
         </div>
         
     </div>

@@ -4,7 +4,7 @@
     width: 600px;
     padding: 20px;
     background-color: #002b5c;
-    font-family: "Arial";
+    font-family: "Noto Sans JP";
     margin: auto;
 }
 .sidebar {
@@ -53,6 +53,7 @@
     text-decoration: none;
     color: #fff;
     cursor: pointer;
+    font-family: "Noto Sans JP";
 }
 .content .divider {
     margin: 10px 0;
@@ -68,12 +69,17 @@
 
 .logout {
     cursor: pointer;
-    background-color: transparent;
+    background-color: red;
     color: #fff;
-    border: 1px solid #f00;
+    font-weight: bold;
+    border: 1px solid grey;
     padding: 5px;
     border-radius: 8px;
     margin-left: 20px;
+}
+
+.addresses {
+    color: #fff;
 }
 
 .address {

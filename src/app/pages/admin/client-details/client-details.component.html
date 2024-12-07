@@ -4,10 +4,10 @@
   <div class="client">
     <app-client [client]="client" />
 
-    @if(clientSales === []) {
     <div class="title">
       <h3>Compras Realizadas</h3>
     </div>
+    @if(clientSales.length > 0) {
     <div class="sales">
       <div *ngFor="let sale of clientSales">
         <app-sale [sale]="sale"></app-sale>

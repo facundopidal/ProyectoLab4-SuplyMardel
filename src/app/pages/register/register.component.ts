@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 import { ClientsService } from '../../services/clients/clients.service';
 import { AuthService } from '../../services/auth/auth.service';
 import { Client } from '../../interfaces/client';
+import { MailSenderService } from '../../services/external/mail-sender.service';
 
 @Component({
   selector: 'app-register',
@@ -22,6 +23,7 @@ export class RegisterComponent {
   fb = inject(FormBuilder);
   clientsServ = inject(ClientsService);
   authServ = inject(AuthService);
+  mailServ = inject(MailSenderService)
 
   alreadyExists: boolean = false
 
@@ -50,6 +52,8 @@ export class RegisterComponent {
         this.clientsServ.registerClient(newClient).subscribe({
           next: (created) => {
             if (created) {
+              this.mailServ.sendMailToUser(newClient.email,"Bienvenido " + newClient.name, 
+                "¡Se realizó tu registro correctamente! \n¿Qué estas esperando para empezar a llenar tu carrito?").subscribe()
               this.authServ.login(newClient.email, newClient.password)
               this.router.navigate(['/'])
               alert("Se registró exitosamente!")

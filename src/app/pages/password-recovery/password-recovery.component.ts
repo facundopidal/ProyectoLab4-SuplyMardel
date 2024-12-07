@@ -52,7 +52,7 @@ export class PasswordRecoveryComponent {
         this.mailerService.sendMailToUser(
           userEmail!,
           "SuplyMardel Cambio de contraseña.",
-          "Si usted no pidio el cambio, ignore el email, su codigo es este: " + this.randomCode
+          "Si usted no solicitó el cambio, ignore el email, su codigo es este: " + this.randomCode
         ).subscribe({
           next: () => {
             this.isSubmit = true
@@ -79,13 +79,9 @@ export class PasswordRecoveryComponent {
     this.clientService.updateClientByID(this.clientToChange!.id, this.clientToChange!).subscribe({
       next: () => {
         console.log("Contraseña actualizada")
+        this.mailerService.sendMailToUser(this.clientToChange!.email,"Recuperación de contraseña exitosa","En el día de la fecha el usuario " + this.clientToChange?.name + " " + this.clientToChange?.lastname + " realizó una recuperación de contraseña.").subscribe()
         this.router.navigate(['/login'])
       }
     })
-
-    
   }
-
-
-
 }

@@ -123,7 +123,7 @@
       "id": "980f",
       "name": "Admin",
       "lastname": "Admin",
-      "email": "adminSuplyMardel@gmail.com",
+      "email": "SuplyMardel@gmail.com",
       "password": "12345678"
     },
     {
@@ -132,6 +132,13 @@
       "lastname": "Pidal Ruiz Diaz",
       "email": "facundopidalruizdiaz@gmail.com",
       "password": "facundopidal"
+    },
+    {
+      "id": "87a6",
+      "name": "Facundo",
+      "lastname": "Pepino",
+      "email": "facundo.prd@hotmail.com.ar",
+      "password": "rulorulo"
     }
   ],
   "sales": [
@@ -139,7 +146,7 @@
       "id": "eb76",
       "id_client": "65cf",
       "date": "15/11/2024 02:15:00",
-      "amount": 45580,
+      "amount": 48580,
       "shipmentStatus": "A retirar",
       "shipmentMethod": "Retiro en sucursal",
       "shippingNumber": "Pendiente",
@@ -151,10 +158,10 @@
       "id": "7d8d",
       "id_client": "65cf",
       "date": "15/11/2024 02:43:41",
-      "amount": 12502,
-      "shipmentStatus": "Entregado",
+      "amount": 73300,
+      "shipmentStatus": "Pendiente de ingreso",
       "shipmentMethod": "Andreani",
-      "shippingNumber": "3600001078012",
+      "shippingNumber": "3600001078011",
       "paymentStatus": "approved",
       "isCancelled": false,
       "id_merchant_order": "25033503082",
@@ -248,20 +255,20 @@
       "quantity": 1
     },
     {
-      "id": "3840",
-      "idClient": "65cf",
-      "idProduct": "1886",
-      "quantity": 1
-    },
-    {
       "id": "43ae",
       "idClient": "65cf",
       "idProduct": "2",
       "quantity": 2
+    },
+    {
+      "id": "5f50",
+      "idClient": "87a6",
+      "idProduct": "1",
+      "quantity": 1
     }
   ],
   "admin": {
-    "email": "adminSuplyMardel@gmail.com",
+    "email": "SuplyMardel@gmail.com",
     "password": "contraseñasupersegura"
   },
   "notifications": [
@@ -391,16 +398,6 @@
   ],
   "addresses": [
     {
-      "id": "d2ee",
-      "street": "chubut ",
-      "number": 1365,
-      "postalCode": 7600,
-      "city": "mar del plata",
-      "floor": null,
-      "apartment": "",
-      "idClient": "65cf"
-    },
-    {
       "id": "bfe9",
       "street": "Larrea",
       "number": 12,
@@ -409,6 +406,16 @@
       "floor": "11",
       "apartment": "e",
       "idClient": "6969"
+    },
+    {
+      "id": "d2ee",
+      "street": "Chubut ",
+      "number": 1635,
+      "postalCode": 7600,
+      "city": "Mar del Plata",
+      "floor": null,
+      "apartment": "",
+      "idClient": "65cf"
     }
   ]
 }

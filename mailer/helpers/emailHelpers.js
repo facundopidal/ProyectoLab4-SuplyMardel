@@ -5,14 +5,14 @@ const emailHelper = async (to, subject, text) => {
   let transporter = nodemailer.createTransport({
     service: "gmail",
     auth: {
-      user: "juliteixido12@gmail.com",
-      pass: "mwzr dzvx eksw rtpu",
+      user: "suplymardel@gmail.com",
+      pass: "sqlw judh twiq euvw",
     },
   });
 
   // Set up email options
   let mailOptions = {
-    from: "juliteixido12@gmail.com",
+    from: "suplymardel@gmail.com",
     to: to,
     subject: subject,
     text: text,// ya tiene el cliente
