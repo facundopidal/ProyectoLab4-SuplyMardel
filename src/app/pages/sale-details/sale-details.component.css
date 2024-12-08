@@ -91,7 +91,6 @@ section {
 }
 
 .products-section li {
-    padding: 15px 0;
     border-bottom: 1px solid #ddd;
 }
 
@@ -114,7 +113,7 @@ hr {
     border: none;
     height: 1px;
     background-color: #002b5c;
-    margin: 10px 0;
+    /* margin: 10px 0; */
 }
 
 /* Estilos para el mensaje de error */
@@ -126,17 +125,31 @@ span {
     margin-top: 20px;
 }
 
-.cancel-container{
+.btns-div{
     display: flex;
-    justify-content: flex-end;
+    justify-content: space-between;
+    margin-top: 20px;
 }
+
+.generate-btn {
+  font-family: "Noto Sans JP";
+  background-color: #002b5c;
+  border-radius: 5px;
+  padding: 5px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
 .cancel-btn{
-    background-color: #ae1919;
-    border-radius: 5px;
-    padding: 5px;
-    color: #fff;
-    border: none;
-    cursor: pointer;
+  font-family: "Noto Sans JP";
+  background-color: #ae1919;
+  border-radius: 5px;
+  padding: 5px;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
 }
 
 /*modal style*/

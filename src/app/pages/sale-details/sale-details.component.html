@@ -38,7 +38,7 @@
                             }
                         }
                     </span>
-                    <a class="andreani-btn" href="https://www.oca.com.ar" target="_blank">Ir a Andreani <img src="andreani-icon.png"></a>
+                    <a class="andreani-btn" href="https://www.andreani.com" target="_blank">Ir a Andreani <img src="andreani-icon.png"></a>
                 </div>
             </div>
         </div>
@@ -58,10 +58,13 @@
                 </li>
                 }
             </ul>
-            @if(isAdmin && !sale.isCancelled) {
-            <div class="cancel-container">
-                <button (click)="openConfirmationModal(sale.id) " class="cancel-btn"><strong>Cancelar Compra</strong></button>
-            </div>
+            @if(!sale.isCancelled) {
+                <div class="btns-div">
+                    <button (click)="generatePDF()" class="generate-btn">Generar Comprobante</button>
+                    @if(isAdmin ) {
+                        <button (click)="openConfirmationModal(sale.id) " class="cancel-btn">Cancelar Compra</button>
+                    }
+                </div>
             }
         </div>
     </div>

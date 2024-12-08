@@ -1,0 +1,25 @@
+<form [formGroup]="invoiceForm" (ngSubmit)="generatePDF()">
+    <label>
+      Cliente:
+      <input formControlName="cliente" />
+    </label>
+    <label>
+      Fecha:
+      <input type="date" formControlName="fecha" />
+    </label>
+    <div formArrayName="productos">
+      @for (product of saleProducts; track $index) {
+        <div>
+          <label>
+            Producto:
+            <input [formControlName]="$index" placeholder="Producto" />
+          </label>
+        </div>
+      }
+    </div>
+    <label>
+      Total:
+      <input formControlName="total" />
+    </label>
+    <button type="submit">Generar PDF</button>
+  </form>

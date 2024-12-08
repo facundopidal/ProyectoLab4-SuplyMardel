@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Sale } from '../../interfaces/sale';
 import { Product } from '../../interfaces/product';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { SalesService } from '../../services/ecommerce/sales.service';
 import { ApiProductsService } from '../../services/ecommerce/api-products.service';
 import { salesxProducts } from '../../interfaces/salesxProducts';
@@ -13,6 +13,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MenuComponent } from '../admin/menu/menu.component';
 import { Clipboard } from '@angular/cdk/clipboard';
+import { PdfInvoice } from '../../components/pdf-invoice/pdf-invoice.component';
+import { PdfService } from '../../services/external/pdf.service';
 
 
 @Component({
@@ -36,7 +38,8 @@ export class SaleDetailsComponent implements OnInit {
     private authService: AuthService,
     private ms: MailSenderService,
     private clientsService: ClientsService,
-    private clipboard: Clipboard
+    private clipboard: Clipboard,
+    private pdfService: PdfService
   ) { }
 
   isAdmin: boolean = true
@@ -173,6 +176,14 @@ export class SaleDetailsComponent implements OnInit {
   copyShippingNumber(): void {
     this.clipboard.copy(this.sale.shippingNumber!)
   }
+
+  generatePDF() {
+    this.clientsService.getClientById(this.sale.id_client).subscribe({
+      next: (client) => {
+        this.pdfService.generateInvoice({client: client, date: this.sale.date, products: this.saleProducts, total: this.sale.amount});
+      }
+    })
+}
 
 
   /* Codigo de envios de andreani
