@@ -13,8 +13,9 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { MenuComponent } from '../admin/menu/menu.component';
 import { Clipboard } from '@angular/cdk/clipboard';
-import { PdfInvoice } from '../../components/pdf-invoice/pdf-invoice.component';
 import { PdfService } from '../../services/external/pdf.service';
+import { Address } from '../../interfaces/address';
+import { AddressesService } from '../../services/clients/adresses.service';
 
 
 @Component({
@@ -30,6 +31,7 @@ export class SaleDetailsComponent implements OnInit {
   saleProducts: any[] = [];
   productsSale: salesxProducts[] = [];
   productsName: string = ''
+  address?: Address
   
   constructor(
     private route: ActivatedRoute,
@@ -38,6 +40,7 @@ export class SaleDetailsComponent implements OnInit {
     private authService: AuthService,
     private ms: MailSenderService,
     private clientsService: ClientsService,
+    private addressesService: AddressesService,
     private clipboard: Clipboard,
     private pdfService: PdfService
   ) { }
@@ -51,6 +54,14 @@ export class SaleDetailsComponent implements OnInit {
       this.saleService.getSaleBySaleId(id!).subscribe({
         next: (sale) => {
           this.sale = sale;
+          if(sale.shippingAddressId) {
+            this.addressesService.getAddressById(sale.shippingAddressId).subscribe({
+              next: (address) => {
+                this.address = address
+              }
+            })
+
+          }
         },
         error: (error) => {
           console.error(error)
@@ -85,6 +96,7 @@ export class SaleDetailsComponent implements OnInit {
           console.error('Error al obtener los productos:', error);
         }
       });
+
     }
   }
 
@@ -173,14 +185,16 @@ export class SaleDetailsComponent implements OnInit {
     this.showModal = false;
   }
 
+  isCopied: boolean = false
   copyShippingNumber(): void {
+    this.isCopied = true
     this.clipboard.copy(this.sale.shippingNumber!)
   }
 
   generatePDF() {
     this.clientsService.getClientById(this.sale.id_client).subscribe({
       next: (client) => {
-        this.pdfService.generateInvoice({client: client, date: this.sale.date, products: this.saleProducts, total: this.sale.amount});
+        this.pdfService.generateInvoice({client: client, sale: this.sale, products: this.saleProducts, total: this.sale.amount});
       }
     })
 }

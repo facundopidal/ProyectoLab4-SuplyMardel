@@ -43,6 +43,10 @@ section {
   text-align: left;
 }
 
+.check {
+  vertical-align: middle;
+}
+
 .copy-button{
   border: none;
   background-color: transparent;

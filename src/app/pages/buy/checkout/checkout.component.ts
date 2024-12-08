@@ -114,7 +114,7 @@ export class CheckoutComponent {
   selectOption(option: number): void {
     this.selectedOption = option;
     if(option === 1) this.shippingCost = 0 //Sucursal
-    if(option === 2) this.shippingCost = 1000 //Andreani
+    if(option === 2) this.shippingCost = 5200 //Andreani
     this.calculateTotals()
   }
 
