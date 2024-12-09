@@ -18,7 +18,7 @@ const emailHelper = async (to, subject, text) => {
     text: text,// ya tiene el cliente
   };
 
-  // Send the email
+  // Enviar el email
   try {
     let info = await transporter.sendMail(mailOptions);
     console.log("Email sent: " + info.response);
