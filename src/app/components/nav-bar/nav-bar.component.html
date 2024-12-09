@@ -1,28 +1,33 @@
 <nav class="navbar">
-    <div class="nav-categories">
-        <span class="categories-span">Categorias</span>
-        <div class="dropdown-categories">
-            <ul>
-                @for(category of categories; track $index) {
-                <li><a [routerLink]="['/categories' , category.name]" class="category-anchor">{{category.name}}</a></li>
-                }
-            </ul>
+    <button class="hamburger" aria-label="Abrir menú" (click)="toggleMenu()">
+      ☰
+    </button>
+    <div class="menu" [class.show]="menuVisible">
+        <div class="nav-categories">
+            <span class="categories-span">Categorias</span>
+            <div class="dropdown-categories">
+                <ul>
+                    @for(category of categories; track $index) {
+                        <li><a [routerLink]="['/categories', category.name]" class="category-anchor">{{category.name}}</a></li>
+                    }
+                </ul>
+            </div>
         </div>
-    </div>
-    <div class="nav-brands">
-        <span class="brands-span">Marcas</span>
-        <div class="dropdown-brands">
-            <ul>
-                @for(brand of brands; track $index) {
-                    <li><a [routerLink]="['/brands',brand.name]" class="brand-anchor">{{brand.name}}</a></li>
-                }
-            </ul>
+        <div class="nav-brands">
+            <span class="brands-span">Marcas</span>
+            <div class="dropdown-brands">
+                <ul>
+                    @for(brand of brands; track $index) {
+                        <li><a [routerLink]="['/brands', brand.name]" class="brand-anchor">{{brand.name}}</a></li>
+                    }
+                </ul>
+            </div>
         </div>
-    </div>
-    <div class="nav-about_us">
-        <a routerLink="/about-us">Sobre Nosotros</a>
-    </div>
-    <div class="nav-contact">
-        <a routerLink="/contact">Contacto</a>
+        <div class="nav-about_us">
+            <a routerLink="/about-us">Sobre Nosotros</a>
+        </div>
+        <div class="nav-contact">
+            <a routerLink="/contact">Contacto</a>
+        </div>
     </div>
 </nav>

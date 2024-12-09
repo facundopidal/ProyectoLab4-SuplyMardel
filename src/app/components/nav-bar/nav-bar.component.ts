@@ -25,8 +25,14 @@ export class NavBarComponent implements OnInit{
     {id: 5, name: 'Nutrilab'}
   ]
 
+  menuVisible = false; // Variable para controlar la visibilidad del menú
+
   ngOnInit(): void {
-      this.categoriesEmitter.emit(this.categories)
-      this.brandsEmitter.emit(this.brands)
+    this.categoriesEmitter.emit(this.categories);
+    this.brandsEmitter.emit(this.brands);
+  }
+
+  toggleMenu(): void {
+    this.menuVisible = !this.menuVisible; // Alternar la visibilidad del menú
   }
 }

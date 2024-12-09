@@ -3,23 +3,26 @@
   align-items: center;
   border: 1px solid #C0C0C0;
   border-radius: 10px;
-  padding: 5px 10px;
-  width: 300px; /* Ajusta el tamaño como necesites */
+  padding: 5px;
+  width: 300px; /* Tamaño por defecto */
+  box-sizing: border-box;
 }
 
-.search-bar form{
+.search-bar form {
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  gap: 5px; /* Espacio entre input y botón */
 }
 
 .search-bar input {
   border: none;
   outline: none;
-  flex-grow: 1;
+  flex-grow: 1; /* Se expande para ocupar el espacio restante */
   padding: 8px;
   font-size: 16px;
   border-radius: 5px;
+  min-width: 0; /* Evita que el input rompa el diseño */
 }
 
 .search-bar button {
@@ -28,13 +31,36 @@
   border-radius: 10px;
   padding: 8px;
   cursor: pointer;
+  flex-shrink: 0; /* Evita que el botón se reduzca */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.search-bar button i {
-  color: white;
+.search-bar button svg {
+  color: #000;
   font-size: 16px;
 }
 
 .search-bar input::placeholder {
   color: #A0A0A0;
+}
+
+/* Media query para pantallas pequeñas */
+@media screen and (max-width: 600px) {
+  .search-bar {
+    width: 150px; /* Reducir el tamaño total de la barra */
+    margin-right: 10px;
+  }
+
+  .search-bar input {
+    padding: 6px;
+    font-size: 12px; /* Tamaño del texto más pequeño */
+  }
+
+  .search-bar button {
+    padding: 6px; /* Reducir el tamaño del botón */
+  }
+
+
 }

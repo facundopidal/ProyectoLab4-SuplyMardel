@@ -18,6 +18,7 @@
   justify-content: space-evenly;
   width: 90%;
   margin: 30px auto;
+  flex-wrap: nowrap;
 }
 
 .info-div {
@@ -49,4 +50,32 @@
   height: 110px;
   width: 2px;
   background-color: #002b5c;
+}
+
+.linea-horizontal {
+  display: none;
+}
+
+
+@media screen and (max-width: 700px) {
+  .linea-vertical { 
+    display: none;
+  }
+
+  .info {
+    flex-direction: column;
+  }
+
+  .info-div img{
+    height: 3.2rem;
+  }
+
+  .info-div span {
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+
+  .linea-horizontal {
+    display: block;
+  }
 }

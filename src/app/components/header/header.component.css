@@ -34,6 +34,12 @@ header {
   gap: 30px;
 }
 
+@media screen and (max-width: 600px) {
+  .account-icons {
+    gap: 10px;
+  }
+}
+
 .my-account-icon, .admin-icon{
   color: #002b5c;
 }
