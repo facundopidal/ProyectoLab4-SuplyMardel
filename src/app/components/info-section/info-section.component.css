@@ -14,8 +14,8 @@
 }
 
 .info {
-  display: flex;
-  justify-content: space-evenly;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   width: 90%;
   margin: 30px auto;
   flex-wrap: nowrap;
@@ -37,6 +37,10 @@
 
 .info-div img{
   height: 4.2rem;
+}
+
+.middle-container {
+  display: flex;
 }
 
 .bicep {

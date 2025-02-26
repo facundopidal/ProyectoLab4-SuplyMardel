@@ -1,7 +1,9 @@
 <!-- register.component.html -->
 <form [formGroup]="registerForm" (ngSubmit)="register()"> 
-    <!-- FALTAN LOS ERRORES DE MIN LENGTH -->
-    <div>              
+
+         <h2>Registrarse</h2>
+    <div>             
+
         <label>Nombre</label>
             <input type="text" placeholder="Ingrese su nombre" formControlName="name">
             @if (registerForm.controls['name'].touched && registerForm.controls['name'].getError('required')) {

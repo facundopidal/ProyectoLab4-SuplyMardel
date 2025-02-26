@@ -1,19 +1,25 @@
 /* Estilo principal para el formulario */
 form {
-    background-color: white;
+    background-color: #002b5c;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 30px;
-    max-width: 500px;
+    max-width: 350px;
     margin: 20px auto;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+
+  h2 {
+    color: #fff;
+    font-size: 1.5rem;
+    margin-bottom: 20px;
+    text-align: center;
   }
   
   /* Títulos y etiquetas */
   label {
-    font-size: 1.1rem;
     font-weight: bold;
-    color: #333;
+    color: #fff;
     margin-top: 15px;
     display: block;
   }
@@ -22,12 +28,11 @@ form {
   input {
     width: 100%;
     padding: 10px;
-    margin-bottom: 1px;
-    border: 2px solid #cce7ff; /* Celeste suave */
+    margin: 5px 0 15px;
+    border: 1px solid #ccc;
     border-radius: 4px;
-    font-size: 1rem;
-    background-color: #f9f9f9;
-    transition: border-color 0.3s;
+    box-sizing: border-box;
+    font-size: 1em;
   }
   
   /* Estilo para el foco en los inputs */

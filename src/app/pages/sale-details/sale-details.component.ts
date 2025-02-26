@@ -80,6 +80,7 @@ export class SaleDetailsComponent implements OnInit {
           );
 
           // Ejecutamos todas las solicitudes en paralelo con `forkJoin`
+          console.log(productRequests)
           return forkJoin(productRequests);
         })
       ).subscribe({
@@ -88,6 +89,7 @@ export class SaleDetailsComponent implements OnInit {
           this.saleProducts = this.saleProducts.map((product, index) => {
             return { ...product, quantity: this.productsSale[index].quantity }
           })
+          console.log("Productos de la venta:", this.saleProducts)
           products.forEach(product => {
             this.productsName += product.name + '\n'
           })

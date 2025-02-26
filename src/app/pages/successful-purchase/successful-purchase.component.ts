@@ -103,6 +103,7 @@ export class SuccessfulPurchaseComponent implements OnInit {
             next: (sale) => {
               this.salesServ.getProductsBySalesID(sale.id).subscribe({
                 next: (sxpArray) => {
+                  this.saleId = sale.id;
                   const productObservables = sxpArray.map((sxp) =>
                     this.getProductByIdObservable(sxp.idProduct, sxp.quantity)
                   );
@@ -114,7 +115,13 @@ export class SuccessfulPurchaseComponent implements OnInit {
                     error: console.error,
                   });
                 },
+                error: (e) => {
+                  console.error(e);
+                },
               });
+            },
+            error: (e) => {
+              console.log(e);
             },
           });
       },

@@ -35,13 +35,7 @@ app.post("/create_preference", async (req, res) => {
     }
   }
   const shipping = {
-    cost: req.body.shippingPrice,
-    mode: req.body.idAddress ? "Andreani" : "Retiro",
-    receiver_address: {
-      zip_code: req.body.idAddress, //id Address
-      street_name: "Calle",
-      street_number: 123,
-    }
+    cost: req.body.shippingPrice
   }
   // Crea una instancia de Preference con el cliente configurado
   const preference = new Preference(client);

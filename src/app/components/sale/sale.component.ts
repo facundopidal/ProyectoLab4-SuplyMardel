@@ -33,7 +33,6 @@ export class SaleComponent implements OnInit {
           this.address = address
         }
       })
-    
     // Primero obtenemos los salesxProducts para esta venta
     this.saleService.getProductsBySalesID(this.sale.id).pipe(
       // Luego hacemos una llamada a `productService.getProductById()` para cada idProduct

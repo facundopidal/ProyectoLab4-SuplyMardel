@@ -66,11 +66,12 @@ export class SalesService {
             }));
   
             this.decrementStock(salesxProductsData)
+            console.log(salesxProductsData)
             // Hacer las peticiones de creación de salesxProducts en paralelo
             const createSalesxProductsRequests = salesxProductsData.map(salesxProductData =>
               this.http.post(this.baserUrlSxP, salesxProductData)
             );
-
+            console.log(createSalesxProductsRequests)
             return forkJoin(createSalesxProductsRequests).pipe(
               // Después de crear todos los registros de salesxProducts, limpiar el carrito si la venta fue aprobada
               switchMap(() => {
@@ -84,7 +85,12 @@ export class SalesService {
                   // Si el pago fue rechazado, simplemente devolvemos la venta sin limpiar el carrito
                   return of(sale);
                 }
-              })
+              }),
+              catchError(error => {
+                console.error(error)
+                throw error;
+              }
+              )
             );
           })
         );

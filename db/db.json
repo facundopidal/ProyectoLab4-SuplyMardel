@@ -6,7 +6,7 @@
       "brand": "ENA",
       "category": "Proteinas",
       "price": 23580,
-      "stock": 32,
+      "stock": 31,
       "image": "https://http2.mlstatic.com/D_NQ_NP_2X_935480-MLA50231366542_062022-F.webp",
       "description": "Proteina isolada 80%",
       "flavor": "Frutilla",
@@ -18,7 +18,7 @@
       "brand": "Body Advance",
       "category": "Creatinas",
       "price": 17990,
-      "stock": 14,
+      "stock": 12,
       "image": "https://content.optimumnutrition.com/i/on/on-creatine-micronized_Image_01?$TTL_PRODUCT_IMAGES$&locale=en-us,en-gb,*&w=509&sm=aspect&aspect=1:1&fmt=webp",
       "description": "Creatina monohidratada micronizada para mejorar fuerza y rendimiento",
       "flavor": "Sin sabor",
@@ -42,7 +42,7 @@
       "brand": "Star Nutrition",
       "category": "Creatinas",
       "price": 25500,
-      "stock": 15,
+      "stock": 14,
       "image": "https://www.heavenimagenes.com/heavencommerce/68ac9d04-8767-4aca-9951-49f2fea1383b/images/v2/STAR%20NUTRITION/28931_xlarge.jpg",
       "description": "Producto vegano, sin TACC",
       "flavor": "Frutas Tropicales",
@@ -65,7 +65,7 @@
       "name": "Suplemento de proteina en polvo",
       "brand": "Xtrenght",
       "price": 30400,
-      "stock": 19,
+      "stock": 18,
       "image": "https://http2.mlstatic.com/D_NQ_NP_2X_893256-MLU73117373330_122023-F.webp",
       "description": "Contiene lactosa y derivados de leche, no apto para veganos",
       "category": "Proteinas",
@@ -77,7 +77,7 @@
       "name": "Pre Entreno Nutrilab Innovation Line",
       "brand": "Nutrilab",
       "price": 15600,
-      "stock": 12,
+      "stock": 11,
       "image": "https://http2.mlstatic.com/D_NQ_NP_2X_838441-MLU73328992360_122023-F.webp",
       "description": "Este potenciador contiene dosis generosas de ingredientes necesarios para un entrenamiento efectivo.",
       "category": "Preentreno",
@@ -89,12 +89,24 @@
       "name": "Beast Blood",
       "brand": "Body Advance",
       "price": 19300,
-      "stock": 7,
+      "stock": 6,
       "image": "https://http2.mlstatic.com/D_NQ_NP_2X_679023-MLU75591897521_042024-F.webp",
       "description": "SUPLEMENTO DIETARIO A BASE DE BETA ALANINA, ARGININA, TAURINA, VITAMINA C, TIROSINA, CAFEINA, VITAMINA B3 Y B6.",
       "category": "Preentreno",
       "flavor": "Vanilla",
       "weight": 280
+    },
+    {
+      "id": "4ac1",
+      "name": "Creatina Micronizada ENA",
+      "brand": "ENA",
+      "price": 27059,
+      "stock": 33,
+      "image": "https://d2eebw31vcx88p.cloudfront.net/selmadigital/uploads/2dfbe7a4c564beaeaf6c92feebf510f7b4b6d51f.jpg.webp",
+      "description": " Nuestra Creatina Micronizada es un excelente suplemento pre entrenamiento ya que colabora en la formación de los componentes energéticos, mejora la potencia muscular y retrasa la fatiga muscular",
+      "category": "Creatinas",
+      "flavor": "",
+      "weight": 300
     }
   ],
   "clients": [
@@ -131,7 +143,7 @@
       "name": "Facundo",
       "lastname": "Pidal Ruiz Diaz",
       "email": "facundopidalruizdiaz@gmail.com",
-      "password": "facundopidal"
+      "password": "pepino1199"
     },
     {
       "id": "87a6",
@@ -139,6 +151,13 @@
       "lastname": "Pepino",
       "email": "facundo.prd@hotmail.com.ar",
       "password": "rulorulo"
+    },
+    {
+      "id": "dd98",
+      "name": "Juancito",
+      "lastname": "Gregoriano",
+      "email": "juancitogregoriano@gmail.com",
+      "password": "gregoriano"
     }
   ],
   "sales": [
@@ -177,6 +196,79 @@
       "paymentStatus": "approved",
       "isCancelled": false,
       "id_merchant_order": "25037469164"
+    },
+    {
+      "id": "b11b",
+      "id_client": "65cf",
+      "date": "16/02/2025 16:22:54",
+      "amount": 25500,
+      "shipmentStatus": "A retirar",
+      "shipmentMethod": "Retiro en sucursal",
+      "shippingNumber": "Pendiente",
+      "paymentStatus": "approved",
+      "isCancelled": false,
+      "id_merchant_order": "28508508341"
+    },
+    {
+      "id": "1149",
+      "id_client": "0",
+      "date": "24/02/2025 16:10:21",
+      "amount": 19300,
+      "shipmentStatus": "A retirar",
+      "shipmentMethod": "Retiro en sucursal",
+      "shippingNumber": "Pendiente",
+      "paymentStatus": "approved",
+      "isCancelled": false,
+      "id_merchant_order": "28800625461"
+    },
+    {
+      "id": "caf8",
+      "id_client": "65cf",
+      "date": "24/02/2025 16:24:34",
+      "amount": 12500,
+      "shipmentStatus": "A retirar",
+      "shipmentMethod": "Retiro en sucursal",
+      "shippingNumber": "Pendiente",
+      "paymentStatus": "approved",
+      "isCancelled": false,
+      "id_merchant_order": "28820116740"
+    },
+    {
+      "id": "8bad",
+      "id_client": "0",
+      "date": "24/02/2025 16:31:04",
+      "amount": 27059,
+      "shipmentStatus": "A retirar",
+      "shipmentMethod": "Retiro en sucursal",
+      "shippingNumber": "Pendiente",
+      "paymentStatus": "approved",
+      "isCancelled": false,
+      "id_merchant_order": "28820335072"
+    },
+    {
+      "id": "8a37",
+      "id_client": "0",
+      "date": "24/02/2025 16:36:07",
+      "amount": 23580,
+      "shipmentStatus": "A retirar",
+      "shipmentMethod": "Retiro en sucursal",
+      "shippingNumber": "Pendiente",
+      "paymentStatus": "approved",
+      "isCancelled": false,
+      "id_merchant_order": "28820458600"
+    },
+    {
+      "id": "9f21",
+      "id_client": "0",
+      "date": "24/02/2025 16:46:13",
+      "amount": 23190,
+      "shipmentStatus": "Pendiente de ingreso",
+      "shipmentMethod": "Andreani",
+      "shippingAdressId": "6408",
+      "shippingNumber": "Pendiente",
+      "paymentStatus": "approved",
+      "isCancelled": false,
+      "id_merchant_order": "28801728725"
     }
   ],
   "salesxProducts": [
@@ -239,27 +331,39 @@
       "idSale": "1f94",
       "idProduct": "0",
       "quantity": 1
-    }
-  ],
-  "cartxproduct": [
-    {
-      "id": "d0a4",
-      "idClient": "0",
-      "idProduct": "2",
-      "quantity": 2
     },
     {
-      "id": "1e44",
-      "idClient": "0",
-      "idProduct": "1",
+      "id": "2688",
+      "idSale": "b11b",
+      "idProduct": "3",
       "quantity": 1
     },
     {
-      "id": "43ae",
-      "idClient": "65cf",
-      "idProduct": "2",
-      "quantity": 2
+      "id": "44cd",
+      "idSale": "1149",
+      "idProduct": "9947",
+      "quantity": 1
     },
+    {
+      "id": "893c",
+      "idSale": "8bad",
+      "idProduct": "4ac1",
+      "quantity": 1
+    },
+    {
+      "id": "bbcd",
+      "idSale": "8a37",
+      "idProduct": "0",
+      "quantity": 1
+    },
+    {
+      "id": "0f15",
+      "idSale": "9f21",
+      "idProduct": "1",
+      "quantity": 1
+    }
+  ],
+  "cartxproduct": [
     {
       "id": "5f50",
       "idClient": "87a6",
@@ -267,9 +371,9 @@
       "quantity": 1
     },
     {
-      "id": "f831",
-      "idClient": "65cf",
-      "idProduct": "1886",
+      "id": "3726",
+      "idClient": "dd98",
+      "idProduct": "9947",
       "quantity": 1
     }
   ],
@@ -415,13 +519,43 @@
     },
     {
       "id": "d2ee",
-      "street": "Chubut ",
+      "street": "Chubut",
       "number": 1635,
       "postalCode": 7600,
       "city": "Mar del Plata",
       "floor": null,
       "apartment": "",
       "idClient": "65cf"
+    },
+    {
+      "id": "95f7",
+      "street": "Chubut",
+      "number": 1365,
+      "postalCode": 7600,
+      "city": "Mar del Plata",
+      "floor": null,
+      "apartment": "",
+      "idClient": "dd98"
+    },
+    {
+      "id": "8b4f",
+      "street": "Malvinas",
+      "number": 5478,
+      "postalCode": 7600,
+      "city": "Mar del Plata",
+      "floor": null,
+      "apartment": "",
+      "idClient": "dd98"
+    },
+    {
+      "id": "6408",
+      "street": "Santa Cruz",
+      "number": 1345,
+      "postalCode": 7600,
+      "city": "Mar del Plata",
+      "floor": "1",
+      "apartment": "",
+      "idClient": "0"
     }
   ]
 }

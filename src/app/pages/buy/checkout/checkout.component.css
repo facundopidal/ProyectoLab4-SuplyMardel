@@ -1,6 +1,7 @@
 section {
   display: grid;
   grid-template-columns: 2fr 1fr 0.1fr;
+  font-family: "Noto Sans JP";
 }
 
 .delivery-options-container {
@@ -12,6 +13,7 @@ section {
   h2 {
     font-size: 18px;
     margin-bottom: 20px;
+    font-family: "Noto Sans JP";
   }
   
   .option {
