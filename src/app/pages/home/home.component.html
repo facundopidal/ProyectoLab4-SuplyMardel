@@ -1,7 +1,7 @@
 <app-nav-bar />
 <app-info-section />
     <section class="products">
-        @for(product of products; track product.id) {
+        @for(product of products.slice(0, 10); track product.id) {
             <app-product [product]="product"/>
         }
     </section>

@@ -6,7 +6,7 @@
       "brand": "ENA",
       "category": "Proteinas",
       "price": 23580,
-      "stock": 31,
+      "stock": 30,
       "image": "https://http2.mlstatic.com/D_NQ_NP_2X_935480-MLA50231366542_062022-F.webp",
       "description": "Proteina isolada 80%",
       "flavor": "Frutilla",
@@ -18,7 +18,7 @@
       "brand": "Body Advance",
       "category": "Creatinas",
       "price": 17990,
-      "stock": 12,
+      "stock": 11,
       "image": "https://content.optimumnutrition.com/i/on/on-creatine-micronized_Image_01?$TTL_PRODUCT_IMAGES$&locale=en-us,en-gb,*&w=509&sm=aspect&aspect=1:1&fmt=webp",
       "description": "Creatina monohidratada micronizada para mejorar fuerza y rendimiento",
       "flavor": "Sin sabor",
@@ -30,7 +30,7 @@
       "brand": "ENA",
       "category": "Aminoácidos",
       "price": 12500,
-      "stock": 40,
+      "stock": 39,
       "image": "https://www.enasport.com/cdn/shop/products/BCAA_211.jpg?v=1683514389&width=1000",
       "description": "Aminoácidos de cadena ramificada para recuperación muscular y energía",
       "flavor": "Frutas Tropicales",
@@ -103,10 +103,34 @@
       "price": 27059,
       "stock": 33,
       "image": "https://d2eebw31vcx88p.cloudfront.net/selmadigital/uploads/2dfbe7a4c564beaeaf6c92feebf510f7b4b6d51f.jpg.webp",
-      "description": " Nuestra Creatina Micronizada es un excelente suplemento pre entrenamiento ya que colabora en la formación de los componentes energéticos, mejora la potencia muscular y retrasa la fatiga muscular",
+      "description": " Nuestra Creatina Micronizada es un excelente suplemento pre entrenamiento ya que colabora en la formación de los componentes energéticos, mejora la potencia muscular y retrasa la fatiga muscular.",
       "category": "Creatinas",
       "flavor": "",
       "weight": 300
+    },
+    {
+      "id": "9bc5",
+      "name": "Comprimido Amino3000",
+      "brand": "Nutrilab",
+      "price": 6800,
+      "stock": 76,
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_629203-MLA76908133542_062024-F.webp",
+      "description": "Professional AMINO 3000 Los aminoácidos esenciales son imprescindibles para los procesos de recuperación y desarrollo muscular. Una posible carencia de uno de estos aminoácidos provocaría, no solo la detención del crecimiento del músculo sino también su desgaste.",
+      "category": "Aminoácidos",
+      "flavor": "Cookies and Cream",
+      "weight": 120
+    },
+    {
+      "id": "24c9",
+      "name": "Hydro Bcaa Pro Xtrenght",
+      "brand": "Xtrenght",
+      "price": 31740,
+      "stock": 19,
+      "image": "https://http2.mlstatic.com/D_NQ_NP_2X_866801-MLU75436229076_042024-F.webp",
+      "description": "Este producto es un suplemento dietario, no es un medicamento. Suplementa dietas insuficientes.",
+      "category": "Aminoácidos",
+      "flavor": "Frutilla",
+      "weight": 360
     }
   ],
   "clients": [
@@ -116,13 +140,6 @@
       "lastname": "Pidal Ruiz Diaz",
       "email": "lautaropidalruizdiaz@gmail.com",
       "password": "lautisensei"
-    },
-    {
-      "id": "ef5d",
-      "name": "julian",
-      "lastname": "teixido",
-      "email": "juliteixido12@gmail.com",
-      "password": "juliancito"
     },
     {
       "id": "6969",
@@ -143,12 +160,12 @@
       "name": "Facundo",
       "lastname": "Pidal Ruiz Diaz",
       "email": "facundopidalruizdiaz@gmail.com",
-      "password": "pepino1199"
+      "password": "contraseña"
     },
     {
       "id": "87a6",
       "name": "Facundo",
-      "lastname": "Pepino",
+      "lastname": "Pidal ",
       "email": "facundo.prd@hotmail.com.ar",
       "password": "rulorulo"
     },
@@ -158,6 +175,20 @@
       "lastname": "Gregoriano",
       "email": "juancitogregoriano@gmail.com",
       "password": "gregoriano"
+    },
+    {
+      "id": "2e33",
+      "name": "Pedro",
+      "lastname": "Perez",
+      "email": "pedroperez@gmail.com",
+      "password": "12345678"
+    },
+    {
+      "id": "f001",
+      "name": "Julian",
+      "lastname": "Teixido",
+      "email": "juliteixido12@gmail.com",
+      "password": "teixido12"
     }
   ],
   "sales": [
@@ -222,18 +253,6 @@
       "id_merchant_order": "28800625461"
     },
     {
-      "id": "caf8",
-      "id_client": "65cf",
-      "date": "24/02/2025 16:24:34",
-      "amount": 12500,
-      "shipmentStatus": "A retirar",
-      "shipmentMethod": "Retiro en sucursal",
-      "shippingNumber": "Pendiente",
-      "paymentStatus": "approved",
-      "isCancelled": false,
-      "id_merchant_order": "28820116740"
-    },
-    {
       "id": "8bad",
       "id_client": "0",
       "date": "24/02/2025 16:31:04",
@@ -269,6 +288,32 @@
       "paymentStatus": "approved",
       "isCancelled": false,
       "id_merchant_order": "28801728725"
+    },
+    {
+      "id": "e0ce",
+      "id_client": "65cf",
+      "date": "26/02/2025 16:07:46",
+      "amount": 23190,
+      "shipmentStatus": "Pendiente de ingreso",
+      "shipmentMethod": "Andreani",
+      "shippingAdressId": "d2ee",
+      "shippingNumber": "360000000000479",
+      "paymentStatus": "approved",
+      "isCancelled": false,
+      "id_merchant_order": "28871807697"
+    },
+    {
+      "id": "2dd6",
+      "id_client": "f001",
+      "date": "27/02/2025 16:16:48",
+      "amount": 41280,
+      "shipmentStatus": "Pendiente de ingreso",
+      "shipmentMethod": "Andreani",
+      "shippingAdressId": "964c",
+      "shippingNumber": "3600000000000474",
+      "paymentStatus": "approved",
+      "isCancelled": false,
+      "id_merchant_order": "28907917539"
     }
   ],
   "salesxProducts": [
@@ -361,6 +406,24 @@
       "idSale": "9f21",
       "idProduct": "1",
       "quantity": 1
+    },
+    {
+      "id": "c9dd",
+      "idSale": "e0ce",
+      "idProduct": "1",
+      "quantity": 1
+    },
+    {
+      "id": "c019",
+      "idSale": "2dd6",
+      "idProduct": "0",
+      "quantity": 1
+    },
+    {
+      "id": "3db9",
+      "idSale": "2dd6",
+      "idProduct": "2",
+      "quantity": 1
     }
   ],
   "cartxproduct": [
@@ -374,6 +437,12 @@
       "id": "3726",
       "idClient": "dd98",
       "idProduct": "9947",
+      "quantity": 1
+    },
+    {
+      "id": "d99b",
+      "idClient": "65cf",
+      "idProduct": "2",
       "quantity": 1
     }
   ],
@@ -556,6 +625,16 @@
       "floor": "1",
       "apartment": "",
       "idClient": "0"
+    },
+    {
+      "id": "964c",
+      "street": "Rio Negro ",
+      "number": 5289,
+      "postalCode": 7600,
+      "city": "Mar del Plata",
+      "floor": "",
+      "apartment": "",
+      "idClient": "f001"
     }
   ]
 }

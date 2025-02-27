@@ -9,6 +9,13 @@
             @for(sale of sales; track sale.id) {
                 <app-sale [sale]="sale"/>
             }
+            @empty {
+                <div class="redirect">
+                    <p>{{isAdmin ? "No hay compras de clientes" : "No has realizado compras"}}</p>
+                    <a routerLink="">Ir a comprar</a>
+                </div>
+
+            }
         </div>
     </div>
 </section>

@@ -7,11 +7,12 @@ import { MenuComponent } from "../menu/menu.component";
 import { AuthService } from '../../../services/auth/auth.service';
 import { Client } from '../../../interfaces/client';
 import { ClientsService } from '../../../services/clients/clients.service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-sales',
   standalone: true,
-  imports: [NavBarComponent, SaleComponent, MenuComponent],
+  imports: [NavBarComponent, SaleComponent, MenuComponent, RouterLink],
   templateUrl: './sales.component.html',
   styleUrl: './sales.component.css'
 })

@@ -57,7 +57,7 @@ input[type="password"] {
 }
 
 .error {
-    color: #fff;
+    color: #ff4d4d;
 }
 
 /* Botón de inicio de sesión */

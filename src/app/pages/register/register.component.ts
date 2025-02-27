@@ -30,15 +30,15 @@ export class RegisterComponent {
   registerForm = this.fb.nonNullable.group({
     name: ['', [Validators.required, Validators.minLength(3)]],
     lastname: ['', [Validators.required, Validators.minLength(3)]],
-    email: ['', [Validators.required, Validators.minLength(12)]],
+    email: ['', [Validators.required, Validators.minLength(12), Validators.email]],
     password: ['', [Validators.required, Validators.minLength(8)]],
     password2: ['', Validators.required],
   })
 
   register() {
     if (this.registerForm.invalid) return;
-    const pass1 = this.registerForm.get('passsword')?.value
-    const pass2 = this.registerForm.get('passsword2')?.value
+    const pass1 = this.registerForm.controls['password']?.value
+    const pass2 = this.registerForm.controls['password2']?.value
 
     if (pass1 != pass2) return;
 

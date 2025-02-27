@@ -29,6 +29,9 @@
             @if (registerForm.controls['email'].touched && registerForm.controls['email'].getError('required')) {
                 <span>El campo es requerido</span>
             }
+            @if (registerForm.controls['email'].touched && registerForm.controls['email'].getError('email')) {
+                <span>Ingrese un email válido</span>
+            }
 
             @if(alreadyExists) {
                 <span>El mail ya se encontro en el sistema. Ingrese uno distinto.</span>
@@ -62,6 +65,8 @@
   
     
   
-    <button type="submit" [disabled]="registerForm.invalid">Registrar</button>
+    <button type="submit" [disabled]="registerForm.invalid || 
+    registerForm.controls['password'].value !== registerForm.controls['password2'].value">
+    Registrar</button>
   </form>
   
